@@ -60,7 +60,8 @@ const rowMapping = {
   15: 'energiaValle',      // Row 15: Energía valle €/kWh
   16: 'compensacionExcedentes', // Row 16: Compensación de excedentes
   19: 'ultimoCambio',      // Row 19: Último cambio observado
-  20: 'nota',              // Row 20: Nota importante
+  20: 'notaImportante',    // Row 20: Nota importante
+  21: 'nota',              // Row 21: Nota
 };
 
 async function transformExcel() {

@@ -3,7 +3,7 @@
     "iva": 0.21,
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
-    "actualizadoEn": "2026-04-13T18:05:57.360Z"
+    "actualizadoEn": "2026-04-13T18:06:47.570Z"
   },
   "tarifas": [
     {
@@ -22,7 +22,8 @@
         "energiaValle": 0.12,
         "compensacionExcedentes": null,
         "ultimoCambio": "2026-01-08",
-        "nota": "* Precio kWh estimativo. Es facil obtener media de 0,11"
+        "notaImportante": "* Precio kWh estimativo. Es facil obtener media de 0,11",
+        "nota": "Admite referidos 50€"
       }
     },
     {
@@ -41,7 +42,8 @@
         "energiaValle": 0.085298,
         "compensacionExcedentes": "0.08",
         "ultimoCambio": "2026-03-10",
-        "nota": "Quejas por Lentitud (+30 dias)"
+        "notaImportante": "Quejas por Lentitud (+30 dias)",
+        "nota": "Se supone que compensa BV antes de impuestos"
       }
     },
     {
@@ -60,7 +62,8 @@
         "energiaValle": 0.080719,
         "compensacionExcedentes": "0.02",
         "ultimoCambio": "2026-03-10",
-        "nota": "Σxcedente Horario * (OMIE - 0,005 €/KWh)"
+        "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)",
+        "nota": "Si se excede un ratio de 750kWh anuales por cada kW potencia, rechazan"
       }
     },
     {
@@ -79,7 +82,8 @@
         "energiaValle": 0.105,
         "compensacionExcedentes": "0.03",
         "ultimoCambio": "2026-03-14",
-        "nota": null
+        "notaImportante": null,
+        "nota": "Tiene referidos aunque sólo dan €€ al antiguo en la compañía y nada al nuevo"
       }
     },
     {
@@ -98,7 +102,8 @@
         "energiaValle": 0.069473,
         "compensacionExcedentes": "0.03",
         "ultimoCambio": "2026-02-18",
-        "nota": null
+        "notaImportante": null,
+        "nota": "Tiene referidos aunque sólo dan €€ al antiguo en la compañía y nada al nuevo"
       }
     },
     {
@@ -117,6 +122,7 @@
         "energiaValle": 0.097999,
         "compensacionExcedentes": "0.04",
         "ultimoCambio": "2026-03-10",
+        "notaImportante": null,
         "nota": null
       }
     },
@@ -136,6 +142,7 @@
         "energiaValle": 0.086543,
         "compensacionExcedentes": "0.04",
         "ultimoCambio": "2026-03-15",
+        "notaImportante": null,
         "nota": null
       }
     },
@@ -155,6 +162,7 @@
         "energiaValle": 0.1199,
         "compensacionExcedentes": null,
         "ultimoCambio": "2026-03-05",
+        "notaImportante": null,
         "nota": null
       }
     },
@@ -174,7 +182,8 @@
         "energiaValle": 0.10305,
         "compensacionExcedentes": null,
         "ultimoCambio": "2026-03-10",
-        "nota": "Nuevos clientes"
+        "notaImportante": "Nuevos clientes",
+        "nota": null
       }
     },
     {
@@ -193,7 +202,8 @@
         "energiaValle": 0.09999,
         "compensacionExcedentes": "0.03",
         "ultimoCambio": "2026-03-10",
-        "nota": "Excedentes a 0,03€kWh con Solar Cloud"
+        "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud",
+        "nota": "Pot>10kW permanencia"
       }
     },
     {
@@ -212,7 +222,8 @@
         "energiaValle": 0.0718,
         "compensacionExcedentes": "0.06",
         "ultimoCambio": "2026-02-16",
-        "nota": "excedentes en todas las tarifas"
+        "notaImportante": "excedentes en todas las tarifas",
+        "nota": null
       }
     },
     {
@@ -231,7 +242,8 @@
         "energiaValle": 0.0738,
         "compensacionExcedentes": null,
         "ultimoCambio": "2026-03-03",
-        "nota": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones"
+        "notaImportante": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones",
+        "nota": null
       }
     },
     {
@@ -250,7 +262,8 @@
         "energiaValle": 0.076176,
         "compensacionExcedentes": "0.07",
         "ultimoCambio": "2026-03-12",
-        "nota": "Nuevos clientes / Recuerda activar el D+ / 5€ - 6 meses"
+        "notaImportante": "Nuevos clientes / Recuerda activar el D+ / 5€ - 6 meses",
+        "nota": "Ya aviso ahora: el TOTAL de FACTURA ya tiene quitado la oferta de 5€ (6 meses)"
       }
     },
     {
@@ -269,7 +282,8 @@
         "energiaValle": 0.059,
         "compensacionExcedentes": "0.04",
         "ultimoCambio": "2025-11-30",
-        "nota": "D"
+        "notaImportante": "D",
+        "nota": "no hace falta coche eléctrico. Cualquier tarifa del excel vale y renta para coche electrico"
       }
     },
     {
@@ -288,7 +302,8 @@
         "energiaValle": 0.1047,
         "compensacionExcedentes": "0.02",
         "ultimoCambio": "2026-03-12",
-        "nota": "Σxcedente Horario * OMIE."
+        "notaImportante": "Σxcedente Horario * OMIE.",
+        "nota": "###  No se aconseja debido al conflicto de Irán ###"
       }
     },
     {
@@ -307,7 +322,8 @@
         "energiaValle": null,
         "compensacionExcedentes": "Excedentes €/kWh Medio",
         "ultimoCambio": null,
-        "nota": "https://comparador.cnmc.gob.es/facturaluz/inicio"
+        "notaImportante": "https://comparador.cnmc.gob.es/facturaluz/inicio",
+        "nota": null
       }
     }
   ]
