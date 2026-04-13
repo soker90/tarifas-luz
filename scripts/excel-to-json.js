@@ -147,18 +147,22 @@ async function transformExcel() {
     const datosGenerales = {
       iva: 0.21,  // 21% estándar en España
       impuestoElectrico: 0.0511,  // 5.11% estándar
-      alquilerContador: 0.027, // Por defecto (€/día)
+      alquilerContador: 0.027, // €/día
+      bonoSocial: 0, // €/día (por defecto)
       actualizadoEn: new Date().toISOString()
     };
     
     // Obtener valores del Excel de las celdas C (columna 2):
+    // R48: Bono Social
     // R49: Impuesto Eléctrico
     // R50: Alquiler contador
     // R53: IVA
+    const cellBonoSocial = worksheet['C48'];
     const cellImpuesto = worksheet['C49'];
     const cellAlquiler = worksheet['C50'];
     const cellIVA = worksheet['C53'];
     
+    if (cellBonoSocial?.v) datosGenerales.bonoSocial = parseNumberField(cellBonoSocial.v);
     if (cellImpuesto?.v) datosGenerales.impuestoElectrico = parseNumberField(cellImpuesto.v);
     if (cellAlquiler?.v) datosGenerales.alquilerContador = parseNumberField(cellAlquiler.v);
     if (cellIVA?.v) datosGenerales.iva = parseNumberField(cellIVA.v);
