@@ -1,0 +1,37 @@
+name: Transform Excel to JSON
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Medianoche UTC diariamente
+  workflow_dispatch:      # Permitir ejecución manual
+
+jobs:
+  transform:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'pnpm'
+      
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Transform Excel
+        run: pnpm transform:download
+      
+      - name: Commit and push
+        run: |
+          git config user.name "tarifas-bot"
+          git config user.email "bot@tarifas-luz.local"
+          git add tarifas.json
+          git diff --staged --quiet || (git commit -m "chore: update tarifas.json - $(date -u +'%Y-%m-%d %H:%M:%S')" && git push origin master)

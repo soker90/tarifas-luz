@@ -1,0 +1,330 @@
+{
+  "datosGenerales": {
+    "iva": 0.21,
+    "impuestoElectrico": 0.0511,
+    "alquilerContador": 0.027000000000000003,
+    "actualizadoEn": "2026-04-13T17:53:01.250Z"
+  },
+  "tarifas": [
+    {
+      "comercializadora": "OCTOPUS",
+      "detalles": {
+        "nombreTarifa": "SUN CLUB",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.097,
+        "potenciaValle": 0.027,
+        "periodos": 1,
+        "energiaPunta": 0.12,
+        "energiaLlana": 0.12,
+        "energiaValle": 0.12,
+        "compensacionExcedentes": null,
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-01-08",
+        "notaImportante": "* Precio kWh estimativo. Es facil obtener media de 0,11"
+      }
+    },
+    {
+      "comercializadora": "ESLUZ",
+      "detalles": {
+        "nombreTarifa": "SOLAR FIJA 2.0",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "SI",
+        "potenciaPunta": 0.080533,
+        "potenciaValle": 0.007407,
+        "periodos": 3,
+        "energiaPunta": 0.187021,
+        "energiaLlana": 0.135066,
+        "energiaValle": 0.085298,
+        "compensacionExcedentes": "0.08",
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-03-10",
+        "notaImportante": "Quejas por Lentitud (+30 dias)"
+      }
+    },
+    {
+      "comercializadora": "NUFRI",
+      "detalles": {
+        "nombreTarifa": "Flex",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.094533,
+        "potenciaValle": 0.046371,
+        "periodos": 3,
+        "energiaPunta": 0.191853,
+        "energiaLlana": 0.115288,
+        "energiaValle": 0.080719,
+        "compensacionExcedentes": "0.02",
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-03-10",
+        "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)"
+      }
+    },
+    {
+      "comercializadora": "IMAGINA",
+      "detalles": {
+        "nombreTarifa": "Tarifa base. Sin horas",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.105,
+        "potenciaValle": 0.048,
+        "periodos": 1,
+        "energiaPunta": 0.105,
+        "energiaLlana": 0.105,
+        "energiaValle": 0.105,
+        "compensacionExcedentes": "0.03",
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-03-14",
+        "notaImportante": null
+      }
+    },
+    {
+      "comercializadora": "IMAGINA",
+      "detalles": {
+        "nombreTarifa": "Tarifa base. Noches y findes",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.10184,
+        "potenciaValle": 0.022498,
+        "periodos": 3,
+        "energiaPunta": 0.177691,
+        "energiaLlana": 0.10387,
+        "energiaValle": 0.069473,
+        "compensacionExcedentes": "0.03",
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-02-18",
+        "notaImportante": null
+      }
+    },
+    {
+      "comercializadora": "Doméstica-Visalia",
+      "detalles": {
+        "nombreTarifa": "Luz Fijo 24h",
+        "permanencia": "NO",
+        "potenciaMaxima": 10,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.060274,
+        "potenciaValle": 0.060274,
+        "periodos": 1,
+        "energiaPunta": 0.097999,
+        "energiaLlana": 0.097999,
+        "energiaValle": 0.097999,
+        "compensacionExcedentes": "0.04",
+        "bateriaVirtual": "no",
+        "ultimoCambio": "2026-03-10",
+        "notaImportante": null
+      }
+    },
+    {
+      "comercializadora": "Doméstica-Visalia",
+      "detalles": {
+        "nombreTarifa": "Luz 3 periodos",
+        "permanencia": "NO",
+        "potenciaMaxima": 10,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.075903,
+        "potenciaValle": 0.001987,
+        "periodos": 3,
+        "energiaPunta": 0.195822,
+        "energiaLlana": 0.114195,
+        "energiaValle": 0.086543,
+        "compensacionExcedentes": "0.04",
+        "bateriaVirtual": "no",
+        "ultimoCambio": "2026-03-15",
+        "notaImportante": null
+      }
+    },
+    {
+      "comercializadora": "REPSOL",
+      "detalles": {
+        "nombreTarifa": "Ahorro Plus",
+        "permanencia": "PUEDE",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.081918,
+        "potenciaValle": 0.081918,
+        "periodos": 1,
+        "energiaPunta": 0.1199,
+        "energiaLlana": 0.1199,
+        "energiaValle": 0.1199,
+        "compensacionExcedentes": null,
+        "bateriaVirtual": "NO",
+        "ultimoCambio": "2026-03-05",
+        "notaImportante": null
+      }
+    },
+    {
+      "comercializadora": "Enérgya VM",
+      "detalles": {
+        "nombreTarifa": "Formula Fija 3p",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.0821917808219178,
+        "potenciaValle": 0.0027386301369863014,
+        "periodos": 3,
+        "energiaPunta": 0.1665,
+        "energiaLlana": 0.13005,
+        "energiaValle": 0.10305,
+        "compensacionExcedentes": null,
+        "bateriaVirtual": "NO",
+        "ultimoCambio": "2026-03-10",
+        "notaImportante": "Nuevos clientes"
+      }
+    },
+    {
+      "comercializadora": "Iberdrola",
+      "detalles": {
+        "nombreTarifa": "Plan Online 3 periodos",
+        "permanencia": "<10kW NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "SI",
+        "potenciaPunta": 0.091074,
+        "potenciaValle": 0.013483,
+        "periodos": 3,
+        "energiaPunta": 0.194,
+        "energiaLlana": 0.136,
+        "energiaValle": 0.09999,
+        "compensacionExcedentes": "0.03",
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-03-10",
+        "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud"
+      }
+    },
+    {
+      "comercializadora": "Naturgy",
+      "detalles": {
+        "nombreTarifa": "Noche",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.12303,
+        "potenciaValle": 0.037337,
+        "periodos": 3,
+        "energiaPunta": 0.1802,
+        "energiaLlana": 0.1072,
+        "energiaValle": 0.0718,
+        "compensacionExcedentes": "0.06",
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-02-16",
+        "notaImportante": "excedentes en todas las tarifas"
+      }
+    },
+    {
+      "comercializadora": "Endesa",
+      "detalles": {
+        "nombreTarifa": "Conecta 3 periodos",
+        "permanencia": "NO",
+        "potenciaMaxima": 10,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.07364383561643835,
+        "potenciaValle": 0.07364383561643835,
+        "periodos": 3,
+        "energiaPunta": 0.1656,
+        "energiaLlana": 0.0972,
+        "energiaValle": 0.0738,
+        "compensacionExcedentes": null,
+        "bateriaVirtual": null,
+        "ultimoCambio": "2026-03-03",
+        "notaImportante": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones"
+      }
+    },
+    {
+      "comercializadora": "Total Energies",
+      "detalles": {
+        "nombreTarifa": "A tu aire Ahorro",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.072575,
+        "potenciaValle": 0.072575,
+        "periodos": 3,
+        "energiaPunta": 0.173572,
+        "energiaLlana": 0.10393,
+        "energiaValle": 0.076176,
+        "compensacionExcedentes": "0.07",
+        "bateriaVirtual": "no",
+        "ultimoCambio": "2026-03-12",
+        "notaImportante": "Nuevos clientes / Recuerda activar el D+ / 5€ - 6 meses"
+      }
+    },
+    {
+      "comercializadora": "CHC energía",
+      "detalles": {
+        "nombreTarifa": "PLAN VEHICULO ELECTRICO",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.088356,
+        "potenciaValle": 0.088356,
+        "periodos": 3,
+        "energiaPunta": 0.219,
+        "energiaLlana": 0.219,
+        "energiaValle": 0.059,
+        "compensacionExcedentes": "0.04",
+        "bateriaVirtual": "NO",
+        "ultimoCambio": "2025-11-30",
+        "notaImportante": "D"
+      }
+    },
+    {
+      "comercializadora": "COMERCIALIZADORAS DE REFERENCIA",
+      "detalles": {
+        "nombreTarifa": "PVPC-REGULADO (semiindexada horaria)",
+        "permanencia": "NO",
+        "potenciaMaxima": 10,
+        "mantenimientoPrecio": null,
+        "paraEmpresas": "SI*",
+        "potenciaPunta": 0.08443126849315068,
+        "potenciaValle": 0.0019874602739726028,
+        "periodos": 3,
+        "energiaPunta": 0.19169999999999998,
+        "energiaLlana": 0.12269999999999999,
+        "energiaValle": 0.10469999999999999,
+        "compensacionExcedentes": "0.02",
+        "bateriaVirtual": "no",
+        "ultimoCambio": "2026-03-12",
+        "notaImportante": "Σxcedente Horario * OMIE."
+      }
+    },
+    {
+      "comercializadora": "Comercializadora -->",
+      "detalles": {
+        "nombreTarifa": "Precios sin impuestos - Tarifas",
+        "permanencia": "Permanencia",
+        "potenciaMaxima": null,
+        "mantenimientoPrecio": null,
+        "paraEmpresas": "Válida para Empresas / Comunidades",
+        "potenciaPunta": null,
+        "potenciaValle": null,
+        "periodos": null,
+        "energiaPunta": null,
+        "energiaLlana": null,
+        "energiaValle": null,
+        "compensacionExcedentes": "Excedentes €/kWh Medio",
+        "bateriaVirtual": "0.144081",
+        "ultimoCambio": null,
+        "notaImportante": "https://comparador.cnmc.gob.es/facturaluz/inicio"
+      }
+    }
+  ]
+}
