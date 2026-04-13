@@ -27,7 +27,9 @@ function parseNumberField(value) {
   if (value === null || value === undefined || value === '') return null;
   if (typeof value === 'number') return value;
   const num = parseFloat(String(value).replace(/,/g, '.'));
-  return isNaN(num) ? null : Math.round(num * 100000) / 100000; // 5 decimales
+  if (isNaN(num)) return null;
+  // Redondear a 6 decimales y luego convertir a número para limpiar
+  return parseFloat(num.toFixed(6));
 }
 
 function parseStringField(value) {
@@ -170,8 +172,18 @@ async function transformExcel() {
       tarifas
     };
     
+    // Limpiar números flotantes antes de serializar
+    const cleanJSON = JSON.stringify(output, (key, value) => {
+      if (typeof value === 'number' && !Number.isInteger(value)) {
+        // Redondear a 6 decimales y restaurar precisión
+        const rounded = Math.round(value * 1000000) / 1000000;
+        return parseFloat(rounded.toPrecision(12));
+      }
+      return value;
+    }, 2);
+    
     // Guardar JSON
-    fs.writeFileSync(outputPath, JSON.stringify(output, null, 2));
+    fs.writeFileSync(outputPath, cleanJSON);
     console.log(`✅ JSON generado: ${outputPath}`);
     console.log(`📊 Total tarifas: ${tarifas.length}`);
     console.log('\n✨ Primera tarifa como ejemplo:');

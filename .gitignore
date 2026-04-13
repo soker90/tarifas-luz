@@ -1,8 +1,1 @@
 node_modules/
-pnpm-lock.yaml
-*.xlsx
-!ejemplo.xlsx
-temp-excel.xlsx
-.DS_Store
-.env
-.env.local
