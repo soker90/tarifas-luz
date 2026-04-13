@@ -59,9 +59,8 @@ const rowMapping = {
   14: 'energiaLlana',      // Row 14: Energía llana €/kWh
   15: 'energiaValle',      // Row 15: Energía valle €/kWh
   16: 'compensacionExcedentes', // Row 16: Compensación de excedentes
-  18: 'bateriaVirtual',    // Row 18: Batería virtual
   19: 'ultimoCambio',      // Row 19: Último cambio observado
-  20: 'notaImportante',    // Row 20: Nota importante
+  20: 'nota',              // Row 20: Nota importante
 };
 
 async function transformExcel() {
@@ -123,11 +122,8 @@ async function transformExcel() {
           tarifa.detalles[fieldName] = excelDateToISO(value);
         } else {
           let parsed = parseStringField(value);
-          // Limpiar "0" en campos booleanos (compensación, batería)
+          // Limpiar "0" en campos booleanos (compensación)
           if (fieldName === 'compensacionExcedentes' && parsed === '0') {
-            parsed = null;
-          }
-          if (fieldName === 'bateriaVirtual' && parsed === '0') {
             parsed = null;
           }
           tarifa.detalles[fieldName] = parsed;

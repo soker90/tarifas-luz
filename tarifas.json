@@ -3,7 +3,7 @@
     "iva": 0.21,
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
-    "actualizadoEn": "2026-04-13T18:01:16.044Z"
+    "actualizadoEn": "2026-04-13T18:05:57.360Z"
   },
   "tarifas": [
     {
@@ -21,9 +21,8 @@
         "energiaLlana": 0.12,
         "energiaValle": 0.12,
         "compensacionExcedentes": null,
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-01-08",
-        "notaImportante": "* Precio kWh estimativo. Es facil obtener media de 0,11"
+        "nota": "* Precio kWh estimativo. Es facil obtener media de 0,11"
       }
     },
     {
@@ -41,9 +40,8 @@
         "energiaLlana": 0.135066,
         "energiaValle": 0.085298,
         "compensacionExcedentes": "0.08",
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-03-10",
-        "notaImportante": "Quejas por Lentitud (+30 dias)"
+        "nota": "Quejas por Lentitud (+30 dias)"
       }
     },
     {
@@ -61,9 +59,8 @@
         "energiaLlana": 0.115288,
         "energiaValle": 0.080719,
         "compensacionExcedentes": "0.02",
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-03-10",
-        "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)"
+        "nota": "Σxcedente Horario * (OMIE - 0,005 €/KWh)"
       }
     },
     {
@@ -81,9 +78,8 @@
         "energiaLlana": 0.105,
         "energiaValle": 0.105,
         "compensacionExcedentes": "0.03",
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-03-14",
-        "notaImportante": null
+        "nota": null
       }
     },
     {
@@ -101,9 +97,8 @@
         "energiaLlana": 0.10387,
         "energiaValle": 0.069473,
         "compensacionExcedentes": "0.03",
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-02-18",
-        "notaImportante": null
+        "nota": null
       }
     },
     {
@@ -121,9 +116,8 @@
         "energiaLlana": 0.097999,
         "energiaValle": 0.097999,
         "compensacionExcedentes": "0.04",
-        "bateriaVirtual": "no",
         "ultimoCambio": "2026-03-10",
-        "notaImportante": null
+        "nota": null
       }
     },
     {
@@ -141,9 +135,8 @@
         "energiaLlana": 0.114195,
         "energiaValle": 0.086543,
         "compensacionExcedentes": "0.04",
-        "bateriaVirtual": "no",
         "ultimoCambio": "2026-03-15",
-        "notaImportante": null
+        "nota": null
       }
     },
     {
@@ -161,9 +154,8 @@
         "energiaLlana": 0.1199,
         "energiaValle": 0.1199,
         "compensacionExcedentes": null,
-        "bateriaVirtual": "NO",
         "ultimoCambio": "2026-03-05",
-        "notaImportante": null
+        "nota": null
       }
     },
     {
@@ -181,9 +173,8 @@
         "energiaLlana": 0.13005,
         "energiaValle": 0.10305,
         "compensacionExcedentes": null,
-        "bateriaVirtual": "NO",
         "ultimoCambio": "2026-03-10",
-        "notaImportante": "Nuevos clientes"
+        "nota": "Nuevos clientes"
       }
     },
     {
@@ -201,9 +192,8 @@
         "energiaLlana": 0.136,
         "energiaValle": 0.09999,
         "compensacionExcedentes": "0.03",
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-03-10",
-        "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud"
+        "nota": "Excedentes a 0,03€kWh con Solar Cloud"
       }
     },
     {
@@ -221,9 +211,8 @@
         "energiaLlana": 0.1072,
         "energiaValle": 0.0718,
         "compensacionExcedentes": "0.06",
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-02-16",
-        "notaImportante": "excedentes en todas las tarifas"
+        "nota": "excedentes en todas las tarifas"
       }
     },
     {
@@ -241,9 +230,8 @@
         "energiaLlana": 0.0972,
         "energiaValle": 0.0738,
         "compensacionExcedentes": null,
-        "bateriaVirtual": null,
         "ultimoCambio": "2026-03-03",
-        "notaImportante": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones"
+        "nota": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones"
       }
     },
     {
@@ -261,9 +249,8 @@
         "energiaLlana": 0.10393,
         "energiaValle": 0.076176,
         "compensacionExcedentes": "0.07",
-        "bateriaVirtual": "no",
         "ultimoCambio": "2026-03-12",
-        "notaImportante": "Nuevos clientes / Recuerda activar el D+ / 5€ - 6 meses"
+        "nota": "Nuevos clientes / Recuerda activar el D+ / 5€ - 6 meses"
       }
     },
     {
@@ -281,9 +268,8 @@
         "energiaLlana": 0.219,
         "energiaValle": 0.059,
         "compensacionExcedentes": "0.04",
-        "bateriaVirtual": "NO",
         "ultimoCambio": "2025-11-30",
-        "notaImportante": "D"
+        "nota": "D"
       }
     },
     {
@@ -301,9 +287,8 @@
         "energiaLlana": 0.1227,
         "energiaValle": 0.1047,
         "compensacionExcedentes": "0.02",
-        "bateriaVirtual": "no",
         "ultimoCambio": "2026-03-12",
-        "notaImportante": "Σxcedente Horario * OMIE."
+        "nota": "Σxcedente Horario * OMIE."
       }
     },
     {
@@ -321,9 +306,8 @@
         "energiaLlana": null,
         "energiaValle": null,
         "compensacionExcedentes": "Excedentes €/kWh Medio",
-        "bateriaVirtual": "0.144081",
         "ultimoCambio": null,
-        "notaImportante": "https://comparador.cnmc.gob.es/facturaluz/inicio"
+        "nota": "https://comparador.cnmc.gob.es/facturaluz/inicio"
       }
     }
   ]
