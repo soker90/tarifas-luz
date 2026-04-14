@@ -29,6 +29,8 @@ jobs:
         run: pnpm install
       
       - name: Transform Excel
+        env:
+          EXCEL_URL: ${{ vars.EXCEL_URL }}
         run: pnpm transform:download
       
       - name: Commit and push

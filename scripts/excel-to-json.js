@@ -5,8 +5,8 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Obtener fuente del Excel (argumento CLI o archivo local)
-const excelSource = process.argv[2] || path.join(__dirname, '../tarifas.xlsx');
+// Obtener fuente del Excel (env var, argumento CLI o archivo local)
+const excelSource = process.env.EXCEL_URL || process.argv[2] || path.join(__dirname, '../tarifas.xlsx');
 const outputPath = path.join(__dirname, '../tarifas.json');
 
 async function downloadFile(url, filePath) {
@@ -149,7 +149,7 @@ async function transformExcel() {
       impuestoElectrico: 0.0511,  // 5.11% estándar
       alquilerContador: 0.027, // €/día
       bonoSocial: 0, // €/día (por defecto)
-      actualizadoEn: new Date().toISOString()
+      actualizadoEn: excelDateToISO(worksheet['B1']?.v) || new Date().toISOString().split('T')[0]
     };
     
     // Obtener valores del Excel de las celdas C (columna 2):
