@@ -1,5 +1,7 @@
 # Tarifas Luz - Transformador Excel a JSON
 
+![Actualizado](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/soker90/tarifas-luz/master/tarifas.json&query=$.datosGenerales.actualizadoEn&label=Actualizado&color=blue)
+
 Sistema automatizado para transformar un Excel de tarifas de electricidad en JSON y publicarlo en GitHub Pages.
 
 ## 📋 Estructura
