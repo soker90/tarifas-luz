@@ -47,17 +47,6 @@ La acción se ejecuta automáticamente:
 - **Diariamente** a medianoche UTC (`0 0 * * *`)
 - **Manualmente** con el botón "Run workflow" en Actions
 
-### Requisitos
-1. El repositorio debe tener **GitHub Pages habilitado**
-2. Rama de publicación: `master`
-3. La URL de Dropbox debe funcionar sin autenticación
-
-### Pasos de la acción
-1. Descarga el Excel desde Dropbox
-2. Ejecuta la transformación 
-3. Commit automático a `master` si hay cambios
-4. GitHub Pages publica automáticamente
-
 ## 📊 Estructura del JSON generado
 
 ```json
@@ -96,16 +85,7 @@ La acción se ejecuta automáticamente:
 ## ⚙️ Configuración
 
 ### Cambiar URL de descarga
-Edita [package.json](package.json):
-```json
-"transform:download": "node scripts/excel-to-json.js https://tu-nueva-url.xlsx"
-```
-
-### Cambiar ruta de salida
-Edita [scripts/excel-to-json.js](scripts/excel-to-json.js):
-```javascript
-const outputPath = path.join(__dirname, '../ruta/a/tarifas.json');
-```
+Edita la variable `EXCEL_URL` en github.
 
 ### Cambiar mapeo de columnas
 Edita la tabla `rowMapping` en [scripts/excel-to-json.js](scripts/excel-to-json.js) para mapear otras filas del Excel.
@@ -118,7 +98,7 @@ Edita la tabla `rowMapping` en [scripts/excel-to-json.js](scripts/excel-to-json.
 **Solución:**
 1. Verifica que la URL sea correcta
 2. Regenera el enlace de sharing en Dropbox
-3. Asegúrate que el `?dl=1` esté al final
+3. Asegúrate que el `?raw=1` esté al final
 4. Prueba la descargar con `curl`:
    ```bash
    curl -L -o test.xlsx "https://tu-url-dropbox.xlsx?dl=1"
@@ -143,8 +123,3 @@ Edita la tabla `rowMapping` en [scripts/excel-to-json.js](scripts/excel-to-json.
 - Los valores null o "0" en compensación/batería se limpian
 - El JSON se genera con indentación de 2 espacios para legibilidad
 
----
-
-**Última actualización:** 13 de abril de 2026  
-**Total tarifas:** 16  
-**Estado:** ✅ Funcionando
