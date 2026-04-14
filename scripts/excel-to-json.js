@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Obtener fuente del Excel (argumento CLI o archivo local)
-const excelSource = process.argv[2] || path.join(__dirname, '../ejemplo.xlsx');
+const excelSource = process.argv[2] || path.join(__dirname, '../tarifas.xlsx');
 const outputPath = path.join(__dirname, '../tarifas.json');
 
 async function downloadFile(url, filePath) {

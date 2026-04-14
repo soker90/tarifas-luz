@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const excelPath = path.join(__dirname, '../ejemplo.xlsx');
+const excelPath = path.join(__dirname, '../tarifas.xlsx');
 
 try {
   const workbook = XLSX.readFile(excelPath);

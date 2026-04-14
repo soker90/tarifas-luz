@@ -1,5 +1,5 @@
 import XLSX from 'xlsx';
-const wb = XLSX.readFile('ejemplo.xlsx');
+const wb = XLSX.readFile('tarifas.xlsx');
 const ws = wb.Sheets['Comparador'];
 
 console.log('Dimensiones del sheet:');

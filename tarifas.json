@@ -1,32 +1,12 @@
 {
   "datosGenerales": {
-    "iva": 0.21,
-    "impuestoElectrico": 0.0511,
+    "iva": 0.1,
+    "impuestoElectrico": 0.005,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-04-13T18:07:36.200Z"
+    "actualizadoEn": "2026-04-14T16:29:25.792Z"
   },
   "tarifas": [
-    {
-      "comercializadora": "OCTOPUS",
-      "detalles": {
-        "nombreTarifa": "SUN CLUB",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.097,
-        "potenciaValle": 0.027,
-        "periodos": 1,
-        "energiaPunta": 0.12,
-        "energiaLlana": 0.12,
-        "energiaValle": 0.12,
-        "compensacionExcedentes": null,
-        "ultimoCambio": "2026-01-08",
-        "notaImportante": "* Precio kWh estimativo. Es facil obtener media de 0,11",
-        "nota": "Admite referidos 50€"
-      }
-    },
     {
       "comercializadora": "ESLUZ",
       "detalles": {
@@ -45,6 +25,46 @@
         "ultimoCambio": "2026-03-10",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
         "nota": "Se supone que compensa BV antes de impuestos"
+      }
+    },
+    {
+      "comercializadora": "ATULADO",
+      "detalles": {
+        "nombreTarifa": "Milenial",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 3,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.103717,
+        "potenciaValle": 0.041623,
+        "periodos": 1,
+        "energiaPunta": 0.078818,
+        "energiaLlana": 0.078818,
+        "energiaValle": 0.078818,
+        "compensacionExcedentes": null,
+        "ultimoCambio": "2026-04-14",
+        "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
+        "nota": ""
+      }
+    },
+    {
+      "comercializadora": "ATULADO",
+      "detalles": {
+        "nombreTarifa": "3 periodos",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 3,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.103717,
+        "potenciaValle": 0.033279,
+        "periodos": 3,
+        "energiaPunta": 0.15086,
+        "energiaLlana": 0.080037,
+        "energiaValle": 0.053682,
+        "compensacionExcedentes": null,
+        "ultimoCambio": "2026-04-14",
+        "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
+        "nota": ""
       }
     },
     {
@@ -115,14 +135,14 @@
         "potenciaMaxima": 10,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 0.060274,
-        "potenciaValle": 0.060274,
+        "potenciaPunta": 0.071233,
+        "potenciaValle": 0.071233,
         "periodos": 1,
         "energiaPunta": 0.097999,
         "energiaLlana": 0.097999,
         "energiaValle": 0.097999,
         "compensacionExcedentes": "0.04",
-        "ultimoCambio": "2026-03-10",
+        "ultimoCambio": "2026-04-13",
         "notaImportante": null,
         "nota": null
       }
@@ -138,11 +158,11 @@
         "potenciaPunta": 0.075903,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.195822,
-        "energiaLlana": 0.114195,
-        "energiaValle": 0.086543,
+        "energiaPunta": 0.207607,
+        "energiaLlana": 0.124931,
+        "energiaValle": 0.097349,
         "compensacionExcedentes": "0.04",
-        "ultimoCambio": "2026-03-15",
+        "ultimoCambio": "2026-04-13",
         "notaImportante": null,
         "nota": null
       }
@@ -175,14 +195,14 @@
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 0.082192,
-        "potenciaValle": 0.002739,
+        "potenciaPunta": 0.090247,
+        "potenciaValle": 0.003014,
         "periodos": 3,
-        "energiaPunta": 0.1665,
-        "energiaLlana": 0.13005,
-        "energiaValle": 0.10305,
+        "energiaPunta": 0.14925,
+        "energiaLlana": 0.11925,
+        "energiaValle": 0.08925,
         "compensacionExcedentes": null,
-        "ultimoCambio": "2026-03-10",
+        "ultimoCambio": "2026-03-23",
         "notaImportante": "Nuevos clientes",
         "nota": null
       }
@@ -202,7 +222,7 @@
         "energiaLlana": 0.136,
         "energiaValle": 0.09999,
         "compensacionExcedentes": "0.03",
-        "ultimoCambio": "2026-03-10",
+        "ultimoCambio": "2026-04-14",
         "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud",
         "nota": "Pot>10kW permanencia"
       }
@@ -262,29 +282,9 @@
         "energiaLlana": 0.10393,
         "energiaValle": 0.076176,
         "compensacionExcedentes": "0.07",
-        "ultimoCambio": "2026-03-12",
-        "notaImportante": "Nuevos clientes / Recuerda activar el D+ / 5€ - 6 meses",
-        "nota": "Ya aviso ahora: el TOTAL de FACTURA ya tiene quitado la oferta de 5€ (6 meses)"
-      }
-    },
-    {
-      "comercializadora": "CHC energía",
-      "detalles": {
-        "nombreTarifa": "PLAN VEHICULO ELECTRICO",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.088356,
-        "potenciaValle": 0.088356,
-        "periodos": 3,
-        "energiaPunta": 0.219,
-        "energiaLlana": 0.219,
-        "energiaValle": 0.059,
-        "compensacionExcedentes": "0.04",
-        "ultimoCambio": "2025-11-30",
-        "notaImportante": "D",
-        "nota": "no hace falta coche eléctrico. Cualquier tarifa del excel vale y renta para coche electrico"
+        "ultimoCambio": "2026-03-26",
+        "notaImportante": "Nuevos clientes / Recuerda activar el D+",
+        "nota": null
       }
     },
     {
@@ -298,11 +298,11 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1917,
-        "energiaLlana": 0.1227,
-        "energiaValle": 0.1047,
+        "energiaPunta": 0.1801,
+        "energiaLlana": 0.1111,
+        "energiaValle": 0.0931,
         "compensacionExcedentes": "0.02",
-        "ultimoCambio": "2026-03-12",
+        "ultimoCambio": "2026-04-14",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###"
       }

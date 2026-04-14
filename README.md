@@ -14,7 +14,6 @@ Sistema automatizado para transformar un Excel de tarifas de electricidad en JSO
 │   └── transform-daily.yml   # GitHub Action automatizada
 ├── package.json              # Dependencias y scripts npm
 ├── tarifas.json             # Salida JSON generada
-└── ejemplo.xlsx             # Archivo Excel de ejemplo
 ```
 
 ## 🚀 Uso Local
@@ -34,7 +33,7 @@ Muestra todas las columnas y primeras 2 filas de datos.
 ```bash
 pnpm transform
 ```
-Lee `ejemplo.xlsx` y genera `tarifas.json`.
+Lee `tarifas.xlsx` y genera `tarifas.json`.
 
 ### Descargar y transformar desde Dropbox
 ```bash

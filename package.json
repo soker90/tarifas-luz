@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "transform": "node scripts/excel-to-json.js",
-    "transform:download": "node scripts/excel-to-json.js https://www.dropbox.com/scl/fi/mhf19qbkz35pmgl84xfhc/Comparador-electricidad.v3.xlsx?rlkey=u0ks5cfr3ns9ym9yo2y9satel&st=wzzpbe4e&dl=1",
+    "transform:download": "node scripts/excel-to-json.js \"https://www.dropbox.com/scl/fi/mhf19qbkz35pmgl84xfhc/Comparador-electricidad.v3.xlsx?rlkey=u0ks5cfr3ns9ym9yo2y9satel&st=wzzpbe4e&raw=1\"",
     "analyze": "node scripts/analyze-excel.js"
   },
   "dependencies": {
