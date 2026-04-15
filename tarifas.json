@@ -306,26 +306,6 @@
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###"
       }
-    },
-    {
-      "comercializadora": "Comercializadora -->",
-      "detalles": {
-        "nombreTarifa": "Precios sin impuestos - Tarifas",
-        "permanencia": "Permanencia",
-        "potenciaMaxima": null,
-        "mantenimientoPrecio": null,
-        "paraEmpresas": "Válida para Empresas / Comunidades",
-        "potenciaPunta": null,
-        "potenciaValle": null,
-        "periodos": null,
-        "energiaPunta": null,
-        "energiaLlana": null,
-        "energiaValle": null,
-        "compensacionExcedentes": "Excedentes €/kWh Medio",
-        "ultimoCambio": null,
-        "notaImportante": "https://comparador.cnmc.gob.es/facturaluz/inicio",
-        "nota": null
-      }
     }
   ]
 }
