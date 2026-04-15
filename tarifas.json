@@ -30,7 +30,7 @@
     {
       "comercializadora": "ATULADO",
       "detalles": {
-        "nombreTarifa": "Milenial",
+        "nombreTarifa": "Milenial(trimestral)",
         "permanencia": "NO",
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 3,
@@ -50,7 +50,7 @@
     {
       "comercializadora": "ATULADO",
       "detalles": {
-        "nombreTarifa": "3 periodos",
+        "nombreTarifa": "3 periodos(trimestral)",
         "permanencia": "NO",
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 3,
@@ -183,14 +183,14 @@
         "energiaValle": 0.1199,
         "compensacionExcedentes": null,
         "ultimoCambio": "2026-03-05",
-        "notaImportante": null,
+        "notaImportante": "Ahorro Plus",
         "nota": null
       }
     },
     {
       "comercializadora": "Enérgya VM",
       "detalles": {
-        "nombreTarifa": "Formula Fija 3p",
+        "nombreTarifa": "Formula Fija 3p(TRIMESTRAL)",
         "permanencia": "NO",
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
@@ -203,8 +203,8 @@
         "energiaValle": 0.08925,
         "compensacionExcedentes": null,
         "ultimoCambio": "2026-03-23",
-        "notaImportante": "Nuevos clientes",
-        "nota": null
+        "notaImportante": "Nuevos clientes. SOLO ONLINE.",
+        "nota": "Incluye descuento 25% de los primeros tres meses"
       }
     },
     {
