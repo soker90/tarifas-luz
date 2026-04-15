@@ -98,6 +98,9 @@ async function transformExcel() {
       const comercializadora = String(cellComercializadora.v).trim();
       if (!comercializadora) break;
       
+      // Excluir filas que son encabezados o referencias, no tarifas reales
+      if (comercializadora === 'Comercializadora -->') break;
+      
       // Construir objeto tarifa extrayendo datos de cada fila
       const tarifa = {
         comercializadora: comercializadora,
