@@ -47,21 +47,21 @@ function excelDateToISO(excelDate) {
 
 // Mapeo de filas a campos de tarifa
 const rowMapping = {
-  3: 'nombreTarifa',       // Row 3: Nombre de la tarifa específica
-  4: 'permanencia',        // Row 4: PERMANENCIA
-  5: 'potenciaMaxima',     // Row 5: Potencia máxima a contratar
-  6: 'mantenimientoPrecio',// Row 6: Mantenimiento precios (meses)
-  7: 'paraEmpresas',       // Row 7: Vale para empresas/comunidades?
-  8: 'potenciaPunta',      // Row 8: Potencia punta (€/kW y día)
-  9: 'potenciaValle',      // Row 9: Potencia valle (€/kW y día)
-  12: 'periodos',          // Row 12: 1P o 3P
-  13: 'energiaPunta',      // Row 13: Energía punta €/kWh
-  14: 'energiaLlana',      // Row 14: Energía llana €/kWh
-  15: 'energiaValle',      // Row 15: Energía valle €/kWh
-  16: 'compensacionExcedentes', // Row 16: Compensación de excedentes
-  19: 'ultimoCambio',      // Row 19: Último cambio observado
-  20: 'notaImportante',    // Row 20: Nota importante
-  21: 'nota',              // Row 21: Nota
+  4: 'nombreTarifa',       // Row 4: Nombre de la tarifa específica (shifted from 3)
+  5: 'permanencia',        // Row 5: PERMANENCIA (shifted from 4)
+  6: 'potenciaMaxima',     // Row 6: Potencia máxima a contratar (shifted from 5)
+  7: 'mantenimientoPrecio',// Row 7: Mantenimiento precios (meses) (shifted from 6)
+  8: 'paraEmpresas',       // Row 8: Vale para empresas/comunidades? (shifted from 7)
+  9: 'potenciaPunta',      // Row 9: Potencia punta (€/kW y día) (shifted from 8)
+  10: 'potenciaValle',     // Row 10: Potencia valle (€/kW y día) (shifted from 9)
+  13: 'periodos',          // Row 13: 1P o 3P (shifted from 12)
+  14: 'energiaPunta',      // Row 14: Energía punta €/kWh (shifted from 13)
+  15: 'energiaLlana',      // Row 15: Energía llana €/kWh (shifted from 14)
+  16: 'energiaValle',      // Row 16: Energía valle €/kWh (shifted from 15)
+  17: 'compensacionExcedentes', // Row 17: Compensación de excedentes (shifted from 16)
+  20: 'ultimoCambio',      // Row 20: Último cambio observado (shifted from 19)
+  21: 'notaImportante',    // Row 21: Nota importante (shifted from 20)
+  22: 'nota',              // Row 22: Nota (shifted from 21)
 };
 
 async function transformExcel() {
@@ -91,8 +91,8 @@ async function transformExcel() {
     for (let col = 4; col < maxCols; col++) {
       const colLetter = XLSX.utils.encode_col(col);
       
-      // Nombre comercializadora (Row 2)
-      const cellComercializadora = worksheet[`${colLetter}2`];
+      // Nombre comercializadora (Row 3 - shifted from 2)
+      const cellComercializadora = worksheet[`${colLetter}3`];
       if (!cellComercializadora || !cellComercializadora.v) break; // Fin de datos
       
       const comercializadora = String(cellComercializadora.v).trim();
@@ -156,14 +156,14 @@ async function transformExcel() {
     };
     
     // Obtener valores del Excel de las celdas C (columna 2):
-    // R48: Bono Social
-    // R49: Impuesto Eléctrico
-    // R50: Alquiler contador
-    // R53: IVA
-    const cellBonoSocial = worksheet['C48'];
-    const cellImpuesto = worksheet['C49'];
-    const cellAlquiler = worksheet['C50'];
-    const cellIVA = worksheet['C53'];
+    // R49: Bono Social (shifted from 48)
+    // R50: Impuesto Eléctrico (shifted from 49)
+    // R51: Alquiler contador (shifted from 50)
+    // R54: IVA (shifted from 53)
+    const cellBonoSocial = worksheet['C49'];
+    const cellImpuesto = worksheet['C50'];
+    const cellAlquiler = worksheet['C51'];
+    const cellIVA = worksheet['C54'];
     
     if (cellBonoSocial?.v) datosGenerales.bonoSocial = parseNumberField(cellBonoSocial.v);
     if (cellImpuesto?.v) datosGenerales.impuestoElectrico = parseNumberField(cellImpuesto.v);
