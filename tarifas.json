@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.005,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-04-15"
+    "actualizadoEn": "2026-04-16"
   },
   "tarifas": [
     {
@@ -22,7 +22,7 @@
         "energiaLlana": 0.11925,
         "energiaValle": 0.08925,
         "compensacionExcedentes": null,
-        "ultimoCambio": "2026-03-23",
+        "ultimoCambio": "2026-04-14",
         "notaImportante": "Nuevos clientes. SOLO ONLINE.",
         "nota": "Incluye descuento 25% de los primeros tres meses"
       }
@@ -195,15 +195,15 @@
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 0.081918,
-        "potenciaValle": 0.081918,
+        "potenciaPunta": 0.090137,
+        "potenciaValle": 0.090137,
         "periodos": 1,
         "energiaPunta": 0.1199,
         "energiaLlana": 0.1199,
         "energiaValle": 0.1199,
         "compensacionExcedentes": null,
-        "ultimoCambio": "2026-03-05",
-        "notaImportante": "Ahorro Plus",
+        "ultimoCambio": "2026-04-16",
+        "notaImportante": null,
         "nota": null
       }
     },
@@ -282,7 +282,7 @@
         "energiaLlana": 0.10393,
         "energiaValle": 0.076176,
         "compensacionExcedentes": "0.07",
-        "ultimoCambio": "2026-04-15",
+        "ultimoCambio": "2026-04-16",
         "notaImportante": "Nuevos clientes / Recuerda activar el D+",
         "nota": null
       }
@@ -298,11 +298,11 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1828,
-        "energiaLlana": 0.1138,
-        "energiaValle": 0.0958,
+        "energiaPunta": 0.1827,
+        "energiaLlana": 0.1137,
+        "energiaValle": 0.0957,
         "compensacionExcedentes": "0.02",
-        "ultimoCambio": "2026-04-15",
+        "ultimoCambio": "2026-04-16",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###"
       }
