@@ -47,21 +47,22 @@ function excelDateToISO(excelDate) {
 
 // Mapeo de filas a campos de tarifa
 const rowMapping = {
-  4: 'nombreTarifa',       // Row 4: Nombre de la tarifa específica (shifted from 3)
-  5: 'permanencia',        // Row 5: PERMANENCIA (shifted from 4)
-  6: 'potenciaMaxima',     // Row 6: Potencia máxima a contratar (shifted from 5)
-  7: 'mantenimientoPrecio',// Row 7: Mantenimiento precios (meses) (shifted from 6)
-  8: 'paraEmpresas',       // Row 8: Vale para empresas/comunidades? (shifted from 7)
-  9: 'potenciaPunta',      // Row 9: Potencia punta (€/kW y día) (shifted from 8)
-  10: 'potenciaValle',     // Row 10: Potencia valle (€/kW y día) (shifted from 9)
-  13: 'periodos',          // Row 13: 1P o 3P (shifted from 12)
-  14: 'energiaPunta',      // Row 14: Energía punta €/kWh (shifted from 13)
-  15: 'energiaLlana',      // Row 15: Energía llana €/kWh (shifted from 14)
-  16: 'energiaValle',      // Row 16: Energía valle €/kWh (shifted from 15)
-  17: 'compensacionExcedentes', // Row 17: Compensación de excedentes (shifted from 16)
-  20: 'ultimoCambio',      // Row 20: Último cambio observado (shifted from 19)
-  21: 'notaImportante',    // Row 21: Nota importante (shifted from 20)
-  22: 'nota',              // Row 22: Nota (shifted from 21)
+  4: 'nombreTarifa',       // Row 4: Nombre de la tarifa específica
+  5: 'permanencia',        // Row 5: PERMANENCIA
+  6: 'potenciaMaxima',     // Row 6: Potencia máxima a contratar
+  7: 'mantenimientoPrecio',// Row 7: Mantenimiento precios (meses)
+  8: 'paraEmpresas',       // Row 8: Vale para empresas/comunidades?
+  9: 'potenciaPunta',      // Row 9: Potencia punta (€/kW y día)
+  10: 'potenciaValle',     // Row 10: Potencia valle (€/kW y día)
+  13: 'periodos',          // Row 13: 1P o 3P
+  14: 'energiaPunta',      // Row 14: Energía punta €/kWh
+  15: 'energiaLlana',      // Row 15: Energía llana €/kWh
+  16: 'energiaValle',      // Row 16: Energía valle €/kWh
+  17: 'compensacionExcedentes', // Row 17: Compensación de excedentes
+  18: 'incluyeBonoSocial', // Row 18: ¿Incluye financiación bono social? (SI/NO)
+  20: 'ultimoCambio',      // Row 20: Último cambio observado
+  21: 'notaImportante',    // Row 21: Nota importante
+  22: 'nota',              // Row 22: Nota
 };
 
 async function transformExcel() {
@@ -122,11 +123,13 @@ async function transformExcel() {
         if (numericFields.includes(fieldName)) {
           tarifa.detalles[fieldName] = parseNumberField(value);
         } else if (fieldName === 'ultimoCambio') {
-          // Convertir número de Excel a fecha
           tarifa.detalles[fieldName] = excelDateToISO(value);
+        } else if (fieldName === 'incluyeBonoSocial') {
+          // SI o cualquier valor positivo = incluye; NO, null o vacío = no incluye
+          const str = parseStringField(value);
+          tarifa.detalles[fieldName] = str !== null && str.toUpperCase() !== 'NO' && str !== '0';
         } else {
           let parsed = parseStringField(value);
-          // Limpiar "0" en campos booleanos (compensación)
           if (fieldName === 'compensacionExcedentes' && parsed === '0') {
             parsed = null;
           }
