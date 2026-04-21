@@ -22,14 +22,15 @@
         "energiaLlana": 0.11925,
         "energiaValle": 0.08925,
         "compensacionExcedentes": null,
-        "incluyeBonoSocial": true,
+        "incluyeBonoSocial": false,
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Nuevos clientes. SOLO ONLINE.",
         "nota": "Incluye descuento 25% de los primeros tres meses",
         "descuento": {
           "tipo": "porcentaje",
           "valor": 25,
-          "meses": 3
+          "meses": 3,
+          "soloNuevosClientes": false
         }
       }
     },
@@ -55,7 +56,8 @@
         "descuento": {
           "tipo": "fijo",
           "valor": 6,
-          "meses": 3
+          "meses": 3,
+          "soloNuevosClientes": false
         }
       }
     },

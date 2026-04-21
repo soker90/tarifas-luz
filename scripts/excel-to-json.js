@@ -159,7 +159,7 @@ async function transformExcel() {
             notaImportante: t.detalles.notaImportante || null,
           }));
 
-          const prompt = `Analiza las siguientes notas de tarifas eléctricas españolas y extrae información de descuentos iniciales para nuevos clientes.
+          const prompt = `Analiza las siguientes notas de tarifas eléctricas españolas y extrae información de descuentos.
 
 Para cada tarifa, devuelve un JSON con este formato exacto:
 {
@@ -167,16 +167,18 @@ Para cada tarifa, devuelve un JSON con este formato exacto:
   "descuento": {
     "tipo": "porcentaje" | "fijo",
     "valor": <número>,
-    "meses": <número>
+    "meses": <número o null si no se especifica>,
+    "soloNuevosClientes": true | false
   } | null
 }
 
 Reglas:
 - "tipo": "porcentaje" si el descuento es un %, "fijo" si es un importe en €
 - "valor": el número del descuento (25 para 25%, 6 para 6€)
-- "meses": duración del descuento en meses (convierte "tres" → 3, "seis" → 6, etc.)
-- Si no hay descuento claro de bienvenida/nuevos clientes, devuelve null
-- No confundas descuentos con otras menciones de euros o porcentajes
+- "meses": duración en meses (convierte "tres" → 3, "seis" → 6, etc.). Si no se especifica duración, pon null
+- "soloNuevosClientes": true si menciona "nuevas contrataciones", "nuevos clientes", "solo online", etc.
+- Si no hay ningún descuento claro, devuelve null
+- No confundas descuentos con otras menciones de euros o porcentajes en el texto
 - Devuelve SOLO el array JSON sin texto adicional ni markdown
 
 Tarifas:
@@ -216,29 +218,55 @@ ${JSON.stringify(notas, null, 2)}`;
       // Fallback: regex
       function parseDescuentoFromNota(nota) {
         if (!nota) return null;
-        const match = nota.match(/(\d+(?:[.,]\d+)?)\s*(%|€)\s+de\s+los\s+primeros?\s+(\d+|un|dos|tres|cuatro|seis|doce)/i);
-        if (!match) return null;
-        const wordsToNum = { un: 1, dos: 2, tres: 3, cuatro: 4, seis: 6, doce: 12 };
-        const rawMeses = match[3].toLowerCase();
-        const meses = isNaN(parseInt(rawMeses)) ? (wordsToNum[rawMeses] || null) : parseInt(rawMeses);
-        if (!meses) return null;
-        return {
-          tipo: match[2] === '%' ? 'porcentaje' : 'fijo',
-          valor: parseFloat(match[1].replace(',', '.')),
-          meses
-        };
+
+        // Patrón 1: "X% de los primeros N meses" (con duración)
+        const matchConDuracion = nota.match(/(\d+(?:[.,]\d+)?)\s*(%|€)\s+de\s+los\s+primeros?\s+(\d+|un|dos|tres|cuatro|seis|doce)/i);
+        if (matchConDuracion) {
+          const wordsToNum = { un: 1, dos: 2, tres: 3, cuatro: 4, seis: 6, doce: 12 };
+          const rawMeses = matchConDuracion[3].toLowerCase();
+          const meses = isNaN(parseInt(rawMeses)) ? (wordsToNum[rawMeses] || null) : parseInt(rawMeses);
+          const soloNuevosClientes = /nuevo|contrataci/i.test(nota);
+          return {
+            tipo: matchConDuracion[2] === '%' ? 'porcentaje' : 'fijo',
+            valor: parseFloat(matchConDuracion[1].replace(',', '.')),
+            meses: meses || null,
+            soloNuevosClientes
+          };
+        }
+
+        // Patrón 2: "Dcto. X%" o "descuento X%" sin duración especificada
+        const matchSinDuracion = nota.match(/(?:dcto\.?|descuento)\s+(\d+(?:[.,]\d+)?)\s*(%|€)/i);
+        if (matchSinDuracion) {
+          const soloNuevosClientes = /nuevo|contrataci/i.test(nota);
+          return {
+            tipo: matchSinDuracion[2] === '%' ? 'porcentaje' : 'fijo',
+            valor: parseFloat(matchSinDuracion[1].replace(',', '.')),
+            meses: null, // duración desconocida
+            soloNuevosClientes
+          };
+        }
+
+        return null;
       }
 
       tarifas.forEach(t => {
-        t.detalles.descuento = parseDescuentoFromNota(t.detalles.nota)
-          || parseDescuentoFromNota(t.detalles.notaImportante)
-          || null;
+        t.detalles.descuento = parseDescuentoFromNota(t.detalles.nota) || null;
       });
     }
 
     await detectarDescuentos(tarifas);
 
-    
+    // Post-procesado: asegurar que incluyeBonoSocial siempre esté definido.
+    // La mayoría de comercializadoras SÍ incluyen la financiación del bono social.
+    // Lista de comercializadoras conocidas que NO la incluyen:
+    const sinBonoSocial = ['enérgya', 'energya'];
+    tarifas.forEach(t => {
+      if (t.detalles.incluyeBonoSocial === undefined || t.detalles.incluyeBonoSocial === null) {
+        const nombre = t.comercializadora.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        t.detalles.incluyeBonoSocial = !sinBonoSocial.some(n => nombre.includes(n));
+      }
+    });
+
     console.log(`📋 Se encontraron ${tarifas.length} tarifas`);
     
     if (tarifas.length === 0) {
@@ -291,6 +319,13 @@ ${JSON.stringify(notas, null, 2)}`;
     console.log(`📊 Total tarifas: ${tarifas.length}`);
     console.log('\n✨ Primera tarifa como ejemplo:');
     console.log(JSON.stringify(tarifas[0], null, 2));
+
+    // Sincronizar app/public/tarifas.json automáticamente si existe
+    const publicPath = path.join(__dirname, '../app/public/tarifas.json');
+    if (fs.existsSync(path.dirname(publicPath))) {
+      fs.writeFileSync(publicPath, cleanJSON);
+      console.log(`📂 Sincronizado: ${publicPath}`);
+    }
     
     // Limpiar archivo temporal
     if (excelSource.startsWith('http') && fs.existsSync(excelPath)) {

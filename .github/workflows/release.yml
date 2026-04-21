@@ -1,0 +1,295 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  create-release:
+    name: Crear Release
+    runs-on: ubuntu-latest
+    outputs:
+      release_id: ${{ steps.create_release.outputs.id }}
+      version: ${{ steps.get_version.outputs.version }}
+
+    steps:
+      - name: Obtener versión del tag
+        id: get_version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - uses: actions/checkout@v4
+
+      - name: Crear Release en GitHub
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Tarifas Luz ${{ steps.get_version.outputs.version }}
+          draft: true
+          prerelease: false
+          body: |
+            ## Tarifas Luz ${{ steps.get_version.outputs.version }}
+
+            ### Instalación
+
+            Descarga el instalador para tu sistema operativo:
+            - **Windows**: `.msi` o `-setup.exe`
+            - **macOS Intel**: `_x64.dmg`
+            - **macOS Apple Silicon**: `_aarch64.dmg`
+            - **Linux**: `.deb` o `.AppImage`
+
+  build-and-release:
+    name: Build (${{ matrix.platform.name }})
+    needs: create-release
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - name: linux
+            os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - name: windows
+            os: windows-latest
+            target: x86_64-pc-windows-msvc
+          - name: macos
+            os: macos-latest
+            target: x86_64-apple-darwin
+          - name: macos-arm64
+            os: macos-latest
+            target: aarch64-apple-darwin
+
+    runs-on: ${{ matrix.platform.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform.target }}
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: app/src-tauri
+
+      - name: Dependencias del sistema (Linux)
+        if: matrix.platform.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+
+      - name: Instalar dependencias
+        working-directory: app
+        run: bun install --frozen-lockfile
+
+      - name: Build Tauri
+        working-directory: app
+        run: bun run tauri build -- --target ${{ matrix.platform.target }}
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+
+      # Linux
+      - name: Subir .deb (Linux)
+        if: matrix.platform.name == 'linux'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/deb/tarifas-luz_${{ needs.create-release.outputs.version }}_amd64.deb
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_linux_amd64.deb
+          asset_content_type: application/vnd.debian.binary-package
+
+      - name: Subir .AppImage (Linux)
+        if: matrix.platform.name == 'linux'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/appimage/tarifas-luz_${{ needs.create-release.outputs.version }}_amd64.AppImage
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_linux_amd64.AppImage
+          asset_content_type: application/octet-stream
+
+      # Windows
+      - name: Subir .msi (Windows)
+        if: matrix.platform.name == 'windows'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/msi/tarifas-luz_${{ needs.create-release.outputs.version }}_x64_en-US.msi
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_windows_x64.msi
+          asset_content_type: application/octet-stream
+
+      - name: Subir .msi.sig (Windows)
+        if: matrix.platform.name == 'windows'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/msi/tarifas-luz_${{ needs.create-release.outputs.version }}_x64_en-US.msi.sig
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_windows_x64.msi.sig
+          asset_content_type: text/plain
+
+      - name: Subir NSIS installer (Windows)
+        if: matrix.platform.name == 'windows'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/nsis/tarifas-luz_${{ needs.create-release.outputs.version }}_x64-setup.exe
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_windows_x64-setup.exe
+          asset_content_type: application/octet-stream
+
+      # macOS Intel
+      - name: Subir .dmg (macOS Intel)
+        if: matrix.platform.name == 'macos'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/dmg/tarifas-luz_${{ needs.create-release.outputs.version }}_x64.dmg
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_macos_x64.dmg
+          asset_content_type: application/octet-stream
+
+      - name: Subir .app.tar.gz (macOS Intel)
+        if: matrix.platform.name == 'macos'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/macos/tarifas-luz.app.tar.gz
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_macos_x64.app.tar.gz
+          asset_content_type: application/octet-stream
+
+      - name: Subir .app.tar.gz.sig (macOS Intel)
+        if: matrix.platform.name == 'macos'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/macos/tarifas-luz.app.tar.gz.sig
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_macos_x64.app.tar.gz.sig
+          asset_content_type: text/plain
+
+      # macOS Apple Silicon
+      - name: Subir .dmg (macOS ARM64)
+        if: matrix.platform.name == 'macos-arm64'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/dmg/tarifas-luz_${{ needs.create-release.outputs.version }}_aarch64.dmg
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_macos_aarch64.dmg
+          asset_content_type: application/octet-stream
+
+      - name: Subir .app.tar.gz (macOS ARM64)
+        if: matrix.platform.name == 'macos-arm64'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/macos/tarifas-luz.app.tar.gz
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_macos_aarch64.app.tar.gz
+          asset_content_type: application/octet-stream
+
+      - name: Subir .app.tar.gz.sig (macOS ARM64)
+        if: matrix.platform.name == 'macos-arm64'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/macos/tarifas-luz.app.tar.gz.sig
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_macos_aarch64.app.tar.gz.sig
+          asset_content_type: text/plain
+
+  publish-release:
+    name: Publicar Release
+    needs: [create-release, build-and-release]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generar latest.json para el updater
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ needs.create-release.outputs.version }}
+        run: |
+          get_sig() {
+            gh release download "v${VERSION}" --pattern "$1" --output - 2>/dev/null || echo ""
+          }
+
+          LINUX_SIG=$(get_sig "tarifas-luz_${VERSION}_linux_amd64.AppImage.sig")
+          WIN_SIG=$(get_sig "tarifas-luz_${VERSION}_windows_x64.msi.sig")
+          MACOS_X64_SIG=$(get_sig "tarifas-luz_${VERSION}_macos_x64.app.tar.gz.sig")
+          MACOS_ARM_SIG=$(get_sig "tarifas-luz_${VERSION}_macos_aarch64.app.tar.gz.sig")
+
+          BASE_URL="https://github.com/soker90/tarifas-luz/releases/download/v${VERSION}"
+
+          cat > latest.json << ENDJSON
+          {
+            "version": "v${VERSION}",
+            "notes": "Ver release notes en GitHub",
+            "pub_date": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "platforms": {
+              "linux-x86_64": {
+                "url": "${BASE_URL}/tarifas-luz_${VERSION}_linux_amd64.AppImage",
+                "signature": "${LINUX_SIG}"
+              },
+              "windows-x86_64": {
+                "url": "${BASE_URL}/tarifas-luz_${VERSION}_windows_x64.msi",
+                "signature": "${WIN_SIG}"
+              },
+              "darwin-x86_64": {
+                "url": "${BASE_URL}/tarifas-luz_${VERSION}_macos_x64.app.tar.gz",
+                "signature": "${MACOS_X64_SIG}"
+              },
+              "darwin-aarch64": {
+                "url": "${BASE_URL}/tarifas-luz_${VERSION}_macos_aarch64.app.tar.gz",
+                "signature": "${MACOS_ARM_SIG}"
+              }
+            }
+          }
+          ENDJSON
+
+      - name: Subir latest.json al release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: latest.json
+          asset_name: latest.json
+          asset_content_type: application/json
+
+      - name: Publicar release (quitar draft)
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.repos.updateRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: ${{ needs.create-release.outputs.release_id }},
+              draft: false,
+            })

@@ -1,0 +1,26 @@
+version: 2
+updates:
+    - package-ecosystem: 'npm'
+      directory: '/app'
+      schedule:
+          interval: 'monthly'
+          day: 'thursday'
+          time: '08:00'
+          timezone: 'Europe/Madrid'
+      groups:
+          dependencies:
+              update-types:
+                  - 'minor'
+                  - 'patch'
+    - package-ecosystem: 'cargo'
+      directory: '/app/src-tauri'
+      schedule:
+          interval: 'monthly'
+          day: 'thursday'
+          time: '08:00'
+          timezone: 'Europe/Madrid'
+      groups:
+          dependencies:
+              update-types:
+                  - 'minor'
+                  - 'patch'
