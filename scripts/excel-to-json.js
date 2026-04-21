@@ -60,7 +60,7 @@ const rowMapping = {
   16: 'energiaValle',      // Row 16: Energía valle €/kWh
   17: 'compensacionExcedentes', // Row 17: Compensación de excedentes
   18: 'incluyeBonoSocial', // Row 18: ¿Incluye financiación bono social? (SI/NO)
-  19: 'descuento',          // Row 19: Descuento inicial formato: "25%:3" o "6€:3" (valor:meses)
+  // Row 19 no mapeado (no controlamos el Excel fuente)
   20: 'ultimoCambio',      // Row 20: Último cambio observado
   21: 'notaImportante',    // Row 21: Nota importante
   22: 'nota',              // Row 22: Nota
@@ -129,23 +129,6 @@ async function transformExcel() {
           // SI o cualquier valor positivo = incluye; NO, null o vacío = no incluye
           const str = parseStringField(value);
           tarifa.detalles[fieldName] = str !== null && str.toUpperCase() !== 'NO' && str !== '0';
-        } else if (fieldName === 'descuento') {
-          // Formato esperado: "25%:3" (porcentaje:meses) o "6€:3" (euros:meses)
-          const str = parseStringField(value);
-          if (!str) {
-            tarifa.detalles[fieldName] = null;
-          } else {
-            const match = str.match(/^(\d+(?:\.\d+)?)(\%|€):(\d+)$/);
-            if (match) {
-              tarifa.detalles[fieldName] = {
-                tipo: match[2] === '%' ? 'porcentaje' : 'fijo',
-                valor: parseFloat(match[1]),
-                meses: parseInt(match[3], 10)
-              };
-            } else {
-              tarifa.detalles[fieldName] = null; // formato no reconocido, ignorar
-            }
-          }
         } else {
           let parsed = parseStringField(value);
           if (fieldName === 'compensacionExcedentes' && parsed === '0') {
@@ -160,6 +143,101 @@ async function transformExcel() {
       
       tarifas.push(tarifa);
     }
+
+    // Post-procesado: detectar descuento con Gemini API (o regex como fallback)
+    async function detectarDescuentos(tarifas) {
+      const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+      if (GEMINI_API_KEY) {
+        try {
+          console.log('🤖 Detectando descuentos con Gemini...');
+          const notas = tarifas.map((t, i) => ({
+            idx: i,
+            comercializadora: t.comercializadora,
+            nombreTarifa: t.detalles.nombreTarifa,
+            nota: t.detalles.nota || null,
+            notaImportante: t.detalles.notaImportante || null,
+          }));
+
+          const prompt = `Analiza las siguientes notas de tarifas eléctricas españolas y extrae información de descuentos iniciales para nuevos clientes.
+
+Para cada tarifa, devuelve un JSON con este formato exacto:
+{
+  "idx": <número>,
+  "descuento": {
+    "tipo": "porcentaje" | "fijo",
+    "valor": <número>,
+    "meses": <número>
+  } | null
+}
+
+Reglas:
+- "tipo": "porcentaje" si el descuento es un %, "fijo" si es un importe en €
+- "valor": el número del descuento (25 para 25%, 6 para 6€)
+- "meses": duración del descuento en meses (convierte "tres" → 3, "seis" → 6, etc.)
+- Si no hay descuento claro de bienvenida/nuevos clientes, devuelve null
+- No confundas descuentos con otras menciones de euros o porcentajes
+- Devuelve SOLO el array JSON sin texto adicional ni markdown
+
+Tarifas:
+${JSON.stringify(notas, null, 2)}`;
+
+          const res = await fetch(
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`,
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: { temperature: 0, responseMimeType: 'application/json' }
+              })
+            }
+          );
+
+          if (res.ok) {
+            const data = await res.json();
+            const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            const results = JSON.parse(text);
+            results.forEach(r => {
+              if (tarifas[r.idx]) {
+                tarifas[r.idx].detalles.descuento = r.descuento || null;
+              }
+            });
+            console.log('✅ Descuentos detectados por Gemini');
+            return;
+          }
+        } catch (e) {
+          console.warn('⚠️ Gemini falló, usando regex como fallback:', e.message);
+        }
+      } else {
+        console.log('ℹ️ Sin GEMINI_API_KEY, usando regex para detectar descuentos');
+      }
+
+      // Fallback: regex
+      function parseDescuentoFromNota(nota) {
+        if (!nota) return null;
+        const match = nota.match(/(\d+(?:[.,]\d+)?)\s*(%|€)\s+de\s+los\s+primeros?\s+(\d+|un|dos|tres|cuatro|seis|doce)/i);
+        if (!match) return null;
+        const wordsToNum = { un: 1, dos: 2, tres: 3, cuatro: 4, seis: 6, doce: 12 };
+        const rawMeses = match[3].toLowerCase();
+        const meses = isNaN(parseInt(rawMeses)) ? (wordsToNum[rawMeses] || null) : parseInt(rawMeses);
+        if (!meses) return null;
+        return {
+          tipo: match[2] === '%' ? 'porcentaje' : 'fijo',
+          valor: parseFloat(match[1].replace(',', '.')),
+          meses
+        };
+      }
+
+      tarifas.forEach(t => {
+        t.detalles.descuento = parseDescuentoFromNota(t.detalles.nota)
+          || parseDescuentoFromNota(t.detalles.notaImportante)
+          || null;
+      });
+    }
+
+    await detectarDescuentos(tarifas);
+
     
     console.log(`📋 Se encontraron ${tarifas.length} tarifas`);
     
