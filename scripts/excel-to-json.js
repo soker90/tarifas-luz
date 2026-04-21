@@ -60,6 +60,7 @@ const rowMapping = {
   16: 'energiaValle',      // Row 16: Energía valle €/kWh
   17: 'compensacionExcedentes', // Row 17: Compensación de excedentes
   18: 'incluyeBonoSocial', // Row 18: ¿Incluye financiación bono social? (SI/NO)
+  19: 'descuento',          // Row 19: Descuento inicial formato: "25%:3" o "6€:3" (valor:meses)
   20: 'ultimoCambio',      // Row 20: Último cambio observado
   21: 'notaImportante',    // Row 21: Nota importante
   22: 'nota',              // Row 22: Nota
@@ -128,6 +129,23 @@ async function transformExcel() {
           // SI o cualquier valor positivo = incluye; NO, null o vacío = no incluye
           const str = parseStringField(value);
           tarifa.detalles[fieldName] = str !== null && str.toUpperCase() !== 'NO' && str !== '0';
+        } else if (fieldName === 'descuento') {
+          // Formato esperado: "25%:3" (porcentaje:meses) o "6€:3" (euros:meses)
+          const str = parseStringField(value);
+          if (!str) {
+            tarifa.detalles[fieldName] = null;
+          } else {
+            const match = str.match(/^(\d+(?:\.\d+)?)(\%|€):(\d+)$/);
+            if (match) {
+              tarifa.detalles[fieldName] = {
+                tipo: match[2] === '%' ? 'porcentaje' : 'fijo',
+                valor: parseFloat(match[1]),
+                meses: parseInt(match[3], 10)
+              };
+            } else {
+              tarifa.detalles[fieldName] = null; // formato no reconocido, ignorar
+            }
+          }
         } else {
           let parsed = parseStringField(value);
           if (fieldName === 'compensacionExcedentes' && parsed === '0') {

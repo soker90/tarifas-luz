@@ -25,7 +25,12 @@
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Nuevos clientes. SOLO ONLINE.",
         "nota": "Incluye descuento 25% de los primeros tres meses",
-        "incluyeBonoSocial": false
+        "incluyeBonoSocial": false,
+        "descuento": {
+          "tipo": "porcentaje",
+          "valor": 25,
+          "meses": 3
+        }
       }
     },
     {
@@ -46,7 +51,12 @@
         "ultimoCambio": "2026-04-20",
         "notaImportante": null,
         "nota": "Incluye descuento 6€  de los primeros tres meses",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": {
+          "tipo": "fijo",
+          "valor": 6,
+          "meses": 3
+        }
       }
     },
     {
@@ -67,7 +77,8 @@
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
         "nota": "",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -88,7 +99,8 @@
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
         "nota": "",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -109,7 +121,8 @@
         "ultimoCambio": "2026-03-10",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
         "nota": "Compensa la BV antes de impuestos. Los excedentes rinden más.",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -130,7 +143,8 @@
         "ultimoCambio": "2026-03-10",
         "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)",
         "nota": "Si se excede un ratio de 750kWh anuales por cada kW potencia, rechazan",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -151,7 +165,8 @@
         "ultimoCambio": "2026-03-14",
         "notaImportante": "la recomendada es tarifa BASE.",
         "nota": "Comentan que por telfono la dan por 36 meses",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -172,7 +187,8 @@
         "ultimoCambio": "2026-02-18",
         "notaImportante": "la recomendada es tarifa BASE.",
         "nota": "Comentan que por telfono la dan por 36 meses",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -193,7 +209,8 @@
         "ultimoCambio": "2026-04-13",
         "notaImportante": null,
         "nota": null,
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -214,7 +231,8 @@
         "ultimoCambio": "2026-04-13",
         "notaImportante": null,
         "nota": null,
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -235,7 +253,8 @@
         "ultimoCambio": "2026-04-16",
         "notaImportante": null,
         "nota": null,
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -256,7 +275,8 @@
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud",
         "nota": "Pot>10kW permanencia",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -277,7 +297,8 @@
         "ultimoCambio": "2026-02-16",
         "notaImportante": "excedentes en todas las tarifas",
         "nota": null,
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -298,7 +319,8 @@
         "ultimoCambio": "2026-03-03",
         "notaImportante": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones",
         "nota": null,
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -319,7 +341,8 @@
         "ultimoCambio": "2026-04-16",
         "notaImportante": "Nuevos clientes / Recuerda activar el D+",
         "nota": null,
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -340,7 +363,8 @@
         "ultimoCambio": null,
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
-        "incluyeBonoSocial": true
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     }
   ]
