@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.005,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-04-16"
+    "actualizadoEn": "2026-04-20"
   },
   "tarifas": [
     {
@@ -25,6 +25,26 @@
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Nuevos clientes. SOLO ONLINE.",
         "nota": "Incluye descuento 25% de los primeros tres meses"
+      }
+    },
+    {
+      "comercializadora": "Doméstica-Visalia",
+      "detalles": {
+        "nombreTarifa": "Tarifa flash",
+        "permanencia": "NO",
+        "potenciaMaxima": 10,
+        "mantenimientoPrecio": 3,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.060274,
+        "potenciaValle": 0.060274,
+        "periodos": 1,
+        "energiaPunta": 0.121995,
+        "energiaLlana": 0.121995,
+        "energiaValle": 0.121995,
+        "compensacionExcedentes": "0.04",
+        "ultimoCambio": "2026-04-20",
+        "notaImportante": null,
+        "nota": "Incluye descuento 6€  de los primeros tres meses"
       }
     },
     {
@@ -298,11 +318,11 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1827,
-        "energiaLlana": 0.1137,
-        "energiaValle": 0.0957,
+        "energiaPunta": 0.1803,
+        "energiaLlana": 0.1113,
+        "energiaValle": 0.0933,
         "compensacionExcedentes": "0.02",
-        "ultimoCambio": "2026-04-16",
+        "ultimoCambio": null,
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###"
       }
