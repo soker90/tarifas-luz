@@ -4,15 +4,11 @@
   "description": "Transform Excel electricity tariffs to JSON",
   "type": "module",
   "scripts": {
-    "prepare": "husky",
     "transform": "node scripts/excel-to-json.js",
     "transform:download": "node scripts/excel-to-json.js",
     "analyze": "node scripts/analyze-excel.js"
   },
   "dependencies": {
     "xlsx": "^0.18.5"
-  },
-  "devDependencies": {
-    "husky": "^9.1.7"
   }
 }
