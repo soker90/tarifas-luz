@@ -1,12 +1,12 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { db, type Supply, type Reading } from "./db";
+import { db, type Reading, type Supply } from "./db";
 
 export function useSupplies() {
   const supplies = useLiveQuery(() => db.supplies.toArray());
 
   const addSupply = async (
-    name: string, 
-    contractedPowerPeak: number, 
+    name: string,
+    contractedPowerPeak: number,
     contractedPowerOffPeak: number,
     currentPricePowerPeak?: number,
     currentPricePowerOffPeak?: number,
@@ -24,7 +24,7 @@ export function useSupplies() {
       currentPriceEnergyPeak,
       currentPriceEnergyFlat,
       currentPriceEnergyOffPeak,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     });
   };
 
@@ -35,8 +35,8 @@ export function useSupplies() {
   const deleteSupply = async (id: string) => {
     await db.supplies.delete(id);
     // Also delete all readings for this supply
-    const readings = await db.readings.where('supplyId').equals(id).toArray();
-    const readingIds = readings.map(r => r.id);
+    const readings = await db.readings.where("supplyId").equals(id).toArray();
+    const readingIds = readings.map((r) => r.id);
     await db.readings.bulkDelete(readingIds);
   };
 
@@ -50,27 +50,28 @@ export function useSupply(id?: string) {
   );
 
   const updateSupply = async (updates: Partial<Supply>) => {
-    if (id) await db.supplies.update(id, updates);
+    if (id) {
+      await db.supplies.update(id, updates);
+    }
   };
 
   return { supply, updateSupply };
 }
 
 export function useReadings(supplyId?: string) {
-  const readings = useLiveQuery(
-    () => {
-      if (!supplyId) return [];
-      return db.readings.where('supplyId').equals(supplyId).toArray();
-    },
-    [supplyId]
-  );
+  const readings = useLiveQuery(() => {
+    if (!supplyId) {
+      return [];
+    }
+    return db.readings.where("supplyId").equals(supplyId).toArray();
+  }, [supplyId]);
 
   const addReading = async (
-    supplyId: string, 
-    startDate: string, 
-    endDate: string, 
-    consumptionPeak: number, 
-    consumptionFlat: number, 
+    supplyId: string,
+    startDate: string,
+    endDate: string,
+    consumptionPeak: number,
+    consumptionFlat: number,
     consumptionOffPeak: number,
     cost?: number
   ) => {
@@ -83,7 +84,7 @@ export function useReadings(supplyId?: string) {
       consumptionFlat,
       consumptionOffPeak,
       cost,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     });
   };
 

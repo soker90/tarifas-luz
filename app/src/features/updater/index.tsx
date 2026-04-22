@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { check } from "@tauri-apps/plugin-updater";
 import { relaunch } from "@tauri-apps/plugin-process";
+import { check } from "@tauri-apps/plugin-updater";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -43,7 +43,7 @@ export default function UpdateChecker() {
   };
 
   return (
-    <Dialog open={updateAvailable} onOpenChange={setUpdateAvailable}>
+    <Dialog onOpenChange={setUpdateAvailable} open={updateAvailable}>
       <DialogContent className="max-w-sm">
         <DialogHeader>
           <DialogTitle>Actualización disponible</DialogTitle>
@@ -54,13 +54,13 @@ export default function UpdateChecker() {
         </DialogHeader>
         <DialogFooter className="gap-2 sm:gap-0">
           <Button
-            variant="outline"
-            onClick={() => setUpdateAvailable(false)}
             disabled={isInstalling}
+            onClick={() => setUpdateAvailable(false)}
+            variant="outline"
           >
             Ahora no
           </Button>
-          <Button onClick={handleInstall} disabled={isInstalling}>
+          <Button disabled={isInstalling} onClick={handleInstall}>
             {isInstalling ? "Instalando..." : "Actualizar"}
           </Button>
         </DialogFooter>

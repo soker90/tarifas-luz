@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export interface DatosGenerales {
-  iva: number;
-  impuestoElectrico: number;
+  actualizadoEn: string;
   alquilerContador: number;
   bonoSocial: number;
-  actualizadoEn: string;
+  impuestoElectrico: number;
+  iva: number;
 }
 
 export interface Descuento {
-  tipo: "porcentaje" | "fijo";
-  valor: number;
   meses: number | null;
   soloNuevosClientes?: boolean;
+  tipo: "porcentaje" | "fijo";
+  valor: number;
 }
 
 export interface TarifaDetalles {
-  nombreTarifa: string;
-  potenciaPunta: number;
-  potenciaValle: number;
-  energiaPunta: number;
+  descuento?: Descuento | null;
   energiaLlana: number;
+  energiaPunta: number;
   energiaValle: number;
   incluyeBonoSocial?: boolean;
   mantenimientoPrecio?: number;
-  descuento?: Descuento | null;
+  nombreTarifa: string;
+  potenciaPunta: number;
+  potenciaValle: number;
 }
 
 export interface Tarifa {
@@ -76,13 +76,15 @@ export function useTarifasData() {
     const doFetch = (url: string) =>
       fetch(url)
         .then((res) => {
-          if (!res.ok) throw new Error("Error fetching");
+          if (!res.ok) {
+            throw new Error("Error fetching");
+          }
           return res.json() as Promise<TarifasData>;
         })
         .then(saveAndSet);
 
-    doFetch("https://soker90.github.io/tarifas-luz/tarifas.json")
-      .catch((err) => {
+    doFetch("https://soker90.github.io/tarifas-luz/tarifas.json").catch(
+      (err) => {
         console.error(err);
         if (cachedData) {
           setTarifasData(JSON.parse(cachedData) as TarifasData);
@@ -91,7 +93,8 @@ export function useTarifasData() {
           setError("No se pudieron cargar las tarifas. Inténtalo más tarde.");
           setIsLoading(false);
         }
-      });
+      }
+    );
   }, []);
 
   return { tarifasData, isLoading, error };
