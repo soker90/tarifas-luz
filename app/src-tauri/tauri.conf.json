@@ -17,7 +17,7 @@
     ]
   },
   "productName": "tarifas-luz",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "identifier": "com.soker90.tarifas-luz",
   "plugins": {
     "process": {
