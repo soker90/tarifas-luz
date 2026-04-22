@@ -46,7 +46,9 @@ jobs:
             - **Windows**: `.msi` o `-setup.exe`
             - **macOS Intel**: `_x64.dmg`
             - **macOS Apple Silicon**: `_aarch64.dmg`
-            - **Linux**: `.deb` o `.AppImage`
+            - **Linux (Debian/Ubuntu)**: `.deb`
+            - **Linux (Fedora/RHEL)**: `.rpm`
+            - **Linux (universal)**: `.AppImage` o binario suelto
 
   build-and-release:
     name: Build (${{ matrix.platform.name }})
@@ -89,7 +91,7 @@ jobs:
         if: matrix.platform.os == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf rpm-build
 
       - name: Instalar dependencias
         working-directory: app
@@ -123,6 +125,28 @@ jobs:
           upload_url: ${{ needs.create-release.outputs.upload_url }}
           asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/appimage/tarifas-luz_${{ needs.create-release.outputs.version }}_amd64.AppImage
           asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_linux_amd64.AppImage
+          asset_content_type: application/octet-stream
+
+      - name: Subir .rpm (Linux)
+        if: matrix.platform.name == 'linux'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/bundle/rpm/tarifas-luz-${{ needs.create-release.outputs.version }}-1.x86_64.rpm
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_linux_amd64.rpm
+          asset_content_type: application/x-rpm
+
+      - name: Subir binario suelto (Linux)
+        if: matrix.platform.name == 'linux'
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create-release.outputs.upload_url }}
+          asset_path: app/src-tauri/target/${{ matrix.platform.target }}/release/tarifas-luz
+          asset_name: tarifas-luz_${{ needs.create-release.outputs.version }}_linux_amd64
           asset_content_type: application/octet-stream
 
       # Windows
