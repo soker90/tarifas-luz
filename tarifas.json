@@ -22,10 +22,11 @@
         "energiaLlana": 0.11925,
         "energiaValle": 0.08925,
         "compensacionExcedentes": null,
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Nuevos clientes. SOLO ONLINE.",
         "nota": "Incluye descuento 25% de los primeros tres meses",
+        "incluyeBonoSocial": false,
         "descuento": {
           "tipo": "porcentaje",
           "valor": 25,
@@ -49,10 +50,11 @@
         "energiaLlana": 0.121995,
         "energiaValle": 0.121995,
         "compensacionExcedentes": "0.03",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "legal",
         "ultimoCambio": "2026-04-20",
         "notaImportante": null,
         "nota": "Incluye descuento 6€  de los primeros tres meses",
+        "incluyeBonoSocial": true,
         "descuento": {
           "tipo": "fijo",
           "valor": 6,
@@ -76,10 +78,11 @@
         "energiaLlana": 0.078818,
         "energiaValle": 0.078818,
         "compensacionExcedentes": null,
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
         "nota": "",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -98,10 +101,11 @@
         "energiaLlana": 0.080037,
         "energiaValle": 0.053682,
         "compensacionExcedentes": null,
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
         "nota": "",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -120,10 +124,11 @@
         "energiaLlana": 0.135066,
         "energiaValle": 0.085298,
         "compensacionExcedentes": "0.08",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-03-10",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
         "nota": "Compensa la BV antes de impuestos. Los excedentes rinden más.",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -142,10 +147,11 @@
         "energiaLlana": 0.115288,
         "energiaValle": 0.080719,
         "compensacionExcedentes": "0.02",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-03-10",
         "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)",
         "nota": "Si se excede un ratio de 750kWh anuales por cada kW potencia, rechazan",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -164,10 +170,11 @@
         "energiaLlana": 0.105,
         "energiaValle": 0.105,
         "compensacionExcedentes": "0.03",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-03-14",
         "notaImportante": "la recomendada es tarifa BASE.",
         "nota": "Comentan que por telfono la dan por 36 meses",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -186,10 +193,11 @@
         "energiaLlana": 0.10387,
         "energiaValle": 0.069473,
         "compensacionExcedentes": "0.03",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-02-18",
         "notaImportante": "la recomendada es tarifa BASE.",
         "nota": "Comentan que por telfono la dan por 36 meses",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -208,10 +216,11 @@
         "energiaLlana": 0.097999,
         "energiaValle": 0.097999,
         "compensacionExcedentes": "0.03",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "legal",
         "ultimoCambio": "2026-04-13",
         "notaImportante": null,
         "nota": null,
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -230,10 +239,11 @@
         "energiaLlana": 0.124931,
         "energiaValle": 0.097349,
         "compensacionExcedentes": "0.03",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "legal",
         "ultimoCambio": "2026-04-13",
         "notaImportante": null,
         "nota": null,
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -252,10 +262,11 @@
         "energiaLlana": 0.1199,
         "energiaValle": 0.1199,
         "compensacionExcedentes": null,
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-04-16",
         "notaImportante": null,
         "nota": null,
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -274,10 +285,11 @@
         "energiaLlana": 0.136,
         "energiaValle": 0.09999,
         "compensacionExcedentes": "0.03",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-04-14",
         "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud",
         "nota": "Pot>10kW permanencia",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -296,10 +308,11 @@
         "energiaLlana": 0.1072,
         "energiaValle": 0.0718,
         "compensacionExcedentes": "0.06",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-02-16",
         "notaImportante": "excedentes en todas las tarifas",
         "nota": null,
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -318,10 +331,11 @@
         "energiaLlana": 0.0972,
         "energiaValle": 0.0738,
         "compensacionExcedentes": null,
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-03-03",
         "notaImportante": "nuevos clientes / clientes actuales. Dcto. 10% nuevas contrataciones",
         "nota": null,
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -340,10 +354,11 @@
         "energiaLlana": 0.10393,
         "energiaValle": 0.076176,
         "compensacionExcedentes": "0.07",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "legal",
         "ultimoCambio": "2026-04-16",
         "notaImportante": "Nuevos clientes / Recuerda activar el D+",
         "nota": null,
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     },
@@ -362,10 +377,11 @@
         "energiaLlana": 0.1114,
         "energiaValle": 0.0934,
         "compensacionExcedentes": "0.02",
-        "incluyeBonoSocial": true,
+        "tipoCompensacionExcedentes": "energía",
         "ultimoCambio": "2026-04-22",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
+        "incluyeBonoSocial": true,
         "descuento": null
       }
     }
