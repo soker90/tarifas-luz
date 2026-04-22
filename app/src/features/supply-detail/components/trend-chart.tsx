@@ -21,9 +21,9 @@ import type { ChartPoint } from "../use-supply-detail";
 
 interface TrendChartProps {
   data: ChartPoint[];
-  opacity: { Punta: number; Llano: number; Valle: number };
   onLegendMouseEnter: (o: LegendPayload) => void;
   onLegendMouseLeave: () => void;
+  opacity: { Punta: number; Llano: number; Valle: number };
 }
 
 export const TrendChart = ({
@@ -40,8 +40,8 @@ export const TrendChart = ({
           Tendencia del Último Año
         </CardTitle>
         <CardDescription>
-          Comparativa de franjas horarias en los últimos 365 días. Pasa el
-          ratón por la leyenda para resaltar.
+          Comparativa de franjas horarias en los últimos 365 días. Pasa el ratón
+          por la leyenda para resaltar.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -110,4 +110,4 @@ export const TrendChart = ({
       </CardContent>
     </Card>
   );
-}
+};

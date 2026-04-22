@@ -1,5 +1,4 @@
 import { useParams } from "react-router";
-import { useSupplyDetail } from "@/features/supply-detail/use-supply-detail";
 import { AddReadingDialog } from "@/features/supply-detail/components/add-reading-dialog";
 import { ConsumptionChart } from "@/features/supply-detail/components/consumption-chart";
 import { DeleteReadingDialog } from "@/features/supply-detail/components/delete-reading-dialog";
@@ -9,6 +8,7 @@ import { ReadingsTable } from "@/features/supply-detail/components/readings-tabl
 import { StatsCards } from "@/features/supply-detail/components/stats-cards";
 import { SupplyHeader } from "@/features/supply-detail/components/supply-header";
 import { TrendChart } from "@/features/supply-detail/components/trend-chart";
+import { useSupplyDetail } from "@/features/supply-detail/use-supply-detail";
 
 const SupplyDetailPage = () => {
   const { supplyId } = useParams<{ supplyId: string }>();
@@ -62,49 +62,49 @@ const SupplyDetailPage = () => {
   return (
     <div className="container mx-auto max-w-5xl p-6">
       <DeleteReadingDialog
-        open={!!readingToDelete}
         onClose={() => setReadingToDelete(null)}
         onConfirm={confirmDeleteReading}
+        open={!!readingToDelete}
       />
       <EditReadingDialog
-        reading={readingToEdit}
         onClose={() => setReadingToEdit(null)}
         onSave={handleEditReading}
+        reading={readingToEdit}
       />
       <EditSupplyDialog
-        open={isEditSupplyDialogOpen}
-        supply={supply}
         onClose={() => setIsEditSupplyDialogOpen(false)}
         onSave={handleEditSupply}
+        open={isEditSupplyDialogOpen}
+        supply={supply}
       />
       <AddReadingDialog
-        open={isAddDialogOpen}
-        onClose={() => setIsAddDialogOpen(false)}
         onAdd={handleAddReading}
+        onClose={() => setIsAddDialogOpen(false)}
+        open={isAddDialogOpen}
       />
 
       <SupplyHeader
+        onAddReadingClick={() => setIsAddDialogOpen(true)}
+        onEditClick={() => setIsEditSupplyDialogOpen(true)}
         supply={supply}
         supplyId={supplyId ?? ""}
-        onEditClick={() => setIsEditSupplyDialogOpen(true)}
-        onAddReadingClick={() => setIsAddDialogOpen(true)}
       />
 
       {sortedReadings.length > 0 && (
         <StatsCards
-          dailyAverage={dailyAverage}
           accumulatedCost={accumulatedCost}
-          statsPeak={statsPeak}
+          dailyAverage={dailyAverage}
           statsFlat={statsFlat}
           statsOffPeak={statsOffPeak}
+          statsPeak={statsPeak}
           statsTotalKwh={statsTotalKwh}
         />
       )}
 
       {sortedReadings.length > 0 && (
         <ConsumptionChart
-          chartData={chartData}
           availableYears={availableYears}
+          chartData={chartData}
           currentSelectedYear={currentSelectedYear}
           onYearChange={setSelectedYear}
         />
@@ -113,25 +113,25 @@ const SupplyDetailPage = () => {
       {lastYearChartData.length > 0 && (
         <TrendChart
           data={lastYearChartData}
-          opacity={opacity}
           onLegendMouseEnter={handleLegendMouseEnter}
           onLegendMouseLeave={handleLegendMouseLeave}
+          opacity={opacity}
         />
       )}
 
       <ReadingsTable
-        readings={paginatedReadings}
         allReadingsCount={sortedReadings.length}
-        supply={supply}
-        datosGenerales={datosGenerales}
         currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-        onEditReading={setReadingToEdit}
+        datosGenerales={datosGenerales}
         onDeleteReading={setReadingToDelete}
+        onEditReading={setReadingToEdit}
+        onPageChange={setCurrentPage}
+        readings={paginatedReadings}
+        supply={supply}
+        totalPages={totalPages}
       />
     </div>
   );
-}
+};
 
 export const Component = SupplyDetailPage;

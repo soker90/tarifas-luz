@@ -13,9 +13,9 @@ import { Label } from "@/components/ui/label";
 import type { ReadingFormData } from "../use-supply-detail";
 
 interface AddReadingDialogProps {
-  open: boolean;
-  onClose: () => void;
   onAdd: (data: ReadingFormData) => Promise<void>;
+  onClose: () => void;
+  open: boolean;
 }
 
 export const AddReadingDialog = ({
@@ -31,7 +31,9 @@ export const AddReadingDialog = ({
   const [cost, setCost] = useState("");
 
   const handleSubmit = async () => {
-    if (!(startDate && endDate)) return;
+    if (!(startDate && endDate)) {
+      return;
+    }
     await onAdd({
       startDate,
       endDate,
@@ -131,4 +133,4 @@ export const AddReadingDialog = ({
       </DialogContent>
     </Dialog>
   );
-}
+};

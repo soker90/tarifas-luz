@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/dialog";
 
 interface DeleteReadingDialogProps {
-  open: boolean;
   onClose: () => void;
   onConfirm: () => void;
+  open: boolean;
 }
 
 export const DeleteReadingDialog = ({
@@ -40,4 +40,4 @@ export const DeleteReadingDialog = ({
       </DialogContent>
     </Dialog>
   );
-}
+};

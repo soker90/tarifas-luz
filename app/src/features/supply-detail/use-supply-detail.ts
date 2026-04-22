@@ -6,34 +6,36 @@ import type { DatosGenerales } from "@/db/use-tarifas";
 import { useTarifasData } from "@/db/use-tarifas";
 
 export interface ReadingFormData {
-  startDate: string;
+  cost?: number;
   endDate: string;
-  peak: number;
   flat: number;
   offPeak: number;
-  cost?: number;
+  peak: number;
+  startDate: string;
 }
 
 export interface EditSupplyFormData {
-  name: string;
-  contractedPowerPeak: number;
   contractedPowerOffPeak: number;
-  currentPricePowerPeak?: number;
-  currentPricePowerOffPeak?: number;
-  currentPriceEnergyPeak?: number;
+  contractedPowerPeak: number;
   currentPriceEnergyFlat?: number;
   currentPriceEnergyOffPeak?: number;
+  currentPriceEnergyPeak?: number;
+  currentPricePowerOffPeak?: number;
+  currentPricePowerPeak?: number;
+  name: string;
 }
 
-export type ChartPoint = {
+export interface ChartPoint {
+  Llano: number;
   name: string;
   Punta: number;
-  Llano: number;
   Valle: number;
-};
+}
 
 const computeLastYearChartData = (sortedReadings: Reading[]): ChartPoint[] => {
-  if (!sortedReadings.length) return [];
+  if (!sortedReadings.length) {
+    return [];
+  }
   const lastDate = new Date(sortedReadings[0].endDate).getTime();
   const oneYearAgo = lastDate - 365 * 24 * 60 * 60 * 1000;
   return [...sortedReadings]
@@ -48,7 +50,7 @@ const computeLastYearChartData = (sortedReadings: Reading[]): ChartPoint[] => {
       Llano: r.consumptionFlat,
       Valle: r.consumptionOffPeak,
     }));
-}
+};
 
 const computeStats = (
   sortedReadings: Reading[],
@@ -93,7 +95,7 @@ const computeStats = (
   }
 
   return { statsDays, statsPeak, statsFlat, statsOffPeak, statsAccCost };
-}
+};
 
 export const ITEMS_PER_PAGE = 20;
 
@@ -152,15 +154,15 @@ export const useSupplyDetail = (supplyId: string | undefined) => {
   const lastYearChartData = computeLastYearChartData(sortedReadings);
 
   const stats =
-    supply != null
-      ? computeStats(sortedReadings, supply, datosGenerales)
-      : {
+    supply == null
+      ? {
           statsDays: 0,
           statsPeak: 0,
           statsFlat: 0,
           statsOffPeak: 0,
           statsAccCost: 0,
-        };
+        }
+      : computeStats(sortedReadings, supply, datosGenerales);
 
   const statsTotalKwh = stats.statsPeak + stats.statsFlat + stats.statsOffPeak;
   const dailyAverage =
@@ -253,4 +255,4 @@ export const useSupplyDetail = (supplyId: string | undefined) => {
     dailyAverage,
     accumulatedCost,
   };
-}
+};

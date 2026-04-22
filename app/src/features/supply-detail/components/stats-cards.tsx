@@ -1,16 +1,11 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface StatsCardsProps {
-  dailyAverage: string;
   accumulatedCost: string;
-  statsPeak: number;
+  dailyAverage: string;
   statsFlat: number;
   statsOffPeak: number;
+  statsPeak: number;
   statsTotalKwh: number;
 }
 
@@ -100,8 +95,7 @@ export const StatsCards = ({
         </CardHeader>
         <CardContent>
           <div className="font-bold text-2xl text-indigo-700">
-            {accumulatedCost}{" "}
-            <span className="font-normal text-sm">€</span>
+            {accumulatedCost} <span className="font-normal text-sm">€</span>
             <p className="mt-1 font-normal text-[10px] text-indigo-600/70">
               Suma de reales + estimados
             </p>
@@ -110,4 +104,4 @@ export const StatsCards = ({
       </Card>
     </div>
   );
-}
+};

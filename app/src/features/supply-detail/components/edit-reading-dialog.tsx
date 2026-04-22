@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import type { Reading } from "@/db/db";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,12 +10,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import type { Reading } from "@/db/db";
 import type { ReadingFormData } from "../use-supply-detail";
 
 interface EditReadingDialogProps {
-  reading: Reading | null;
   onClose: () => void;
   onSave: (id: string, data: ReadingFormData) => Promise<void>;
+  reading: Reading | null;
 }
 
 export const EditReadingDialog = ({
@@ -43,7 +43,9 @@ export const EditReadingDialog = ({
   }, [reading]);
 
   const handleSubmit = async () => {
-    if (!(reading && startDate && endDate)) return;
+    if (!(reading && startDate && endDate)) {
+      return;
+    }
     await onSave(reading.id, {
       startDate,
       endDate,
@@ -137,4 +139,4 @@ export const EditReadingDialog = ({
       </DialogContent>
     </Dialog>
   );
-}
+};

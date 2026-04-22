@@ -1,14 +1,14 @@
 import { Activity, ArrowLeft, Pencil, Plus } from "lucide-react";
 import { Link } from "react-router";
-import type { Supply } from "@/db/db";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import type { Supply } from "@/db/db";
 
 interface SupplyHeaderProps {
+  onAddReadingClick: () => void;
+  onEditClick: () => void;
   supply: Supply;
   supplyId: string;
-  onEditClick: () => void;
-  onAddReadingClick: () => void;
 }
 
 export const SupplyHeader = ({
@@ -84,4 +84,4 @@ export const SupplyHeader = ({
       </div>
     </>
   );
-}
+};

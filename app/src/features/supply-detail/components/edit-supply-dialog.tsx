@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import type { Supply } from "@/db/db";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,13 +10,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import type { Supply } from "@/db/db";
 import type { EditSupplyFormData } from "../use-supply-detail";
 
 interface EditSupplyDialogProps {
-  open: boolean;
-  supply: Supply;
   onClose: () => void;
   onSave: (data: EditSupplyFormData) => Promise<void>;
+  open: boolean;
+  supply: Supply;
 }
 
 export const EditSupplyDialog = ({
@@ -49,7 +49,9 @@ export const EditSupplyDialog = ({
   }, [open, supply]);
 
   const handleSubmit = async () => {
-    if (!name.trim()) return;
+    if (!name.trim()) {
+      return;
+    }
     await onSave({
       name,
       contractedPowerPeak: Number(powerPeak) || 0,
@@ -205,4 +207,4 @@ export const EditSupplyDialog = ({
       </DialogContent>
     </Dialog>
   );
-}
+};

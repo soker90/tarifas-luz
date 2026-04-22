@@ -14,8 +14,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { ChartPoint } from "../use-supply-detail";
 
 interface ConsumptionChartProps {
-  chartData: ChartPoint[];
   availableYears: string[];
+  chartData: ChartPoint[];
   currentSelectedYear: string;
   onYearChange: (year: string) => void;
 }
@@ -100,4 +100,4 @@ export const ConsumptionChart = ({
       </CardContent>
     </Card>
   );
-}
+};

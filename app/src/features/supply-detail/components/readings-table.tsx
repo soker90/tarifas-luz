@@ -1,6 +1,4 @@
 import { Info, Pencil, Trash2 } from "lucide-react";
-import type { Reading, Supply } from "@/db/db";
-import type { DatosGenerales } from "@/db/use-tarifas";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,18 +15,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import type { Reading, Supply } from "@/db/db";
+import type { DatosGenerales } from "@/db/use-tarifas";
 import { ITEMS_PER_PAGE } from "../use-supply-detail";
 
 interface ReadingsTableProps {
-  readings: Reading[];
   allReadingsCount: number;
-  supply: Supply;
-  datosGenerales: DatosGenerales | null;
   currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-  onEditReading: (reading: Reading) => void;
+  datosGenerales: DatosGenerales | null;
   onDeleteReading: (id: string) => void;
+  onEditReading: (reading: Reading) => void;
+  onPageChange: (page: number) => void;
+  readings: Reading[];
+  supply: Supply;
+  totalPages: number;
 }
 
 const computeEstimatedCost = (
@@ -36,7 +36,9 @@ const computeEstimatedCost = (
   supply: Supply,
   datosGenerales: DatosGenerales | null
 ): number | null => {
-  if (supply.currentPriceEnergyPeak === undefined) return null;
+  if (supply.currentPriceEnergyPeak === undefined) {
+    return null;
+  }
 
   const days = Math.max(
     1,
@@ -56,7 +58,9 @@ const computeEstimatedCost = (
     reading.consumptionFlat * (supply.currentPriceEnergyFlat || 0) +
     reading.consumptionOffPeak * (supply.currentPriceEnergyOffPeak || 0);
   const totalKwh =
-    reading.consumptionPeak + reading.consumptionFlat + reading.consumptionOffPeak;
+    reading.consumptionPeak +
+    reading.consumptionFlat +
+    reading.consumptionOffPeak;
   const impuestoAmount = Math.max(
     totalKwh * 0.001,
     (powerCost + energyCost) * impuestoElectrico
@@ -64,7 +68,7 @@ const computeEstimatedCost = (
   const totalBruto =
     powerCost + energyCost + impuestoAmount + alquilerContador * days;
   return totalBruto * (1 + iva);
-}
+};
 
 export const ReadingsTable = ({
   readings,
@@ -235,8 +239,7 @@ export const ReadingsTable = ({
                 <span className="font-medium">
                   {Math.min(currentPage * ITEMS_PER_PAGE, allReadingsCount)}
                 </span>{" "}
-                de{" "}
-                <span className="font-medium">{allReadingsCount}</span>{" "}
+                de <span className="font-medium">{allReadingsCount}</span>{" "}
                 lecturas
               </p>
               <div className="flex gap-2">
@@ -265,4 +268,4 @@ export const ReadingsTable = ({
       </CardContent>
     </Card>
   );
-}
+};
