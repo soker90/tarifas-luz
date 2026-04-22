@@ -59,11 +59,12 @@ const rowMapping = {
   15: 'energiaLlana',      // Row 15: Energía llana €/kWh
   16: 'energiaValle',      // Row 16: Energía valle €/kWh
   17: 'compensacionExcedentes', // Row 17: Compensación de excedentes
-  18: 'incluyeBonoSocial', // Row 18: ¿Incluye financiación bono social? (SI/NO)
+  18: 'tipoCompensacionExcedentes', // Row 18: tipo compensación (nocomp/legal/energía/zerofactura)
   // Row 19 no mapeado (no controlamos el Excel fuente)
   20: 'ultimoCambio',      // Row 20: Último cambio observado
   21: 'notaImportante',    // Row 21: Nota importante
   22: 'nota',              // Row 22: Nota
+  49: 'incluyeBonoSocial', // Row 49: Financ. Bono Social (€/día) - 0 = no incluye
 };
 
 async function transformExcel() {
@@ -126,8 +127,8 @@ async function transformExcel() {
         } else if (fieldName === 'ultimoCambio') {
           tarifa.detalles[fieldName] = excelDateToISO(value);
         } else if (fieldName === 'incluyeBonoSocial') {
-          // Vacío, null o 0 = false; cualquier otro valor = true
-          tarifa.detalles[fieldName] = value !== null && value !== undefined && value !== '' && value !== 0 && value !== '0';
+          // Row 49: valor numérico > 0 significa que incluye bono social
+          tarifa.detalles[fieldName] = typeof value === 'number' ? value > 0 : (value !== null && value !== undefined && value !== '' && value !== 0 && value !== '0');
         } else {
           let parsed = parseStringField(value);
           if (fieldName === 'compensacionExcedentes' && parsed === '0') {
