@@ -39,7 +39,8 @@
         "title": "Tarifas Luz",
         "width": 1000,
         "height": 600,
-        "dragDropEnabled": false
+        "dragDropEnabled": false,
+        "maximized": true
       }
     ]
   }

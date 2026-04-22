@@ -163,6 +163,7 @@ jobs:
 
       - name: Subir .msi.sig (Windows)
         if: matrix.platform.name == 'windows'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -197,6 +198,7 @@ jobs:
 
       - name: Subir .app.tar.gz (macOS Intel)
         if: matrix.platform.name == 'macos'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -208,6 +210,7 @@ jobs:
 
       - name: Subir .app.tar.gz.sig (macOS Intel)
         if: matrix.platform.name == 'macos'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -231,6 +234,7 @@ jobs:
 
       - name: Subir .app.tar.gz (macOS ARM64)
         if: matrix.platform.name == 'macos-arm64'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -242,6 +246,7 @@ jobs:
 
       - name: Subir .app.tar.gz.sig (macOS ARM64)
         if: matrix.platform.name == 'macos-arm64'
+        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
