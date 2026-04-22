@@ -126,9 +126,8 @@ async function transformExcel() {
         } else if (fieldName === 'ultimoCambio') {
           tarifa.detalles[fieldName] = excelDateToISO(value);
         } else if (fieldName === 'incluyeBonoSocial') {
-          // SI o cualquier valor positivo = incluye; NO, null o vacío = no incluye
-          const str = parseStringField(value);
-          tarifa.detalles[fieldName] = str !== null && str.toUpperCase() !== 'NO' && str !== '0';
+          // Vacío, null o 0 = false; cualquier otro valor = true
+          tarifa.detalles[fieldName] = value !== null && value !== undefined && value !== '' && value !== 0 && value !== '0';
         } else {
           let parsed = parseStringField(value);
           if (fieldName === 'compensacionExcedentes' && parsed === '0') {
