@@ -21,11 +21,11 @@ jobs:
       version: ${{ steps.get_version.outputs.version }}
 
     steps:
-      - name: Obtener versión del tag
-        id: get_version
-        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-
       - uses: actions/checkout@v4
+
+      - name: Obtener versión de tauri.conf.json
+        id: get_version
+        run: echo "version=$(jq -r '.version' app/src-tauri/tauri.conf.json)" >> $GITHUB_OUTPUT
 
       - name: Crear Release en GitHub
         id: create_release
