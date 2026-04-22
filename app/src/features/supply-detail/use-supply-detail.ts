@@ -32,7 +32,7 @@ export type ChartPoint = {
   Valle: number;
 };
 
-function computeLastYearChartData(sortedReadings: Reading[]): ChartPoint[] {
+const computeLastYearChartData = (sortedReadings: Reading[]): ChartPoint[] => {
   if (!sortedReadings.length) return [];
   const lastDate = new Date(sortedReadings[0].endDate).getTime();
   const oneYearAgo = lastDate - 365 * 24 * 60 * 60 * 1000;
@@ -50,11 +50,11 @@ function computeLastYearChartData(sortedReadings: Reading[]): ChartPoint[] {
     }));
 }
 
-function computeStats(
+const computeStats = (
   sortedReadings: Reading[],
   supply: Supply,
   datosGenerales: DatosGenerales | null
-) {
+) => {
   let statsDays = 0;
   let statsPeak = 0;
   let statsFlat = 0;
@@ -97,7 +97,7 @@ function computeStats(
 
 export const ITEMS_PER_PAGE = 20;
 
-export function useSupplyDetail(supplyId: string | undefined) {
+export const useSupplyDetail = (supplyId: string | undefined) => {
   const { supply, updateSupply } = useSupply(supplyId);
   const { readings, addReading, updateReading, deleteReading } =
     useReadings(supplyId);

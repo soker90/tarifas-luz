@@ -10,7 +10,7 @@ import { StatsCards } from "@/features/supply-detail/components/stats-cards";
 import { SupplyHeader } from "@/features/supply-detail/components/supply-header";
 import { TrendChart } from "@/features/supply-detail/components/trend-chart";
 
-function SupplyDetailPage() {
+const SupplyDetailPage = () => {
   const { supplyId } = useParams<{ supplyId: string }>();
   const {
     supply,

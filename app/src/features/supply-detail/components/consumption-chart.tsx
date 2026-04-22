@@ -20,12 +20,12 @@ interface ConsumptionChartProps {
   onYearChange: (year: string) => void;
 }
 
-export function ConsumptionChart({
+export const ConsumptionChart = ({
   chartData,
   availableYears,
   currentSelectedYear,
   onYearChange,
-}: ConsumptionChartProps) {
+}: ConsumptionChartProps) => {
   return (
     <Card className="mb-6 border-border/50 shadow-sm">
       <CardHeader className="flex flex-row items-center justify-between pb-2">

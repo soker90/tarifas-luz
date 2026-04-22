@@ -18,11 +18,11 @@ interface AddReadingDialogProps {
   onAdd: (data: ReadingFormData) => Promise<void>;
 }
 
-export function AddReadingDialog({
+export const AddReadingDialog = ({
   open,
   onClose,
   onAdd,
-}: AddReadingDialogProps) {
+}: AddReadingDialogProps) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [peak, setPeak] = useState("");

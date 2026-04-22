@@ -20,12 +20,12 @@ interface EditSupplyDialogProps {
   onSave: (data: EditSupplyFormData) => Promise<void>;
 }
 
-export function EditSupplyDialog({
+export const EditSupplyDialog = ({
   open,
   supply,
   onClose,
   onSave,
-}: EditSupplyDialogProps) {
+}: EditSupplyDialogProps) => {
   const [name, setName] = useState("");
   const [powerPeak, setPowerPeak] = useState("");
   const [powerOffPeak, setPowerOffPeak] = useState("");

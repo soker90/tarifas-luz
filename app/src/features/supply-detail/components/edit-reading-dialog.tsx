@@ -19,11 +19,11 @@ interface EditReadingDialogProps {
   onSave: (id: string, data: ReadingFormData) => Promise<void>;
 }
 
-export function EditReadingDialog({
+export const EditReadingDialog = ({
   reading,
   onClose,
   onSave,
-}: EditReadingDialogProps) {
+}: EditReadingDialogProps) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [peak, setPeak] = useState("");

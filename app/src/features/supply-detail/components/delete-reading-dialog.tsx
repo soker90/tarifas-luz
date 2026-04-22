@@ -14,11 +14,11 @@ interface DeleteReadingDialogProps {
   onConfirm: () => void;
 }
 
-export function DeleteReadingDialog({
+export const DeleteReadingDialog = ({
   open,
   onClose,
   onConfirm,
-}: DeleteReadingDialogProps) {
+}: DeleteReadingDialogProps) => {
   return (
     <Dialog onOpenChange={(isOpen) => !isOpen && onClose()} open={open}>
       <DialogContent>

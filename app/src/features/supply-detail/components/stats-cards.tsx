@@ -14,14 +14,14 @@ interface StatsCardsProps {
   statsTotalKwh: number;
 }
 
-export function StatsCards({
+export const StatsCards = ({
   dailyAverage,
   accumulatedCost,
   statsPeak,
   statsFlat,
   statsOffPeak,
   statsTotalKwh,
-}: StatsCardsProps) {
+}: StatsCardsProps) => {
   return (
     <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-3">
       <Card className="border-border/50 shadow-sm">

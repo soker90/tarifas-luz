@@ -26,12 +26,12 @@ interface TrendChartProps {
   onLegendMouseLeave: () => void;
 }
 
-export function TrendChart({
+export const TrendChart = ({
   data,
   opacity,
   onLegendMouseEnter,
   onLegendMouseLeave,
-}: TrendChartProps) {
+}: TrendChartProps) => {
   return (
     <Card className="mb-6 border-border/50 shadow-sm">
       <CardHeader className="pb-2">

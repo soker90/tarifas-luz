@@ -11,12 +11,12 @@ interface SupplyHeaderProps {
   onAddReadingClick: () => void;
 }
 
-export function SupplyHeader({
+export const SupplyHeader = ({
   supply,
   supplyId,
   onEditClick,
   onAddReadingClick,
-}: SupplyHeaderProps) {
+}: SupplyHeaderProps) => {
   return (
     <>
       <div className="mb-6">

@@ -31,11 +31,11 @@ interface ReadingsTableProps {
   onDeleteReading: (id: string) => void;
 }
 
-function computeEstimatedCost(
+const computeEstimatedCost = (
   reading: Reading,
   supply: Supply,
   datosGenerales: DatosGenerales | null
-): number | null {
+): number | null => {
   if (supply.currentPriceEnergyPeak === undefined) return null;
 
   const days = Math.max(
@@ -66,7 +66,7 @@ function computeEstimatedCost(
   return totalBruto * (1 + iva);
 }
 
-export function ReadingsTable({
+export const ReadingsTable = ({
   readings,
   allReadingsCount,
   supply,
@@ -76,7 +76,7 @@ export function ReadingsTable({
   onPageChange,
   onEditReading,
   onDeleteReading,
-}: ReadingsTableProps) {
+}: ReadingsTableProps) => {
   if (!allReadingsCount) {
     return (
       <Card className="border-border/50 shadow-sm">
