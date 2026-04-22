@@ -24,7 +24,7 @@
       "active": true
     },
     "updater": {
-      "pubkey": "",
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEYzMzkwNUM1RjhFMTNERkUKUldUK1BlSDR4UVU1ODM0cndpKy9GRm9jWU5BS0tvRW0rSVJxbFNZdEhjaXYzZk9ZclZ5WHJlV1UK",
       "endpoints": [
         "https://github.com/soker90/tarifas-luz/releases/latest/download/latest.json"
       ]
