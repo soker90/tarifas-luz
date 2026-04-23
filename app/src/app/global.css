@@ -121,6 +121,10 @@
     @apply h-full overscroll-none;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground h-full;
+  }
+  /* WebKit (Tauri Linux) needs an explicit overflow-y scroll container */
+  #root {
+    @apply h-full overflow-y-auto;
   }
 }

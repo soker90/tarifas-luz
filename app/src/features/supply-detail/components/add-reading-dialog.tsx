@@ -9,6 +9,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { DateInput } from "@/components/ui/date-input";
 import { Label } from "@/components/ui/label";
 import type { ReadingFormData } from "../use-supply-detail";
 
@@ -23,8 +24,8 @@ export const AddReadingDialog = ({
   onClose,
   onAdd,
 }: AddReadingDialogProps) => {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  const [startDate, setStartDate] = useState<string | undefined>(undefined);
+  const [endDate, setEndDate] = useState<string | undefined>(undefined);
   const [peak, setPeak] = useState("");
   const [flat, setFlat] = useState("");
   const [offPeak, setOffPeak] = useState("");
@@ -42,8 +43,8 @@ export const AddReadingDialog = ({
       offPeak: Number(offPeak) || 0,
       cost: cost ? Number(cost) : undefined,
     });
-    setStartDate("");
-    setEndDate("");
+    setStartDate(undefined);
+    setEndDate(undefined);
     setPeak("");
     setFlat("");
     setOffPeak("");
@@ -69,18 +70,16 @@ export const AddReadingDialog = ({
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <Label>Fecha Inicio</Label>
-                <Input
-                  onChange={(e) => setStartDate(e.target.value)}
-                  type="date"
-                  value={startDate}
+                <DateInput
+                  onChange={(v) => setStartDate(v || undefined)}
+                  value={startDate ?? ""}
                 />
               </div>
               <div className="grid gap-2">
                 <Label>Fecha Fin</Label>
-                <Input
-                  onChange={(e) => setEndDate(e.target.value)}
-                  type="date"
-                  value={endDate}
+                <DateInput
+                  onChange={(v) => setEndDate(v || undefined)}
+                  value={endDate ?? ""}
                 />
               </div>
             </div>
