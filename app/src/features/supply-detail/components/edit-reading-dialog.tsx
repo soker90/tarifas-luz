@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { DateInput } from "@/components/ui/date-input";
 import {
   Dialog,
   DialogContent,
@@ -9,7 +10,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { DateInput } from "@/components/ui/date-input";
 import { Label } from "@/components/ui/label";
 import type { Reading } from "@/db/db";
 import type { ReadingFormData } from "../use-supply-detail";
@@ -76,17 +76,11 @@ export const EditReadingDialog = ({
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <Label>Fecha Inicio</Label>
-                <DateInput
-                  onChange={setStartDate}
-                  value={startDate}
-                />
+                <DateInput onChange={setStartDate} value={startDate} />
               </div>
               <div className="grid gap-2">
                 <Label>Fecha Fin</Label>
-                <DateInput
-                  onChange={setEndDate}
-                  value={endDate}
-                />
+                <DateInput onChange={setEndDate} value={endDate} />
               </div>
             </div>
             <div className="grid grid-cols-3 gap-4">
