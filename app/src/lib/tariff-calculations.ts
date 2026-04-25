@@ -85,24 +85,28 @@ export const calculateFirstYearTotal = (
   d: TarifaDetalles,
   estimatedAnnualTotal: number
 ): number | undefined => {
-  if (!d.descuento?.meses) {
+  if (!d.descuento) {
     return undefined;
   }
   const desc = d.descuento;
-  const meses = desc.meses ?? 0;
+  // meses === null → descuento permanente, se aplica el año completo (12 meses)
+  // meses > 12 → se limita a 12 para no descontar más de un año
+  const mesesPrimerAno = desc.meses === null ? 12 : Math.min(desc.meses, 12);
   const mantenimiento = d.mantenimientoPrecio || 12;
   if (desc.tipo === "porcentaje") {
     const descuentoEuros =
-      estimatedAnnualTotal * (meses / 12) * (desc.valor / 100);
+      estimatedAnnualTotal * (mesesPrimerAno / 12) * (desc.valor / 100);
     return Number((estimatedAnnualTotal - descuentoEuros).toFixed(2));
   }
-  const numPeriodos = meses / mantenimiento;
+  const numPeriodos = mesesPrimerAno / mantenimiento;
   return Number((estimatedAnnualTotal - desc.valor * numPeriodos).toFixed(2));
 };
 
 export const getBilledDays = (startDate: string, endDate: string): number =>
   Math.max(
     1,
-    (new Date(endDate).getTime() - new Date(startDate).getTime()) /
-      (1000 * 60 * 60 * 24)
+    Math.round(
+      (new Date(endDate).getTime() - new Date(startDate).getTime()) /
+        (1000 * 60 * 60 * 24)
+    )
   );
