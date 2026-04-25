@@ -93,8 +93,8 @@ export const TariffRow = ({
               c.savings > 0 ? "text-green-600" : "text-red-600"
             }`}
           >
-            {c.savings > 0 ? "+" : ""}
-            {c.savings.toFixed(2)}€
+            {c.savings > 0 ? "-" : c.savings < 0 ? "+" : ""}
+            {Math.abs(c.savings).toFixed(2)}€
           </span>
         </TableCell>
       )}

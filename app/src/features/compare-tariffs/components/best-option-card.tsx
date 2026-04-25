@@ -42,6 +42,11 @@ export const BestOptionCard = ({ best }: BestOptionCardProps) => (
           <p className="mt-1 font-medium text-green-700/80 text-xs uppercase tracking-wider">
             / Año (IVA inc.)
           </p>
+          {best.firstYearTotal !== undefined && (
+            <p className="mt-1 font-medium text-purple-600 text-xs">
+              1er año: {best.firstYearTotal.toFixed(2)}€
+            </p>
+          )}
         </div>
       </div>
     </CardContent>
