@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.005,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-04-22"
+    "actualizadoEn": "2026-04-27"
   },
   "tarifas": [
     {
@@ -373,12 +373,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1804,
-        "energiaLlana": 0.1114,
-        "energiaValle": 0.0934,
+        "energiaPunta": 0.1784,
+        "energiaLlana": 0.1094,
+        "energiaValle": 0.0914,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-04-22",
+        "ultimoCambio": "2026-04-27",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
