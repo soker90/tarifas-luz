@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.005,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-04-27"
+    "actualizadoEn": "2026-04-29"
   },
   "tarifas": [
     {
@@ -30,6 +30,62 @@
         "descuento": {
           "tipo": "porcentaje",
           "valor": 25,
+          "meses": 3,
+          "soloNuevosClientes": false
+        }
+      }
+    },
+    {
+      "comercializadora": "ENERGYASSET",
+      "detalles": {
+        "nombreTarifa": "Tarifa Precio\r\n por Periodo. Lanz.",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 3,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.0759,
+        "potenciaValle": 0.038,
+        "periodos": 3,
+        "energiaPunta": 0.16,
+        "energiaLlana": 0.12,
+        "energiaValle": 0.08,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-04-29",
+        "notaImportante": null,
+        "nota": "Incluye descuento 15% de los primeros tres meses",
+        "incluyeBonoSocial": true,
+        "descuento": {
+          "tipo": "porcentaje",
+          "valor": 15,
+          "meses": 3,
+          "soloNuevosClientes": false
+        }
+      }
+    },
+    {
+      "comercializadora": "ENERGYASSET",
+      "detalles": {
+        "nombreTarifa": "Tarifa Plana.Lanzamiento",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 3,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.0759,
+        "potenciaValle": 0.0639,
+        "periodos": 1,
+        "energiaPunta": 0.099,
+        "energiaLlana": 0.099,
+        "energiaValle": 0.099,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-04-29",
+        "notaImportante": null,
+        "nota": "Incluye descuento 15% de los primeros tres meses",
+        "incluyeBonoSocial": true,
+        "descuento": {
+          "tipo": "porcentaje",
+          "valor": 15,
           "meses": 3,
           "soloNuevosClientes": false
         }
@@ -373,12 +429,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1784,
-        "energiaLlana": 0.1094,
-        "energiaValle": 0.0914,
+        "energiaPunta": 0.1798,
+        "energiaLlana": 0.1108,
+        "energiaValle": 0.0928,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-04-27",
+        "ultimoCambio": "2026-04-29",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
