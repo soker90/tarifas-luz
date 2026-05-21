@@ -1,7 +1,6 @@
 ---
 import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
-import { resolve, dirname } from "path";
+import { resolve } from "path";
 import Layout from "../layouts/Layout.astro";
 import NavBar from "../components/NavBar.astro";
 import HeroSection from "../components/HeroSection.astro";
@@ -11,9 +10,8 @@ import HowItWorksSection from "../components/HowItWorksSection.astro";
 import DownloadSection from "../components/DownloadSection.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const tauriConf = JSON.parse(
-  readFileSync(resolve(__dirname, "../../../app/src-tauri/tauri.conf.json"), "utf-8")
+  readFileSync(resolve(process.cwd(), "../app/src-tauri/tauri.conf.json"), "utf-8")
 );
 
 const base    = import.meta.env.BASE_URL.replace(/\/$/, "");
