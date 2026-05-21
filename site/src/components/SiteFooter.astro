@@ -1,0 +1,45 @@
+---
+import AppLogo from "./AppLogo.astro";
+
+interface Props {
+  repo: string;
+}
+const { repo } = Astro.props;
+
+const links = [
+  { label: "GitHub",   href: `https://github.com/${repo}` },
+  { label: "Releases", href: `https://github.com/${repo}/releases` },
+  { label: "Issues",   href: `https://github.com/${repo}/issues` },
+  { label: "Licencia", href: `https://github.com/${repo}/blob/master/LICENSE` },
+];
+---
+<footer style="border-top:1px solid var(--color-hairline);padding:32px 20px;">
+  <div style="max-width:1200px;margin:0 auto;
+              display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="display:flex;align-items:center;justify-content:center;
+                   width:28px;height:28px;border-radius:var(--r-md);
+                   background:var(--color-yellow);color:#181a20;">
+        <AppLogo size={18} />
+      </span>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--color-white);">Tarifas Luz</div>
+        <div style="font-size:11px;color:var(--color-muted);">MIT License · Open source</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      {links.map(l => (
+        <a href={l.href} target="_blank" rel="noopener"
+           style="font-size:12px;color:var(--color-muted);text-decoration:none;transition:color 0.15s;"
+           onmouseover="this.style.color='var(--color-body)'"
+           onmouseout="this.style.color='var(--color-muted)'">{l.label}</a>
+      ))}
+    </div>
+
+  </div>
+  <div style="max-width:1200px;margin:16px auto 0;font-size:11px;color:var(--color-raised);">
+    Los precios mostrados son orientativos. Verifica siempre con tu comercializadora antes de contratar.
+  </div>
+</footer>

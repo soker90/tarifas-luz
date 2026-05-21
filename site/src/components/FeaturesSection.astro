@@ -1,0 +1,51 @@
+---
+const features = [
+  {
+    n: "01",
+    title: "Comparativa completa",
+    desc: "Todas las tarifas del mercado libre ordenadas de menor a mayor precio. Filtra por períodos (1P / 3P) y comercializadora.",
+  },
+  {
+    n: "02",
+    title: "Cálculo con datos reales",
+    desc: "Introduce los kWh punta, llano y valle de tus facturas y obtén el coste exacto con cada comercializadora, sin estimaciones.",
+  },
+  {
+    n: "03",
+    title: "Varios suministros",
+    desc: "Gestiona casa, garaje, oficina o cualquier punto de suministro por separado desde la misma aplicación.",
+  },
+  {
+    n: "04",
+    title: "Datos siempre frescos",
+    desc: "La base de tarifas se actualiza automáticamente cada día. La app te avisa cuando hay una versión nueva disponible.",
+  },
+  {
+    n: "05",
+    title: "Privacidad total",
+    desc: "Nada sale de tu dispositivo. Sin cuenta, sin telemetría, sin anuncios. Código abierto auditable en GitHub.",
+  },
+];
+---
+<section id="caracteristicas" style="padding:80px 20px;max-width:1200px;margin:0 auto;">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;
+              border-bottom:1px solid var(--color-hairline);padding-bottom:20px;margin-bottom:0;">
+    <h2 style="font-size:clamp(1.6rem,2.5vw,2rem);font-weight:700;letter-spacing:-0.5px;
+               color:var(--color-white);">Características</h2>
+    <span class="section-label">{features.length} funciones principales</span>
+  </div>
+
+  {features.map(f => (
+    <div class="card-hover"
+         style="display:grid;grid-template-columns:64px 1fr 1fr;gap:24px;align-items:start;
+                padding:24px 0;border-bottom:1px solid var(--color-hairline);cursor:default;">
+      <span class="num"
+            style="font-size:11px;font-weight:700;letter-spacing:0.08em;
+                   color:var(--color-yellow);padding-top:3px;">{f.n}</span>
+      <h3 style="font-size:15px;font-weight:600;color:var(--color-white);line-height:1.4;">{f.title}</h3>
+      <p style="font-size:14px;color:var(--color-muted);line-height:1.6;">{f.desc}</p>
+    </div>
+  ))}
+
+</section>

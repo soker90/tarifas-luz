@@ -1,0 +1,104 @@
+---
+import IconWindows from "./IconWindows.astro";
+import IconApple from "./IconApple.astro";
+import IconLinux from "./IconLinux.astro";
+
+interface Props {
+  version: string;
+  repo: string;
+}
+const { version, repo } = Astro.props;
+
+const releaseBase = `https://github.com/${repo}/releases/download/v${version}`;
+
+const downloads = [
+  {
+    os: "Windows",
+    Icon: IconWindows,
+    arch: "x64",
+    note: "Windows 10 / 11",
+    primary: { label: "Setup .exe", url: `${releaseBase}/tarifas-luz_${version}_windows_x64-setup.exe` },
+    alt:     { label: ".msi",       url: `${releaseBase}/tarifas-luz_${version}_windows_x64.msi` },
+  },
+  {
+    os: "macOS",
+    Icon: IconApple,
+    arch: "Apple Silicon",
+    note: "macOS 11+",
+    primary: { label: "Apple Silicon .dmg", url: `${releaseBase}/tarifas-luz_${version}_macos_aarch64.dmg` },
+    alt:     { label: "Intel .dmg",         url: `${releaseBase}/tarifas-luz_${version}_macos_x64.dmg` },
+  },
+  {
+    os: "Linux",
+    Icon: IconLinux,
+    arch: "amd64",
+    note: "Ubuntu / Debian",
+    primary: { label: ".deb",      url: `${releaseBase}/tarifas-luz_${version}_linux_amd64.deb` },
+    alt:     { label: ".AppImage", url: `${releaseBase}/tarifas-luz_${version}_linux_amd64.AppImage` },
+  },
+];
+---
+<section id="descargar" style="padding:80px 20px;max-width:1200px;margin:0 auto;">
+
+  <div style="display:flex;align-items:baseline;justify-content:space-between;
+              border-bottom:1px solid var(--color-hairline);padding-bottom:20px;margin-bottom:40px;">
+    <h2 style="font-size:clamp(1.6rem,2.5vw,2rem);font-weight:700;letter-spacing:-0.5px;
+               color:var(--color-white);">Descarga</h2>
+    <span class="section-label num">v{version} · gratis para siempre</span>
+  </div>
+
+  <div style="border:1px solid var(--color-hairline);border-radius:var(--r-lg);overflow:hidden;">
+    {downloads.map((d, i) => (
+      <div style={`display:grid;grid-template-columns:180px 1fr auto auto;gap:16px;
+                   align-items:center;padding:20px 24px;background:var(--color-card);
+                   border-bottom:${i < downloads.length - 1 ? "1px solid var(--color-hairline)" : "none"};`}>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <d.Icon size={20} color="var(--color-muted)" />
+          <div>
+            <div style="font-size:15px;font-weight:600;color:var(--color-white);">{d.os}</div>
+            <div style="font-size:12px;color:var(--color-muted);margin-top:2px;">{d.note} · {d.arch}</div>
+          </div>
+        </div>
+
+        <div style="font-size:13px;color:var(--color-muted);">
+          {d.primary.label} · {d.alt.label}
+        </div>
+
+        <a href={d.alt.url}
+           style="padding:7px 14px;border-radius:var(--r-md);border:1px solid var(--color-hairline);
+                  font-size:12px;font-weight:500;color:var(--color-strong);
+                  text-decoration:none;transition:border-color 0.15s;white-space:nowrap;"
+           onmouseover="this.style.borderColor='var(--color-strong)'"
+           onmouseout="this.style.borderColor='var(--color-hairline)'">
+          {d.alt.label}
+        </a>
+
+        <a href={d.primary.url}
+           style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;
+                  border-radius:var(--r-md);background:var(--color-yellow);color:#181a20;
+                  font-size:13px;font-weight:700;text-decoration:none;
+                  white-space:nowrap;transition:background 0.15s;"
+           onmouseover="this.style.background='var(--color-yellow-active)'"
+           onmouseout="this.style.background='var(--color-yellow)'">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          {d.primary.label}
+        </a>
+
+      </div>
+    ))}
+  </div>
+
+  <p style="margin-top:16px;font-size:12px;color:var(--color-muted);text-align:center;">
+    ¿Buscas otra arquitectura?
+    <a href={`https://github.com/${repo}/releases/latest`} target="_blank" rel="noopener"
+       style="color:var(--color-yellow);text-decoration:none;margin-left:4px;"
+       onmouseover="this.style.textDecoration='underline'"
+       onmouseout="this.style.textDecoration='none'">
+      Ver todos los archivos en GitHub Releases →
+    </a>
+  </p>
+
+</section>

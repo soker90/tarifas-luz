@@ -1,0 +1,161 @@
+---
+import IconWindows from "./IconWindows.astro";
+import IconApple from "./IconApple.astro";
+import IconLinux from "./IconLinux.astro";
+
+interface Props {
+  repo: string;
+}
+const { repo } = Astro.props;
+
+const mockRows = [
+  { name: "IMAGINA",   tariff: "Tarifa Base",  price: "0.099", saving: "−42 €", best: true  },
+  { name: "Doméstica", tariff: "Luz Fijo 24h", price: "0.102", saving: "−31 €", best: false },
+  { name: "ATULADO",   tariff: "Milenial",     price: "0.108", saving: "−19 €", best: false },
+  { name: "Naturgy",   tariff: "Noche",        price: "0.115", saving:  "+1 €", best: false },
+  { name: "Iberdrola", tariff: "Plan Online",  price: "0.121", saving:  "+9 €", best: false },
+];
+
+const platforms = [
+  { Icon: IconWindows, label: "Windows" },
+  { Icon: IconApple,   label: "macOS"   },
+  { Icon: IconLinux,   label: "Linux"   },
+];
+---
+<section style="padding:120px 20px 80px;max-width:1200px;margin:0 auto;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+
+    <!-- Texto izquierdo -->
+    <div>
+      <div class="anim section-label" style="margin-bottom:20px;">App gratuita · España</div>
+
+      <h1 class="anim anim-1"
+          style="font-size:clamp(2.4rem,4vw,3.5rem);font-weight:700;
+                 line-height:1.1;letter-spacing:-1px;color:var(--color-white);margin-bottom:20px;">
+        Compara tarifas<br/>de luz y ahorra<br/>
+        <span style="color:var(--color-yellow);">dinero real</span>
+      </h1>
+
+      <p class="anim anim-2"
+         style="font-size:15px;line-height:1.65;color:var(--color-muted);
+                max-width:420px;margin-bottom:36px;">
+        Conecta tus facturas, introduce tus lecturas reales y descubre
+        exactamente cuánto pagarías con cada comercializadora del mercado libre.
+      </p>
+
+      <div class="anim anim-3" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
+        <a href="#descargar"
+           style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;
+                  border-radius:var(--r-md);background:var(--color-yellow);color:#181a20;
+                  font-size:14px;font-weight:700;text-decoration:none;transition:background 0.15s;"
+           onmouseover="this.style.background='var(--color-yellow-active)'"
+           onmouseout="this.style.background='var(--color-yellow)'">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Descargar gratis
+        </a>
+        <a href={`https://github.com/${repo}`} target="_blank" rel="noopener"
+           style="display:inline-flex;align-items:center;gap:6px;padding:12px 20px;
+                  border-radius:var(--r-md);border:1px solid var(--color-hairline);
+                  color:var(--color-body);font-size:14px;font-weight:500;text-decoration:none;
+                  transition:border-color 0.15s;"
+           onmouseover="this.style.borderColor='var(--color-strong)'"
+           onmouseout="this.style.borderColor='var(--color-hairline)'">
+          Ver código fuente
+        </a>
+      </div>
+
+      <div class="anim anim-4" style="display:flex;gap:20px;">
+        {platforms.map(({ Icon, label }) => (
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--color-muted);">
+            <Icon size={15} color="var(--color-muted)" />
+            {label}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mock derecho — tabla de resultados -->
+    <div class="anim anim-2"
+         style="border-radius:var(--r-xl);border:1px solid var(--color-hairline);
+                background:var(--color-card);overflow:hidden;">
+
+      <!-- Barra de título estilo macOS -->
+      <div style="padding:14px 16px;border-bottom:1px solid var(--color-hairline);
+                  display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+        </div>
+        <span style="font-size:12px;color:var(--color-muted);">Comparativa · Casa Principal</span>
+        <div style="width:50px;"></div>
+      </div>
+
+      <!-- Info del suministro -->
+      <div style="padding:12px 16px;border-bottom:1px solid var(--color-hairline);
+                  display:flex;gap:16px;background:var(--color-raised);">
+        <div>
+          <div style="font-size:10px;color:var(--color-muted);text-transform:uppercase;
+                      letter-spacing:0.08em;margin-bottom:2px;">Potencia</div>
+          <div style="font-size:13px;font-weight:600;color:var(--color-white);" class="num">4.6 / 4.6 kW</div>
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--color-muted);text-transform:uppercase;
+                      letter-spacing:0.08em;margin-bottom:2px;">Consumo anual</div>
+          <div style="font-size:13px;font-weight:600;color:var(--color-white);" class="num">3.240 kWh</div>
+        </div>
+        <div style="margin-left:auto;">
+          <div style="font-size:10px;color:var(--color-muted);text-transform:uppercase;
+                      letter-spacing:0.08em;margin-bottom:2px;">18 tarifas</div>
+          <div style="font-size:11px;color:var(--color-up);">actualizadas hoy</div>
+        </div>
+      </div>
+
+      <!-- Cabeceras de columna -->
+      <div style="display:grid;grid-template-columns:1fr auto auto;padding:8px 16px;gap:12px;
+                  font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+                  color:var(--color-muted);border-bottom:1px solid var(--color-hairline);">
+        <span>Comercializadora</span>
+        <span style="text-align:right;">€/kWh</span>
+        <span style="text-align:right;min-width:60px;">Ahorro / año</span>
+      </div>
+
+      <!-- Filas -->
+      {mockRows.map((r, i) => (
+        <div style={`display:grid;grid-template-columns:1fr auto auto;
+                     padding:10px 16px;gap:12px;align-items:center;
+                     border-bottom:1px solid var(--color-hairline);
+                     background:${r.best ? "rgba(252,213,53,0.05)" : "transparent"};`}>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style={`display:inline-flex;align-items:center;justify-content:center;
+                          width:20px;height:20px;border-radius:3px;font-size:10px;font-weight:700;
+                          background:${r.best ? "var(--color-yellow)" : "var(--color-raised)"};
+                          color:${r.best ? "#181a20" : "var(--color-muted)"};`}
+                  class="num">{i + 1}</span>
+            <div>
+              <div style={`font-size:13px;font-weight:600;color:${r.best ? "var(--color-white)" : "var(--color-body)"};`}>
+                {r.name}
+              </div>
+              <div style="font-size:11px;color:var(--color-muted);">{r.tariff}</div>
+            </div>
+          </div>
+          <div style="text-align:right;font-size:13px;font-weight:600;color:var(--color-white);" class="num">
+            {r.price} €
+          </div>
+          <div style={`text-align:right;font-size:13px;font-weight:600;min-width:60px;
+                       color:${r.saving.startsWith("−") ? "var(--color-up)" : "var(--color-muted)"};`}
+               class="num">
+            {r.saving}
+          </div>
+        </div>
+      ))}
+
+      <div style="padding:10px 16px;font-size:11px;color:var(--color-muted);text-align:center;">
+        y 13 tarifas más →
+      </div>
+    </div>
+
+  </div>
+</section>
