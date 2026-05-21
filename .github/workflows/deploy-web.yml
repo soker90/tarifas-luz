@@ -5,6 +5,7 @@ on:
     branches: [master]
     paths:
       - "site/**"
+      - "tarifas.json"
       - ".github/workflows/deploy-web.yml"
   workflow_dispatch:
 
@@ -41,6 +42,9 @@ jobs:
       - name: Construir sitio
         working-directory: site
         run: pnpm build
+
+      - name: Copiar tarifas.json al output
+        run: cp tarifas.json site/dist/tarifas.json
 
       - name: Subir artefacto de Pages
         uses: actions/upload-pages-artifact@v3
