@@ -23,7 +23,7 @@ const platforms = [
 ];
 ---
 <section style="padding:120px 20px 80px;max-width:1200px;margin:0 auto;">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+  <div class="hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
 
     <!-- Texto izquierdo -->
     <div>
@@ -43,7 +43,7 @@ const platforms = [
         exactamente cuánto pagarías con cada comercializadora del mercado libre.
       </p>
 
-      <div class="anim anim-3" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
+      <div class="anim anim-3 hero-btns" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;">
         <a href="#descargar"
            style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;
                   border-radius:var(--r-md);background:var(--color-yellow);color:#181a20;
@@ -77,7 +77,7 @@ const platforms = [
     </div>
 
     <!-- Mock derecho — tabla de resultados -->
-    <div class="anim anim-2"
+    <div class="anim anim-2 hero-mock"
          style="border-radius:var(--r-xl);border:1px solid var(--color-hairline);
                 background:var(--color-card);overflow:hidden;">
 
@@ -159,3 +159,25 @@ const platforms = [
 
   </div>
 </section>
+
+<style>
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+    section {
+      padding-top: 80px !important;
+      padding-bottom: 48px !important;
+    }
+    .hero-btns {
+      flex-direction: column !important;
+    }
+    .hero-btns a {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 480px) {
+    .hero-mock { display: none !important; }
+  }
+</style>

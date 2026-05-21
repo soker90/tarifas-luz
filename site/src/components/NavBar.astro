@@ -25,21 +25,21 @@ const { base, repo } = Astro.props;
     </a>
 
     <nav style="display:flex;align-items:center;gap:6px;">
-      <a href="#caracteristicas"
+      <a href="#caracteristicas" class="nav-link"
          style="padding:6px 12px;font-size:13px;font-weight:500;color:var(--color-muted);
                 text-decoration:none;border-radius:var(--r-md);transition:color 0.15s;"
          onmouseover="this.style.color='var(--color-body)'"
          onmouseout="this.style.color='var(--color-muted)'">
         Características
       </a>
-      <a href="#como-funciona"
+      <a href="#como-funciona" class="nav-link"
          style="padding:6px 12px;font-size:13px;font-weight:500;color:var(--color-muted);
                 text-decoration:none;border-radius:var(--r-md);transition:color 0.15s;"
          onmouseover="this.style.color='var(--color-body)'"
          onmouseout="this.style.color='var(--color-muted)'">
         Cómo funciona
       </a>
-      <a href={`https://github.com/${repo}`} target="_blank" rel="noopener"
+      <a href={`https://github.com/${repo}`} target="_blank" rel="noopener" class="nav-link"
          style="display:flex;align-items:center;gap:6px;padding:6px 12px;font-size:13px;
                 font-weight:500;color:var(--color-muted);text-decoration:none;
                 border-radius:var(--r-md);transition:color 0.15s;"
@@ -62,3 +62,9 @@ const { base, repo } = Astro.props;
 
   </div>
 </header>
+
+<style>
+  @media (max-width: 768px) {
+    .nav-link { display: none !important; }
+  }
+</style>

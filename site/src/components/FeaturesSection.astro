@@ -37,7 +37,7 @@ const features = [
   </div>
 
   {features.map(f => (
-    <div class="card-hover"
+    <div class="card-hover feature-row"
          style="display:grid;grid-template-columns:64px 1fr 1fr;gap:24px;align-items:start;
                 padding:24px 0;border-bottom:1px solid var(--color-hairline);cursor:default;">
       <span class="num"
@@ -49,3 +49,16 @@ const features = [
   ))}
 
 </section>
+
+<style>
+  @media (max-width: 768px) {
+    .feature-row {
+      grid-template-columns: 40px 1fr !important;
+      gap: 12px 16px !important;
+    }
+    .feature-row p {
+      grid-column: 2;
+      margin-top: 4px;
+    }
+  }
+</style>

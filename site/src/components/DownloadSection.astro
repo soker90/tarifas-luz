@@ -49,7 +49,7 @@ const downloads = [
 
   <div style="border:1px solid var(--color-hairline);border-radius:var(--r-lg);overflow:hidden;">
     {downloads.map((d, i) => (
-      <div style={`display:grid;grid-template-columns:180px 1fr auto auto;gap:16px;
+      <div class="dl-row" style={`display:grid;grid-template-columns:180px 1fr auto auto;gap:16px;
                    align-items:center;padding:20px 24px;background:var(--color-card);
                    border-bottom:${i < downloads.length - 1 ? "1px solid var(--color-hairline)" : "none"};`}>
 
@@ -61,11 +61,11 @@ const downloads = [
           </div>
         </div>
 
-        <div style="font-size:13px;color:var(--color-muted);">
+        <div class="dl-formats" style="font-size:13px;color:var(--color-muted);">
           {d.primary.label} · {d.alt.label}
         </div>
 
-        <a href={d.alt.url}
+        <a href={d.alt.url} class="dl-btn-alt"
            style="padding:7px 14px;border-radius:var(--r-md);border:1px solid var(--color-hairline);
                   font-size:12px;font-weight:500;color:var(--color-strong);
                   text-decoration:none;transition:border-color 0.15s;white-space:nowrap;"
@@ -74,7 +74,7 @@ const downloads = [
           {d.alt.label}
         </a>
 
-        <a href={d.primary.url}
+        <a href={d.primary.url} class="dl-btn-primary"
            style="display:inline-flex;align-items:center;gap:7px;padding:9px 18px;
                   border-radius:var(--r-md);background:var(--color-yellow);color:#181a20;
                   font-size:13px;font-weight:700;text-decoration:none;
@@ -102,3 +102,43 @@ const downloads = [
   </p>
 
 </section>
+
+<style>
+  @media (max-width: 768px) {
+    .dl-row {
+      grid-template-columns: 1fr 1fr !important;
+      grid-template-rows: auto auto !important;
+      gap: 12px 8px !important;
+      padding: 16px !important;
+    }
+    /* OS info ocupa toda la primera fila */
+    .dl-row > div:first-child {
+      grid-column: 1 / -1;
+    }
+    /* Texto de formatos se oculta (ya está en los botones) */
+    .dl-formats {
+      display: none !important;
+    }
+    /* Botones en segunda fila, uno por columna */
+    .dl-btn-alt {
+      grid-column: 1;
+      text-align: center;
+      justify-self: stretch;
+    }
+    .dl-btn-primary {
+      grid-column: 2;
+      justify-content: center;
+      justify-self: stretch;
+    }
+  }
+  @media (max-width: 400px) {
+    .dl-row {
+      grid-template-columns: 1fr !important;
+    }
+    .dl-btn-alt,
+    .dl-btn-primary {
+      grid-column: 1 !important;
+      justify-content: center;
+    }
+  }
+</style>
