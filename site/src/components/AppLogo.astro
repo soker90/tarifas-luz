@@ -1,0 +1,38 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 32 } = Astro.props;
+---
+<!--
+  Bombilla outline — trazos negros sin relleno sobre fondo amarillo (#fcd535).
+-->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 32 32"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="Tarifas Luz"
+>
+  <!-- Cuerpo esférico de la bombilla -->
+  <path
+    d="M16 4C11.029 4 7 8.029 7 13c0 3.26 1.72 6.113 4.313 7.75C11.72 21.18 12 21.75 12 22.5V24h8v-1.5c0-.75.28-1.32.688-1.75C23.28 19.113 25 16.26 25 13c0-4.971-4.029-9-9-9z"
+    stroke="#181a20"
+    stroke-width="1.7"
+    stroke-linejoin="round"
+  />
+  <!-- Base / rosca — líneas horizontales -->
+  <line x1="12" y1="25.3" x2="20" y2="25.3" stroke="#181a20" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="12.5" y1="27.4" x2="19.5" y2="27.4" stroke="#181a20" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Tope inferior -->
+  <line x1="14" y1="29.2" x2="18" y2="29.2" stroke="#181a20" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Filamento (U) -->
+  <path
+    d="M13.5 21v-4.5a2.5 2.5 0 015 0V21"
+    stroke="#181a20"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

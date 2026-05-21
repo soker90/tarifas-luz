@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Fondo amarillo con esquinas redondeadas -->
+  <rect width="64" height="64" rx="12" fill="#fcd535"/>
+  <!-- Cuerpo de la bombilla -->
+  <path d="M32 8C22.06 8 14 16.06 14 26c0 6.52 3.44 12.23 8.63 15.5C23.44 42.36 24 43.5 24 45V48h16v-3c0-1.5.56-2.64 1.38-3.5C46.56 38.23 50 32.52 50 26c0-9.94-8.06-18-18-18z"
+        stroke="#181a20" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Rosca — 3 líneas horizontales -->
+  <line x1="23" y1="50.5" x2="41" y2="50.5" stroke="#181a20" stroke-width="3" stroke-linecap="round"/>
+  <line x1="24" y1="54.5" x2="40" y2="54.5" stroke="#181a20" stroke-width="3" stroke-linecap="round"/>
+  <line x1="26" y1="58.5" x2="38" y2="58.5" stroke="#181a20" stroke-width="3" stroke-linecap="round"/>
+  <!-- Filamento en U -->
+  <path d="M27 46v-9a5 5 0 0110 0v9" stroke="#181a20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

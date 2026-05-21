@@ -1,0 +1,31 @@
+---
+interface Props {
+  version: string;
+}
+const { version } = Astro.props;
+
+const items = [
+  "18 tarifas comparadas",
+  "Actualización diaria",
+  "Windows · macOS · Linux",
+  "0 datos enviados",
+  "Código abierto en GitHub",
+  "Instalador automático incluido",
+  "Gratuito para siempre",
+  `v${version} disponible ya`,
+];
+---
+<div style="border-top:1px solid var(--color-hairline);border-bottom:1px solid var(--color-hairline);
+            overflow:hidden;padding:10px 0;">
+  <div class="ticker-inner" style="display:flex;gap:48px;white-space:nowrap;">
+    {Array.from({ length: 2 }).map(() =>
+      items.map(t => (
+        <span style="font-size:12px;font-weight:500;color:var(--color-muted);
+                     display:inline-flex;align-items:center;gap:10px;">
+          <span style="color:var(--color-yellow);font-size:8px;">◆</span>
+          {t}
+        </span>
+      ))
+    )}
+  </div>
+</div>

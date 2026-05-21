@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas:   #0b0e11;
+  --color-card:     #1e2329;
+  --color-raised:   #2b3139;
+  --color-hairline: #2b3139;
+
+  --color-yellow:        #fcd535;
+  --color-yellow-active: #f0b90b;
+  --color-yellow-muted:  rgba(252,213,53,0.1);
+  --color-yellow-ring:   rgba(252,213,53,0.25);
+
+  --color-body:   #eaecef;
+  --color-muted:  #707a8a;
+  --color-strong: #929aa5;
+  --color-white:  #ffffff;
+
+  --color-up:   #0ecb81;
+  --color-down: #f6465d;
+
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-xl: 12px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--color-canvas);
+  color: var(--color-body);
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb { background: var(--color-raised); }
+
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim   { animation: fade-in 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-1 { animation-delay: 0.07s; }
+.anim-2 { animation-delay: 0.14s; }
+.anim-3 { animation-delay: 0.21s; }
+.anim-4 { animation-delay: 0.28s; }
+
+.card-hover { transition: background 0.15s, border-color 0.15s; }
+.card-hover:hover { background: #252c35; border-color: #3a4149; }
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-inner { animation: ticker 28s linear infinite; }

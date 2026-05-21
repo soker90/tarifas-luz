@@ -1,0 +1,32 @@
+---
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { resolve, dirname } from "path";
+import Layout from "../layouts/Layout.astro";
+import NavBar from "../components/NavBar.astro";
+import HeroSection from "../components/HeroSection.astro";
+import TickerBar from "../components/TickerBar.astro";
+import FeaturesSection from "../components/FeaturesSection.astro";
+import HowItWorksSection from "../components/HowItWorksSection.astro";
+import DownloadSection from "../components/DownloadSection.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const tauriConf = JSON.parse(
+  readFileSync(resolve(__dirname, "../../../app/src-tauri/tauri.conf.json"), "utf-8")
+);
+
+const base    = import.meta.env.BASE_URL.replace(/\/$/, "");
+const version = tauriConf.version;
+const repo    = "soker90/tarifas-luz";
+---
+
+<Layout>
+  <NavBar base={base} repo={repo} />
+  <HeroSection repo={repo} />
+  <TickerBar version={version} />
+  <FeaturesSection />
+  <HowItWorksSection />
+  <DownloadSection version={version} repo={repo} />
+  <SiteFooter repo={repo} />
+</Layout>
