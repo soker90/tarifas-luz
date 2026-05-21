@@ -7,11 +7,11 @@ interface Props {
 }
 
 const {
-  title = "Tarifas Luz · Comparador de electricidad España",
-  description = "Compara las mejores tarifas de electricidad del mercado libre en España. Actualizado diariamente.",
+  title = "Tarifas Luz — Compara y ahorra en tu factura de electricidad",
+  description = "App de escritorio gratuita para comparar tarifas eléctricas del mercado libre en España. Calcula tu ahorro real con tus propias lecturas.",
 } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <!doctype html>
@@ -20,22 +20,20 @@ const base = import.meta.env.BASE_URL;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#080c12" />
+    <meta name="theme-color" content="#0b0e11" />
     <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
-
-    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
   </head>
-  <body class="relative min-h-screen">
+  <body>
     <slot />
   </body>
 </html>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  size?: number;
+  color?: string;
+}
+const { size = 20, color = "currentColor" } = Astro.props;
+---
+<!-- Windows 4-pane flag — SVG propio, estilo Windows 11 flat -->
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill={color}
+  xmlns="http://www.w3.org/2000/svg"
+  aria-label="Windows"
+>
+  <path d="M0 3.449 9.75 2.1v9.451H0V3.449zm10.949-1.349L24 0v11.4H10.949V2.1zM0 12.6h9.75v9.452L0 20.699V12.6zm10.949 0H24V24l-13.051-1.88V12.6z"/>
+</svg>
