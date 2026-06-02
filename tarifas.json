@@ -1,10 +1,10 @@
 {
   "datosGenerales": {
-    "iva": 0.1,
-    "impuestoElectrico": 0.005,
+    "iva": 0.21,
+    "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-05-28"
+    "actualizadoEn": "2026-06-01"
   },
   "tarifas": [
     {
@@ -360,12 +360,12 @@
         "potenciaPunta": 0.12303,
         "potenciaValle": 0.061562,
         "periodos": 3,
-        "energiaPunta": 0.1737,
-        "energiaLlana": 0.1052,
-        "energiaValle": 0.0809,
+        "energiaPunta": 0.1822,
+        "energiaLlana": 0.1092,
+        "energiaValle": 0.0739,
         "compensacionExcedentes": "0.06",
         "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-05-25",
+        "ultimoCambio": "2026-06-01",
         "notaImportante": "excedentes en todas las tarifas",
         "nota": null,
         "incluyeBonoSocial": true,
@@ -429,12 +429,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1806,
-        "energiaLlana": 0.1116,
-        "energiaValle": 0.0936,
+        "energiaPunta": 0.1808,
+        "energiaLlana": 0.1118,
+        "energiaValle": 0.0938,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-05-28",
+        "ultimoCambio": "2026-06-01",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
