@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-06-01"
+    "actualizadoEn": "2026-06-03"
   },
   "tarifas": [
     {
@@ -94,7 +94,7 @@
     {
       "comercializadora": "Doméstica-Visalia",
       "detalles": {
-        "nombreTarifa": "Tarifa flash",
+        "nombreTarifa": "Tarifa flash - Plan ahorro 3 meses",
         "permanencia": "NO",
         "potenciaMaxima": 10,
         "mantenimientoPrecio": 3,
@@ -102,12 +102,12 @@
         "potenciaPunta": 0.060274,
         "potenciaValle": 0.060274,
         "periodos": 1,
-        "energiaPunta": 0.121995,
-        "energiaLlana": 0.121995,
-        "energiaValle": 0.121995,
+        "energiaPunta": 0.119995,
+        "energiaLlana": 0.119995,
+        "energiaValle": 0.119995,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-04-20",
+        "ultimoCambio": "2026-06-03",
         "notaImportante": null,
         "nota": "Incluye descuento 6€  de los primeros tres meses",
         "incluyeBonoSocial": true,
@@ -117,52 +117,6 @@
           "meses": 3,
           "soloNuevosClientes": false
         }
-      }
-    },
-    {
-      "comercializadora": "ATULADO",
-      "detalles": {
-        "nombreTarifa": "Milenial (trimestral)",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 3,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.103717,
-        "potenciaValle": 0.041623,
-        "periodos": 1,
-        "energiaPunta": 0.078818,
-        "energiaLlana": 0.078818,
-        "energiaValle": 0.078818,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-04-14",
-        "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
-        "nota": "",
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
-      "comercializadora": "ATULADO",
-      "detalles": {
-        "nombreTarifa": "3 periodos (trimestral)",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 3,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.103717,
-        "potenciaValle": 0.033279,
-        "periodos": 3,
-        "energiaPunta": 0.15086,
-        "energiaLlana": 0.080037,
-        "energiaValle": 0.053682,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-04-14",
-        "notaImportante": "Mto. Precios\r\n3 meses\r\nHasta el 30-06-26",
-        "nota": "",
-        "incluyeBonoSocial": true,
-        "descuento": null
       }
     },
     {
@@ -273,7 +227,7 @@
         "energiaValle": 0.097999,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-04-13",
+        "ultimoCambio": "2026-06-03",
         "notaImportante": null,
         "nota": null,
         "incluyeBonoSocial": true,
@@ -380,7 +334,7 @@
         "potenciaMaxima": 10,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 0.094967,
+        "potenciaPunta": 0.093666,
         "potenciaValle": 0.093666,
         "periodos": 3,
         "energiaPunta": 0.1135,
