@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-06-03"
+    "actualizadoEn": "2026-06-04"
   },
   "tarifas": [
     {
@@ -38,34 +38,6 @@
     {
       "comercializadora": "ENERGYASSET",
       "detalles": {
-        "nombreTarifa": "Tarifa Precio\r\n por Periodo. Lanz.",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 3,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.0759,
-        "potenciaValle": 0.038,
-        "periodos": 3,
-        "energiaPunta": 0.16,
-        "energiaLlana": 0.12,
-        "energiaValle": 0.08,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-04-29",
-        "notaImportante": null,
-        "nota": "Incluye descuento 15% de los primeros tres meses",
-        "incluyeBonoSocial": true,
-        "descuento": {
-          "tipo": "porcentaje",
-          "valor": 15,
-          "meses": 3,
-          "soloNuevosClientes": false
-        }
-      }
-    },
-    {
-      "comercializadora": "ENERGYASSET",
-      "detalles": {
         "nombreTarifa": "Tarifa Plana.Lanzamiento",
         "permanencia": "NO",
         "potenciaMaxima": 15,
@@ -77,10 +49,10 @@
         "energiaPunta": 0.099,
         "energiaLlana": 0.099,
         "energiaValle": 0.099,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
+        "compensacionExcedentes": "0.01",
+        "tipoCompensacionExcedentes": "energía",
         "ultimoCambio": "2026-04-29",
-        "notaImportante": null,
+        "notaImportante": "Excedentes compesado OMIE",
         "nota": "Incluye descuento 15% de los primeros tres meses",
         "incluyeBonoSocial": true,
         "descuento": {
@@ -117,6 +89,29 @@
           "meses": 3,
           "soloNuevosClientes": false
         }
+      }
+    },
+    {
+      "comercializadora": "ENERGYASSeT",
+      "detalles": {
+        "nombreTarifa": "Tarifa Precio\r\n por Periodo. Lanz.",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.0759,
+        "potenciaValle": 0.038,
+        "periodos": 3,
+        "energiaPunta": 0.16,
+        "energiaLlana": 0.12,
+        "energiaValle": 0.08,
+        "compensacionExcedentes": "0.01",
+        "tipoCompensacionExcedentes": "energía",
+        "ultimoCambio": "2026-06-04",
+        "notaImportante": "excedentes compesados OMIE",
+        "nota": null,
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
