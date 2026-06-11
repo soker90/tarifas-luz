@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-06-09"
+    "actualizadoEn": "2026-06-10"
   },
   "tarifas": [
     {
@@ -128,11 +128,11 @@
         "energiaPunta": 0.187021,
         "energiaLlana": 0.135066,
         "energiaValle": 0.085298,
-        "compensacionExcedentes": "0.08",
+        "compensacionExcedentes": "0.01",
         "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-03-10",
+        "ultimoCambio": "2026-06-10",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
-        "nota": "Compensa la BV antes de impuestos. Los excedentes rinden más.",
+        "nota": "Compensa la BV antes de impuestos. Excedentes a OMIE (indexados, practicamente cero)",
         "incluyeBonoSocial": true,
         "descuento": null
       }
@@ -156,6 +156,52 @@
         "ultimoCambio": "2026-03-10",
         "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)",
         "nota": "Si se excede un ratio de 750kWh anuales por cada kW potencia, rechazan",
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "NIBA",
+      "detalles": {
+        "nombreTarifa": "ZEN",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.089,
+        "potenciaValle": 0.089,
+        "periodos": 1,
+        "energiaPunta": 0.115,
+        "energiaLlana": 0.115,
+        "energiaValle": 0.115,
+        "compensacionExcedentes": "0.06",
+        "tipoCompensacionExcedentes": "zerofactura",
+        "ultimoCambio": "2026-06-10",
+        "notaImportante": null,
+        "nota": null,
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "CHC",
+      "detalles": {
+        "nombreTarifa": "BATERIA VIRTUAL",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.088965,
+        "potenciaValle": 0.088956,
+        "periodos": 1,
+        "energiaPunta": 0.162544,
+        "energiaLlana": 0.162544,
+        "energiaValle": 0.162544,
+        "compensacionExcedentes": "0.1",
+        "tipoCompensacionExcedentes": "zerofactura",
+        "ultimoCambio": "2026-06-10",
+        "notaImportante": null,
+        "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
       }
