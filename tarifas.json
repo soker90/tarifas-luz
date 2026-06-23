@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.019121,
-    "actualizadoEn": "2026-06-15"
+    "actualizadoEn": "2026-06-22"
   },
   "tarifas": [
     {
@@ -74,12 +74,12 @@
         "potenciaPunta": 0.060274,
         "potenciaValle": 0.060274,
         "periodos": 1,
-        "energiaPunta": 0.119995,
-        "energiaLlana": 0.119995,
-        "energiaValle": 0.119995,
+        "energiaPunta": 0.110995,
+        "energiaLlana": 0.110995,
+        "energiaValle": 0.110995,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-06-03",
+        "ultimoCambio": "2026-06-22",
         "notaImportante": null,
         "nota": "Incluye descuento 6€  de los primeros tres meses",
         "incluyeBonoSocial": true,
@@ -117,7 +117,7 @@
     {
       "comercializadora": "ESLUZ",
       "detalles": {
-        "nombreTarifa": "SOLAR FIJA 2.0",
+        "nombreTarifa": "Fija 3 tramos",
         "permanencia": "NO",
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
@@ -129,10 +129,10 @@
         "energiaLlana": 0.135066,
         "energiaValle": 0.085298,
         "compensacionExcedentes": "0.01",
-        "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-06-10",
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-06-22",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
-        "nota": "Compensa la BV antes de impuestos. Excedentes a OMIE (indexados, practicamente cero)",
+        "nota": "Esta tarifa no compensa excedettes",
         "incluyeBonoSocial": true,
         "descuento": null
       }
@@ -301,7 +301,7 @@
     {
       "comercializadora": "REPSOL",
       "detalles": {
-        "nombreTarifa": "Ahorro Plus",
+        "nombreTarifa": "Sin horarios",
         "permanencia": "PUEDE",
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
@@ -314,8 +314,8 @@
         "energiaValle": 0.1199,
         "compensacionExcedentes": null,
         "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-04-16",
-        "notaImportante": null,
+        "ultimoCambio": "2026-06-22",
+        "notaImportante": "hay una tarifa 1 centimo mas barata a cambio de pagar asistente 4,99€/mes",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
