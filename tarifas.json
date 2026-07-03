@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-06-29"
+    "actualizadoEn": "2026-07-02"
   },
   "tarifas": [
     {
@@ -115,6 +115,52 @@
       }
     },
     {
+      "comercializadora": "bonÀrea",
+      "detalles": {
+        "nombreTarifa": "triple",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": null,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.093,
+        "potenciaValle": 0.05,
+        "periodos": 3,
+        "energiaPunta": 0.1689,
+        "energiaLlana": 0.0899,
+        "energiaValle": 0.057,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-07-02",
+        "notaImportante": null,
+        "nota": null,
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "bonÀrea",
+      "detalles": {
+        "nombreTarifa": "triple solar",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": null,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.11,
+        "potenciaValle": 0.05,
+        "periodos": 3,
+        "energiaPunta": 0.1689,
+        "energiaLlana": 0.0899,
+        "energiaValle": 0.057,
+        "compensacionExcedentes": "0.04",
+        "tipoCompensacionExcedentes": "zerofactura",
+        "ultimoCambio": "2026-07-02",
+        "notaImportante": null,
+        "nota": null,
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
       "comercializadora": "ESLUZ",
       "detalles": {
         "nombreTarifa": "Fija 3 tramos",
@@ -133,29 +179,6 @@
         "ultimoCambio": "2026-06-22",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
         "nota": "Esta tarifa no compensa excedettes",
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
-      "comercializadora": "NUFRI",
-      "detalles": {
-        "nombreTarifa": "Flex",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.094533,
-        "potenciaValle": 0.046371,
-        "periodos": 3,
-        "energiaPunta": 0.191853,
-        "energiaLlana": 0.115288,
-        "energiaValle": 0.080719,
-        "compensacionExcedentes": "0.02",
-        "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-03-10",
-        "notaImportante": "Σxcedente Horario * (OMIE - 0,005 €/KWh)",
-        "nota": "Si se excede un ratio de 750kWh anuales por cada kW potencia, rechazan",
         "incluyeBonoSocial": true,
         "descuento": null
       }
