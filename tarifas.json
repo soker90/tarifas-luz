@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-07-02"
+    "actualizadoEn": "2026-07-03"
   },
   "tarifas": [
     {
@@ -120,7 +120,7 @@
         "nombreTarifa": "triple",
         "permanencia": "NO",
         "potenciaMaxima": 15,
-        "mantenimientoPrecio": null,
+        "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
         "potenciaPunta": 0.093,
         "potenciaValle": 0.05,
@@ -131,7 +131,7 @@
         "compensacionExcedentes": null,
         "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-07-02",
-        "notaImportante": null,
+        "notaImportante": "puede que revisen precios",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -143,7 +143,7 @@
         "nombreTarifa": "triple solar",
         "permanencia": "NO",
         "potenciaMaxima": 15,
-        "mantenimientoPrecio": null,
+        "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
         "potenciaPunta": 0.11,
         "potenciaValle": 0.05,
@@ -154,7 +154,7 @@
         "compensacionExcedentes": "0.04",
         "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-07-02",
-        "notaImportante": null,
+        "notaImportante": "puede que revisen precios",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -447,12 +447,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.1859,
-        "energiaLlana": 0.1169,
-        "energiaValle": 0.0989,
+        "energiaPunta": 0.1884,
+        "energiaLlana": 0.1194,
+        "energiaValle": 0.1014,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-06-29",
+        "ultimoCambio": "2026-07-03",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
