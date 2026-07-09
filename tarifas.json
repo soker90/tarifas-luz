@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-07-04"
+    "actualizadoEn": "2026-07-08"
   },
   "tarifas": [
     {
@@ -89,6 +89,29 @@
           "meses": 3,
           "soloNuevosClientes": false
         }
+      }
+    },
+    {
+      "comercializadora": "BONPREU ESCLAT - SPOCK",
+      "detalles": {
+        "nombreTarifa": "Tarifa Luz 24h",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "NO",
+        "potenciaPunta": 0.08,
+        "potenciaValle": 0.08,
+        "periodos": 1,
+        "energiaPunta": 0.0852,
+        "energiaLlana": 0.0852,
+        "energiaValle": 0.0852,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-07-08",
+        "notaImportante": "A traves de Compra Colectiva Mercurio 2026 -Spock",
+        "nota": "Es necesario registrarse en Spock para contratar esta tarifa!",
+        "incluyeBonoSocial": true,
+        "descuento": null
       }
     },
     {
@@ -416,20 +439,20 @@
     {
       "comercializadora": "Total Energies",
       "detalles": {
-        "nombreTarifa": "A tu aire Ahorro",
+        "nombreTarifa": "A tu aire luz programa tu Ahorro",
         "permanencia": "NO",
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 0.081479,
-        "potenciaValle": 0.081479,
+        "potenciaPunta": 0.086274,
+        "potenciaValle": 0.086274,
         "periodos": 3,
-        "energiaPunta": 0.173572,
-        "energiaLlana": 0.10393,
-        "energiaValle": 0.076176,
+        "energiaPunta": 0.163572,
+        "energiaLlana": 0.09393,
+        "energiaValle": 0.066176,
         "compensacionExcedentes": "0.07",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-04-16",
+        "ultimoCambio": "2026-07-08",
         "notaImportante": "Nuevos clientes / Recuerda activar el D+",
         "nota": null,
         "incluyeBonoSocial": true,
