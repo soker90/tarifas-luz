@@ -36,34 +36,6 @@
       }
     },
     {
-      "comercializadora": "ENERGYASSET",
-      "detalles": {
-        "nombreTarifa": "Tarifa Plana.Lanzamiento",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 3,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.0759,
-        "potenciaValle": 0.0639,
-        "periodos": 1,
-        "energiaPunta": 0.099,
-        "energiaLlana": 0.099,
-        "energiaValle": 0.099,
-        "compensacionExcedentes": "0.01",
-        "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-04-29",
-        "notaImportante": "Excedentes compesado OMIE",
-        "nota": "Incluye descuento 15% de los primeros tres meses",
-        "incluyeBonoSocial": true,
-        "descuento": {
-          "tipo": "porcentaje",
-          "valor": 15,
-          "meses": 3,
-          "soloNuevosClientes": false
-        }
-      }
-    },
-    {
       "comercializadora": "Doméstica-Visalia",
       "detalles": {
         "nombreTarifa": "Tarifa flash - Plan ahorro 3 meses",
@@ -110,75 +82,6 @@
         "ultimoCambio": "2026-07-08",
         "notaImportante": "A traves de Compra Colectiva Mercurio 2026 -Spock",
         "nota": "Es necesario registrarse en Spock para contratar esta tarifa!",
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
-      "comercializadora": "ENERGYASSeT",
-      "detalles": {
-        "nombreTarifa": "Tarifa Precio\r\n por Periodo. Lanz.",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.0759,
-        "potenciaValle": 0.038,
-        "periodos": 3,
-        "energiaPunta": 0.16,
-        "energiaLlana": 0.12,
-        "energiaValle": 0.08,
-        "compensacionExcedentes": "0.01",
-        "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-06-09",
-        "notaImportante": "excedentes compesados OMIE",
-        "nota": null,
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
-      "comercializadora": "bonÀrea",
-      "detalles": {
-        "nombreTarifa": "triple",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.093,
-        "potenciaValle": 0.05,
-        "periodos": 3,
-        "energiaPunta": 0.1689,
-        "energiaLlana": 0.0899,
-        "energiaValle": 0.057,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-07-02",
-        "notaImportante": "puede que revisen precios",
-        "nota": null,
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
-      "comercializadora": "bonÀrea",
-      "detalles": {
-        "nombreTarifa": "triple solar",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.11,
-        "potenciaValle": 0.05,
-        "periodos": 3,
-        "energiaPunta": 0.1689,
-        "energiaLlana": 0.0899,
-        "energiaValle": 0.057,
-        "compensacionExcedentes": "0.04",
-        "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-07-02",
-        "notaImportante": "puede que revisen precios",
-        "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
       }
