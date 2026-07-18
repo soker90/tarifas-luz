@@ -64,29 +64,6 @@
       }
     },
     {
-      "comercializadora": "BONPREU ESCLAT - SPOCK",
-      "detalles": {
-        "nombreTarifa": "Tarifa Luz 24h",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.08,
-        "potenciaValle": 0.08,
-        "periodos": 1,
-        "energiaPunta": 0.0852,
-        "energiaLlana": 0.0852,
-        "energiaValle": 0.0852,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-07-08",
-        "notaImportante": "A traves de Compra Colectiva Mercurio 2026 -Spock",
-        "nota": "Es necesario registrarse en Spock para contratar esta tarifa!",
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
       "comercializadora": "ESLUZ",
       "detalles": {
         "nombreTarifa": "Fija 3 tramos",
