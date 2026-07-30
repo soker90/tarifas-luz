@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-07-16"
+    "actualizadoEn": "2026-07-29"
   },
   "tarifas": [
     {
@@ -324,17 +324,17 @@
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 0.086274,
-        "potenciaValle": 0.086274,
+        "potenciaPunta": 1,
+        "potenciaValle": 1,
         "periodos": 3,
-        "energiaPunta": 0.163572,
-        "energiaLlana": 0.09393,
-        "energiaValle": 0.066176,
+        "energiaPunta": 1,
+        "energiaLlana": 1,
+        "energiaValle": 1,
         "compensacionExcedentes": "0.07",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-07-08",
-        "notaImportante": "Nuevos clientes / Recuerda activar el D+",
-        "nota": null,
+        "ultimoCambio": "2026-07-29",
+        "notaImportante": "NO SE ACONSEJA",
+        "nota": "NO COINCIDEN PRECIOS DE LA WEB CON CONTRATOS.",
         "incluyeBonoSocial": true,
         "descuento": null
       }
