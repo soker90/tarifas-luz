@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-07-30"
+    "actualizadoEn": "2026-08-02"
   },
   "tarifas": [
     {
@@ -59,6 +59,34 @@
           "tipo": "fijo",
           "valor": 6,
           "meses": 3,
+          "soloNuevosClientes": false
+        }
+      }
+    },
+    {
+      "comercializadora": "CHC",
+      "detalles": {
+        "nombreTarifa": "PLAN Estrella dúo (5 meses)",
+        "permanencia": "no",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 5,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.078144,
+        "potenciaValle": 0.059938,
+        "periodos": 1,
+        "energiaPunta": 0.119911,
+        "energiaLlana": 0.119911,
+        "energiaValle": 0.119911,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-08-02",
+        "notaImportante": null,
+        "nota": "Incluye descuento 10€  de los primeros 5 meses",
+        "incluyeBonoSocial": true,
+        "descuento": {
+          "tipo": "fijo",
+          "valor": 10,
+          "meses": 5,
           "soloNuevosClientes": false
         }
       }
@@ -189,12 +217,12 @@
         "potenciaPunta": 0.071233,
         "potenciaValle": 0.071233,
         "periodos": 1,
-        "energiaPunta": 0.097999,
-        "energiaLlana": 0.097999,
-        "energiaValle": 0.097999,
+        "energiaPunta": 0.109,
+        "energiaLlana": 0.109,
+        "energiaValle": 0.109,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-06-03",
+        "ultimoCambio": "2026-08-02",
         "notaImportante": null,
         "nota": null,
         "incluyeBonoSocial": true,
@@ -212,12 +240,12 @@
         "potenciaPunta": 0.075903,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.207607,
-        "energiaLlana": 0.124931,
-        "energiaValle": 0.097349,
+        "energiaPunta": 0.219607,
+        "energiaLlana": 0.149931,
+        "energiaValle": 0.099899,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-04-13",
+        "ultimoCambio": "2026-08-02",
         "notaImportante": null,
         "nota": null,
         "incluyeBonoSocial": true,
