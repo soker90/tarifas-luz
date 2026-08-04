@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-08-02"
+    "actualizadoEn": "2026-08-03"
   },
   "tarifas": [
     {
@@ -105,11 +105,34 @@
         "energiaPunta": 0.187021,
         "energiaLlana": 0.135066,
         "energiaValle": 0.085298,
-        "compensacionExcedentes": "0.01",
+        "compensacionExcedentes": null,
         "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-06-22",
         "notaImportante": "Quejas por Lentitud (+30 dias)",
         "nota": "Esta tarifa no compensa excedettes",
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "ENI PLENITUDE",
+      "detalles": {
+        "nombreTarifa": "Fácil Plus Luz",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 12,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.099984,
+        "potenciaValle": 0.099984,
+        "periodos": 1,
+        "energiaPunta": 0.097296,
+        "energiaLlana": 0.097296,
+        "energiaValle": 0.097296,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-08-03",
+        "notaImportante": "Hay cashback de 30€ a traves de Hyperwallet. No garantizamos",
+        "nota": "no incluido el cashback en los cálculos",
         "incluyeBonoSocial": true,
         "descuento": null
       }
