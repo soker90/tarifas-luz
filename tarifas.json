@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-08-03"
+    "actualizadoEn": "2026-08-04"
   },
   "tarifas": [
     {
@@ -30,34 +30,6 @@
         "descuento": {
           "tipo": "porcentaje",
           "valor": 25,
-          "meses": 3,
-          "soloNuevosClientes": false
-        }
-      }
-    },
-    {
-      "comercializadora": "Doméstica-Visalia",
-      "detalles": {
-        "nombreTarifa": "Tarifa flash - Plan ahorro 3 meses",
-        "permanencia": "NO",
-        "potenciaMaxima": 10,
-        "mantenimientoPrecio": 3,
-        "paraEmpresas": "NO",
-        "potenciaPunta": 0.060274,
-        "potenciaValle": 0.060274,
-        "periodos": 1,
-        "energiaPunta": 0.110995,
-        "energiaLlana": 0.110995,
-        "energiaValle": 0.110995,
-        "compensacionExcedentes": "0.03",
-        "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-06-22",
-        "notaImportante": null,
-        "nota": "Incluye descuento 6€  de los primeros tres meses",
-        "incluyeBonoSocial": true,
-        "descuento": {
-          "tipo": "fijo",
-          "valor": 6,
           "meses": 3,
           "soloNuevosClientes": false
         }
@@ -375,17 +347,17 @@
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "NO",
-        "potenciaPunta": 1,
-        "potenciaValle": 1,
+        "potenciaPunta": 0.086274,
+        "potenciaValle": 0.086274,
         "periodos": 3,
-        "energiaPunta": 1,
-        "energiaLlana": 1,
-        "energiaValle": 1,
+        "energiaPunta": 0.163572,
+        "energiaLlana": 0.09393,
+        "energiaValle": 0.006618,
         "compensacionExcedentes": "0.07",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-07-29",
-        "notaImportante": "NO SE ACONSEJA",
-        "nota": "NO COINCIDEN PRECIOS DE LA WEB CON CONTRATOS.",
+        "ultimoCambio": "2026-08-04",
+        "notaImportante": "Más de 5000kWh/año otra tarifa mucho peor!! Ojo al contrato",
+        "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
       }
