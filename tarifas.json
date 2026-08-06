@@ -352,7 +352,7 @@
         "periodos": 3,
         "energiaPunta": 0.163572,
         "energiaLlana": 0.09393,
-        "energiaValle": 0.006618,
+        "energiaValle": 0.066,
         "compensacionExcedentes": "0.07",
         "tipoCompensacionExcedentes": "legal",
         "ultimoCambio": "2026-08-04",
