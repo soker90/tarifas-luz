@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-08-22"
+    "actualizadoEn": "2026-08-23"
   },
   "tarifas": [
     {
@@ -24,6 +24,29 @@
         "compensacionExcedentes": "0.06",
         "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-08-22",
+        "notaImportante": "bateria virtual sin coste 12 meses",
+        "nota": "Código DESC100 para descontar 10€ durante 10 meses. Incluido",
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "GANA ENERGÍA",
+      "detalles": {
+        "nombreTarifa": "24 horas (+código DESC100)",
+        "permanencia": "NO",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 10,
+        "paraEmpresas": "?",
+        "potenciaPunta": 0.089434,
+        "potenciaValle": 0.089434,
+        "periodos": 3,
+        "energiaPunta": 0.119,
+        "energiaLlana": 0.119,
+        "energiaValle": 0.119,
+        "compensacionExcedentes": "0.06",
+        "tipoCompensacionExcedentes": "zerofactura",
+        "ultimoCambio": "2026-08-23",
         "notaImportante": "bateria virtual sin coste 12 meses",
         "nota": "Código DESC100 para descontar 10€ durante 10 meses. Incluido",
         "incluyeBonoSocial": true,
@@ -75,8 +98,8 @@
         "compensacionExcedentes": null,
         "tipoCompensacionExcedentes": "nocomp",
         "ultimoCambio": "2026-06-22",
-        "notaImportante": "Quejas por Lentitud (+30 dias)",
-        "nota": "Esta tarifa no compensa excedettes",
+        "notaImportante": "Esta tarifa no compensa excedentes",
+        "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
       }
