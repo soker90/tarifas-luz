@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-09-02"
+    "actualizadoEn": "2026-09-04"
   },
   "tarifas": [
     {
@@ -67,9 +67,9 @@
         "energiaPunta": 0.119911,
         "energiaLlana": 0.119911,
         "energiaValle": 0.119911,
-        "compensacionExcedentes": null,
-        "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-08-02",
+        "compensacionExcedentes": "0.04",
+        "tipoCompensacionExcedentes": "energía",
+        "ultimoCambio": "2026-09-04",
         "notaImportante": null,
         "nota": "Incluye descuento 10€  de los primeros 5 meses",
         "incluyeBonoSocial": true,
