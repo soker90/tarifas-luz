@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-09-04"
+    "actualizadoEn": "2026-09-06"
   },
   "tarifas": [
     {
@@ -89,15 +89,15 @@
         "potenciaMaxima": 15,
         "mantenimientoPrecio": 12,
         "paraEmpresas": "SI",
-        "potenciaPunta": 0.080533,
-        "potenciaValle": 0.007407,
+        "potenciaPunta": 0.0839,
+        "potenciaValle": 0.035,
         "periodos": 3,
-        "energiaPunta": 0.187021,
+        "energiaPunta": 0.187014,
         "energiaLlana": 0.135066,
         "energiaValle": 0.085298,
         "compensacionExcedentes": null,
         "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-06-22",
+        "ultimoCambio": "2026-09-06",
         "notaImportante": "Esta tarifa no compensa excedentes",
         "nota": null,
         "incluyeBonoSocial": true,
