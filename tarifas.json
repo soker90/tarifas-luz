@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-09-10"
+    "actualizadoEn": "2026-09-11"
   },
   "tarifas": [
     {
@@ -212,8 +212,8 @@
         "energiaValle": 0.107634,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-09-02",
-        "notaImportante": null,
+        "ultimoCambio": "2026-09-11",
+        "notaImportante": "Máximo 4.000kWh/año",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -235,8 +235,8 @@
         "energiaValle": 0.06301,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-09-02",
-        "notaImportante": null,
+        "ultimoCambio": "2026-09-11",
+        "notaImportante": "Máximo 4.000kWh/año",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
