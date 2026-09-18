@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-09-14"
+    "actualizadoEn": "2026-09-17"
   },
   "tarifas": [
     {
@@ -276,12 +276,12 @@
         "potenciaPunta": 0.091074,
         "potenciaValle": 0.013483,
         "periodos": 3,
-        "energiaPunta": 0.194,
-        "energiaLlana": 0.136,
-        "energiaValle": 0.09999,
+        "energiaPunta": 0.217,
+        "energiaLlana": 0.162,
+        "energiaValle": 0.129,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-04-14",
+        "ultimoCambio": "2026-09-17",
         "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud",
         "nota": "Pot>10kW permanencia",
         "incluyeBonoSocial": true,
