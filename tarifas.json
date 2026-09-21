@@ -3,8 +3,8 @@
     "iva": 0.21,
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
-    "bonoSocial": 0.02469,
-    "actualizadoEn": "2026-09-20"
+    "bonoSocial": 0.024688,
+    "actualizadoEn": "2026-09-18"
   },
   "tarifas": [
     {
@@ -388,8 +388,8 @@
         "potenciaMaxima": 10,
         "mantenimientoPrecio": null,
         "paraEmpresas": "SI*",
-        "potenciaPunta": 0.0844,
-        "potenciaValle": 0.002,
+        "potenciaPunta": 0.084431,
+        "potenciaValle": 0.001987,
         "periodos": 3,
         "energiaPunta": 0.2301,
         "energiaLlana": 0.1611,
