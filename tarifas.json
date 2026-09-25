@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-09-18"
+    "actualizadoEn": "2026-09-24"
   },
   "tarifas": [
     {
@@ -235,8 +235,8 @@
         "energiaValle": 0.107634,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-09-11",
-        "notaImportante": "Máximo 4.000kWh/año",
+        "ultimoCambio": "2026-09-24",
+        "notaImportante": "Para puntos con un consumo de 1200 kWh por cada kW de potencia contratada",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -258,8 +258,8 @@
         "energiaValle": 0.06301,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-09-11",
-        "notaImportante": "Máximo 4.000kWh/año",
+        "ultimoCambio": "2026-09-24",
+        "notaImportante": "Para puntos con un consumo de 1200 kWh por cada kW de potencia contratada",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -391,12 +391,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.2301,
-        "energiaLlana": 0.1611,
-        "energiaValle": 0.1431,
+        "energiaPunta": 0.2368,
+        "energiaLlana": 0.1678,
+        "energiaValle": 0.1498,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-09-13",
+        "ultimoCambio": "2026-09-24",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
