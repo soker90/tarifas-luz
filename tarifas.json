@@ -3,8 +3,8 @@
     "iva": 0.21,
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
-    "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-09-24"
+    "bonoSocial": 0.02469,
+    "actualizadoEn": "2026-09-26"
   },
   "tarifas": [
     {
@@ -236,7 +236,7 @@
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "energía",
         "ultimoCambio": "2026-09-24",
-        "notaImportante": "Para puntos con un consumo de 1200 kWh por cada kW de potencia contratada",
+        "notaImportante": "Para puntos con un consumo de 1200 kWh por cada kW de potencia contratada.FILA 23 CALCULADA",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -259,7 +259,7 @@
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "energía",
         "ultimoCambio": "2026-09-24",
-        "notaImportante": "Para puntos con un consumo de 1200 kWh por cada kW de potencia contratada",
+        "notaImportante": "Para puntos con un consumo de 1200 kWh por cada kW de potencia contratada.FILA 23 CALCULADA",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -388,8 +388,8 @@
         "potenciaMaxima": 10,
         "mantenimientoPrecio": null,
         "paraEmpresas": "SI*",
-        "potenciaPunta": 0.084431,
-        "potenciaValle": 0.001987,
+        "potenciaPunta": 0.0844,
+        "potenciaValle": 0.002,
         "periodos": 3,
         "energiaPunta": 0.2368,
         "energiaLlana": 0.1678,
