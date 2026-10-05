@@ -174,52 +174,6 @@
       }
     },
     {
-      "comercializadora": "IMAGINA",
-      "detalles": {
-        "nombreTarifa": "Tarifa  base Noches y findes,4000",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "no",
-        "potenciaPunta": 0.105427,
-        "potenciaValle": 0.02329,
-        "periodos": 3,
-        "energiaPunta": 0.20202,
-        "energiaLlana": 0.1282,
-        "energiaValle": 0.0938,
-        "compensacionExcedentes": "0.03",
-        "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-09-18",
-        "notaImportante": "la recomendada es tarifa BASE. Base noches y findes es distinta de tarifa noches y findes",
-        "nota": null,
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
-      "comercializadora": "IMAGINA",
-      "detalles": {
-        "nombreTarifa": "Tarifa  base Noches y findes,8000",
-        "permanencia": "NO",
-        "potenciaMaxima": 15,
-        "mantenimientoPrecio": 12,
-        "paraEmpresas": "no",
-        "potenciaPunta": 0.10543,
-        "potenciaValle": 0.023291,
-        "periodos": 3,
-        "energiaPunta": 0.19621,
-        "energiaLlana": 0.12239,
-        "energiaValle": 0.08799,
-        "compensacionExcedentes": "0.03",
-        "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-09-18",
-        "notaImportante": "la recomendada es tarifa BASE. Base noches y findes es distinta de tarifa noches y findes",
-        "nota": "es un poco raro que la tarifa entre 4000y 8000kWh salga más barata que hasta 4000",
-        "incluyeBonoSocial": true,
-        "descuento": null
-      }
-    },
-    {
       "comercializadora": "ENERGIA NUFRI",
       "detalles": {
         "nombreTarifa": "SIN HORARIOS",
