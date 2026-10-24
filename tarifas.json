@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-10-22"
+    "actualizadoEn": "2026-10-23"
   },
   "tarifas": [
     {
@@ -327,8 +327,8 @@
         "energiaValle": 0.086176,
         "compensacionExcedentes": "0.07",
         "tipoCompensacionExcedentes": "legal",
-        "ultimoCambio": "2026-10-16",
-        "notaImportante": "Más de 3.500kWh/año otra tarifa mucho peor!! Ojo al contrato",
+        "ultimoCambio": "2026-10-23",
+        "notaImportante": "Más de 4.000kWh/año otra tarifa mucho peor!! Ojo al contrato",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -345,12 +345,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.2491,
-        "energiaLlana": 0.1801,
-        "energiaValle": 0.1621,
+        "energiaPunta": 0.2488,
+        "energiaLlana": 0.1798,
+        "energiaValle": 0.1618,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-10-22",
+        "ultimoCambio": "2026-10-23",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
