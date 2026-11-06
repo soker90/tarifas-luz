@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-11-03"
+    "actualizadoEn": "2026-11-05"
   },
   "tarifas": [
     {
@@ -99,6 +99,29 @@
         "tipoCompensacionExcedentes": "zerofactura",
         "ultimoCambio": "2026-11-01",
         "notaImportante": null,
+        "nota": null,
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "ENI PLENITUDE",
+      "detalles": {
+        "nombreTarifa": "FÁCIL PLUS 36 MESES",
+        "permanencia": "NO",
+        "potenciaMaxima": 5,
+        "mantenimientoPrecio": 36,
+        "paraEmpresas": "no",
+        "potenciaPunta": 0.112498,
+        "potenciaValle": 0.112498,
+        "periodos": 3,
+        "energiaPunta": 0.089992,
+        "energiaLlana": 0.089992,
+        "energiaValle": 0.089992,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-11-05",
+        "notaImportante": "OJO, estos precios solo hasta 5kW de potencia",
         "nota": null,
         "incluyeBonoSocial": true,
         "descuento": null
@@ -235,7 +258,7 @@
         "energiaValle": 0.1236,
         "compensacionExcedentes": "0.03",
         "tipoCompensacionExcedentes": "zerofactura",
-        "ultimoCambio": "2026-11-03",
+        "ultimoCambio": "2026-11-05",
         "notaImportante": "Excedentes a 0,03€kWh con Solar Cloud",
         "nota": "Pot>10kW permanencia",
         "incluyeBonoSocial": true,
@@ -322,12 +345,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.2571,
-        "energiaLlana": 0.1881,
-        "energiaValle": 0.1701,
+        "energiaPunta": 0.2591,
+        "energiaLlana": 0.1901,
+        "energiaValle": 0.1721,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-11-03",
+        "ultimoCambio": "2026-11-05",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
