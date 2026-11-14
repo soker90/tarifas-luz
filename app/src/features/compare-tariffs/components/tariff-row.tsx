@@ -33,20 +33,12 @@ export const TariffRow = ({
         <div className="font-semibold text-foreground/90">{c.name}</div>
         <div className="mt-0.5 flex flex-wrap items-center gap-2 text-foreground/80 text-sm">
           {c.tariffName}
-          {c.details.mantenimientoPrecio === 3 && (
-            <Badge
-              className="border-amber-200 bg-amber-50 text-[10px] text-amber-700"
-              variant="outline"
-            >
-              Trimestral
-            </Badge>
-          )}
-          {c.details.mantenimientoPrecio === 12 && (
+          {c.details.mantenimientoPrecio != null && (
             <Badge
               className="border-emerald-200 bg-emerald-50 text-[10px] text-emerald-700"
               variant="outline"
             >
-              Anual
+              Precio fijo {c.details.mantenimientoPrecio} meses
             </Badge>
           )}
           {c.details.descuento && (
