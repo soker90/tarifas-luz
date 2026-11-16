@@ -4,10 +4,10 @@ import type { TarifasData } from "@/db/use-tarifas";
 import {
   calculateFirstYearTotal,
   calculateInvoiceCost,
-  calculateWindowTotal,
-  hasFullYearCoverage,
   calculateSavings,
+  calculateWindowTotal,
   getBilledDays,
+  hasFullYearCoverage,
 } from "@/lib/tariff-calculations";
 import type {
   AnnualEstimate,
@@ -45,9 +45,7 @@ export const useCompareTariffs = (
       return null;
     }
     const periodEnd = Math.max(
-      ...lastYearReadings.map((reading) =>
-        new Date(reading.endDate).getTime()
-      )
+      ...lastYearReadings.map((reading) => new Date(reading.endDate).getTime())
     );
     const periodStart = periodEnd - 365 * 24 * 60 * 60 * 1000;
     const peakkWh = calculateWindowTotal(
