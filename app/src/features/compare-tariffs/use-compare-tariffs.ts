@@ -4,6 +4,8 @@ import type { TarifasData } from "@/db/use-tarifas";
 import {
   calculateFirstYearTotal,
   calculateInvoiceCost,
+  calculateWindowTotal,
+  hasFullYearCoverage,
   calculateSavings,
   getBilledDays,
 } from "@/lib/tariff-calculations";
@@ -31,7 +33,11 @@ export const useCompareTariffs = (
     );
     const lastEndDate = new Date(sorted[0].endDate).getTime();
     const oneYearAgo = lastEndDate - 365 * 24 * 60 * 60 * 1000;
-    return sorted.filter((r) => new Date(r.startDate).getTime() >= oneYearAgo);
+    return sorted.filter(
+      (r) =>
+        new Date(r.endDate).getTime() > oneYearAgo &&
+        new Date(r.startDate).getTime() < lastEndDate
+    );
   }, [readings]);
 
   const annualEstimate = useMemo((): AnnualEstimate | null => {
@@ -123,12 +129,33 @@ export const useCompareTariffs = (
               new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
           );
 
+        const periodEnd = Math.max(
+          ...lastYearReadings.map((reading) =>
+            new Date(reading.endDate).getTime()
+          )
+        );
+        const periodStart = periodEnd - 365 * 24 * 60 * 60 * 1000;
         const estimatedAnnualTotal = Number(
-          invoices.reduce((sum, inv) => sum + inv.newSimulated, 0).toFixed(2)
+          calculateWindowTotal(
+            invoices,
+            periodStart,
+            periodEnd,
+            (invoice) => invoice.newSimulated
+          ).toFixed(2)
         );
         const currentAnnualTotal = hasCurrentPrices
-          ? invoices.reduce((sum, inv) => sum + (inv.currentSimulated ?? 0), 0)
+          ? calculateWindowTotal(
+              invoices,
+              periodStart,
+              periodEnd,
+              (invoice) => invoice.currentSimulated ?? 0
+            )
           : undefined;
+        const hasAnnualCoverage = hasFullYearCoverage(
+          lastYearReadings,
+          periodStart,
+          periodEnd
+        );
         const savings =
           currentAnnualTotal === undefined
             ? undefined
@@ -138,7 +165,9 @@ export const useCompareTariffs = (
           name: t.comercializadora,
           tariffName: d.nombreTarifa,
           estimatedAnnualTotal,
-          firstYearTotal: calculateFirstYearTotal(d, estimatedAnnualTotal),
+          firstYearTotal: hasAnnualCoverage
+            ? calculateFirstYearTotal(d, estimatedAnnualTotal)
+            : undefined,
           savings,
           details: d,
           invoices,
