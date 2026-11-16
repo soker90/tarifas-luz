@@ -81,10 +81,10 @@ export const calculateSavings = (
   return Number((realCost - newSimulated).toFixed(2));
 };
 
-type ReadingPeriod = {
+interface ReadingPeriod {
   startDate: string | number;
   endDate: string | number;
-};
+}
 
 const toTimestamp = (value: string | number): number =>
   typeof value === "number" ? value : new Date(value).getTime();
