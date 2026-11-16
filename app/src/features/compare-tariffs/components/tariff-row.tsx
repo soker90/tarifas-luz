@@ -38,7 +38,7 @@ export const TariffRow = ({
               className="border-emerald-200 bg-emerald-50 text-[10px] text-emerald-700"
               variant="outline"
             >
-              Precio fijo {c.details.mantenimientoPrecio} meses
+              {c.details.mantenimientoPrecio} meses
             </Badge>
           )}
           {c.details.descuento && (
