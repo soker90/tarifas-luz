@@ -81,6 +81,63 @@ export const calculateSavings = (
   return Number((realCost - newSimulated).toFixed(2));
 };
 
+type ReadingPeriod = {
+  startDate: string | number;
+  endDate: string | number;
+};
+
+const toTimestamp = (value: string | number): number =>
+  typeof value === "number" ? value : new Date(value).getTime();
+
+export const hasFullYearCoverage = (
+  readings: ReadingPeriod[],
+  periodStart: number,
+  periodEnd: number
+): boolean => {
+  const sorted = [...readings].toSorted(
+    (a, b) => toTimestamp(a.startDate) - toTimestamp(b.startDate)
+  );
+  let coveredUntil = periodStart;
+
+  for (const reading of sorted) {
+    const start = toTimestamp(reading.startDate);
+    const end = toTimestamp(reading.endDate);
+    if (end <= coveredUntil) {
+      continue;
+    }
+    if (start > coveredUntil) {
+      return false;
+    }
+    coveredUntil = Math.max(coveredUntil, end);
+    if (coveredUntil >= periodEnd) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+export const calculateWindowTotal = <T extends ReadingPeriod>(
+  items: T[],
+  periodStart: number,
+  periodEnd: number,
+  getAmount: (item: T) => number
+): number =>
+  items.reduce((total, item) => {
+    const start = toTimestamp(item.startDate);
+    const end = toTimestamp(item.endDate);
+    const duration = end - start;
+    if (duration <= 0) {
+      return total;
+    }
+
+    const overlap = Math.max(
+      0,
+      Math.min(end, periodEnd) - Math.max(start, periodStart)
+    );
+    return total + (getAmount(item) * overlap) / duration;
+  }, 0);
+
 export const calculateFirstYearTotal = (
   d: TarifaDetalles,
   estimatedAnnualTotal: number
@@ -89,16 +146,21 @@ export const calculateFirstYearTotal = (
     return undefined;
   }
   const desc = d.descuento;
-  // meses === null → descuento permanente, se aplica el año completo (12 meses)
-  // meses > 12 → se limita a 12 para no descontar más de un año
-  const mesesPrimerAno = desc.meses === null ? 12 : Math.min(desc.meses, 12);
+  // Una duración desconocida no permite estimar el descuento del primer año.
+  if (desc.meses === null) {
+    return undefined;
+  }
+
+  const mesesPrimerAno = Math.min(desc.meses, 12);
   if (desc.tipo === "porcentaje") {
     const descuentoEuros =
       estimatedAnnualTotal * (mesesPrimerAno / 12) * (desc.valor / 100);
     return Number((estimatedAnnualTotal - descuentoEuros).toFixed(2));
   }
-  // Los descuentos fijos se expresan como importe mensual durante los meses indicados.
-  return Number((estimatedAnnualTotal - desc.valor * mesesPrimerAno).toFixed(2));
+  // Los descuentos fijos se expresan en euros por cada mes promocionado.
+  return Number(
+    (estimatedAnnualTotal - desc.valor * mesesPrimerAno).toFixed(2)
+  );
 };
 
 export const getBilledDays = (startDate: string, endDate: string): number =>
