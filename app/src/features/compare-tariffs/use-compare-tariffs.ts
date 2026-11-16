@@ -5,9 +5,7 @@ import {
   calculateFirstYearTotal,
   calculateInvoiceCost,
   calculateSavings,
-  calculateWindowTotal,
   getBilledDays,
-  hasFullYearCoverage,
 } from "@/lib/tariff-calculations";
 import type {
   AnnualEstimate,
@@ -33,39 +31,21 @@ export const useCompareTariffs = (
     );
     const lastEndDate = new Date(sorted[0].endDate).getTime();
     const oneYearAgo = lastEndDate - 365 * 24 * 60 * 60 * 1000;
-    return sorted.filter(
-      (r) =>
-        new Date(r.endDate).getTime() > oneYearAgo &&
-        new Date(r.startDate).getTime() < lastEndDate
-    );
+    return sorted.filter((r) => new Date(r.startDate).getTime() >= oneYearAgo);
   }, [readings]);
 
   const annualEstimate = useMemo((): AnnualEstimate | null => {
     if (!(lastYearReadings.length && supply)) {
       return null;
     }
-    const periodEnd = Math.max(
-      ...lastYearReadings.map((reading) => new Date(reading.endDate).getTime())
-    );
-    const periodStart = periodEnd - 365 * 24 * 60 * 60 * 1000;
-    const peakkWh = calculateWindowTotal(
-      lastYearReadings,
-      periodStart,
-      periodEnd,
-      (reading) => reading.consumptionPeak
-    );
-    const flatkWh = calculateWindowTotal(
-      lastYearReadings,
-      periodStart,
-      periodEnd,
-      (reading) => reading.consumptionFlat
-    );
-    const offPeakkWh = calculateWindowTotal(
-      lastYearReadings,
-      periodStart,
-      periodEnd,
-      (reading) => reading.consumptionOffPeak
-    );
+    let peakkWh = 0;
+    let flatkWh = 0;
+    let offPeakkWh = 0;
+    for (const r of lastYearReadings) {
+      peakkWh += r.consumptionPeak;
+      flatkWh += r.consumptionFlat;
+      offPeakkWh += r.consumptionOffPeak;
+    }
     return { peakkWh, flatkWh, offPeakkWh };
   }, [lastYearReadings, supply]);
 
@@ -143,33 +123,12 @@ export const useCompareTariffs = (
               new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
           );
 
-        const periodEnd = Math.max(
-          ...lastYearReadings.map((reading) =>
-            new Date(reading.endDate).getTime()
-          )
-        );
-        const periodStart = periodEnd - 365 * 24 * 60 * 60 * 1000;
         const estimatedAnnualTotal = Number(
-          calculateWindowTotal(
-            invoices,
-            periodStart,
-            periodEnd,
-            (invoice) => invoice.newSimulated
-          ).toFixed(2)
+          invoices.reduce((sum, inv) => sum + inv.newSimulated, 0).toFixed(2)
         );
         const currentAnnualTotal = hasCurrentPrices
-          ? calculateWindowTotal(
-              invoices,
-              periodStart,
-              periodEnd,
-              (invoice) => invoice.currentSimulated ?? 0
-            )
+          ? invoices.reduce((sum, inv) => sum + (inv.currentSimulated ?? 0), 0)
           : undefined;
-        const hasAnnualCoverage = hasFullYearCoverage(
-          lastYearReadings,
-          periodStart,
-          periodEnd
-        );
         const savings =
           currentAnnualTotal === undefined
             ? undefined
@@ -179,9 +138,7 @@ export const useCompareTariffs = (
           name: t.comercializadora,
           tariffName: d.nombreTarifa,
           estimatedAnnualTotal,
-          firstYearTotal: hasAnnualCoverage
-            ? calculateFirstYearTotal(d, estimatedAnnualTotal)
-            : undefined,
+          firstYearTotal: calculateFirstYearTotal(d, estimatedAnnualTotal),
           savings,
           details: d,
           invoices,
