@@ -44,14 +44,30 @@ export const useCompareTariffs = (
     if (!(lastYearReadings.length && supply)) {
       return null;
     }
-    let peakkWh = 0;
-    let flatkWh = 0;
-    let offPeakkWh = 0;
-    for (const r of lastYearReadings) {
-      peakkWh += r.consumptionPeak;
-      flatkWh += r.consumptionFlat;
-      offPeakkWh += r.consumptionOffPeak;
-    }
+    const periodEnd = Math.max(
+      ...lastYearReadings.map((reading) =>
+        new Date(reading.endDate).getTime()
+      )
+    );
+    const periodStart = periodEnd - 365 * 24 * 60 * 60 * 1000;
+    const peakkWh = calculateWindowTotal(
+      lastYearReadings,
+      periodStart,
+      periodEnd,
+      (reading) => reading.consumptionPeak
+    );
+    const flatkWh = calculateWindowTotal(
+      lastYearReadings,
+      periodStart,
+      periodEnd,
+      (reading) => reading.consumptionFlat
+    );
+    const offPeakkWh = calculateWindowTotal(
+      lastYearReadings,
+      periodStart,
+      periodEnd,
+      (reading) => reading.consumptionOffPeak
+    );
     return { peakkWh, flatkWh, offPeakkWh };
   }, [lastYearReadings, supply]);
 
