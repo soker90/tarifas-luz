@@ -94,7 +94,7 @@ export const hasFullYearCoverage = (
   periodStart: number,
   periodEnd: number
 ): boolean => {
-  const sorted = [...readings].toSorted(
+  const sorted = [...readings].sort(
     (a, b) => toTimestamp(a.startDate) - toTimestamp(b.startDate)
   );
   let coveredUntil = periodStart;
