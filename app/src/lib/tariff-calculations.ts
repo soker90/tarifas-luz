@@ -82,8 +82,8 @@ export const calculateSavings = (
 };
 
 interface ReadingPeriod {
-  startDate: string | number;
   endDate: string | number;
+  startDate: string | number;
 }
 
 const toTimestamp = (value: string | number): number =>
