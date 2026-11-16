@@ -21,7 +21,7 @@ export interface TarifaDetalles {
   energiaPunta: number;
   energiaValle: number;
   incluyeBonoSocial?: boolean;
-  mantenimientoPrecio?: number | null;
+  mantenimientoPrecio?: number;
   nombreTarifa: string;
   potenciaPunta: number;
   potenciaValle: number;
