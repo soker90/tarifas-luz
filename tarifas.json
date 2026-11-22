@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-11-19"
+    "actualizadoEn": "2026-11-21"
   },
   "tarifas": [
     {
@@ -49,6 +49,29 @@
         "ultimoCambio": "2026-10-29",
         "notaImportante": "bateria virtual sin coste 12 meses",
         "nota": "Código DESC100 para descontar 10€ durante 10 meses. Incluido",
+        "incluyeBonoSocial": true,
+        "descuento": null
+      }
+    },
+    {
+      "comercializadora": "DISA",
+      "detalles": {
+        "nombreTarifa": "Black Friday (3 meses)",
+        "permanencia": "no",
+        "potenciaMaxima": 15,
+        "mantenimientoPrecio": 3,
+        "paraEmpresas": "?",
+        "potenciaPunta": 0.099398,
+        "potenciaValle": 0.099398,
+        "periodos": 1,
+        "energiaPunta": 0.102,
+        "energiaLlana": 0.102,
+        "energiaValle": 0.102,
+        "compensacionExcedentes": null,
+        "tipoCompensacionExcedentes": "nocomp",
+        "ultimoCambio": "2026-11-21",
+        "notaImportante": null,
+        "nota": "Descuento los primeros 3 meses. HASTA EL 29/11",
         "incluyeBonoSocial": true,
         "descuento": null
       }
@@ -345,12 +368,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.2631,
-        "energiaLlana": 0.1941,
-        "energiaValle": 0.1761,
+        "energiaPunta": 0.2623,
+        "energiaLlana": 0.1933,
+        "energiaValle": 0.1753,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-11-19",
+        "ultimoCambio": "2026-11-21",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
