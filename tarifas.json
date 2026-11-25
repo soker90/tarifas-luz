@@ -4,7 +4,7 @@
     "impuestoElectrico": 0.0511,
     "alquilerContador": 0.027,
     "bonoSocial": 0.024688,
-    "actualizadoEn": "2026-11-23"
+    "actualizadoEn": "2026-11-24"
   },
   "tarifas": [
     {
@@ -166,8 +166,8 @@
         "energiaValle": 0.089992,
         "compensacionExcedentes": null,
         "tipoCompensacionExcedentes": "nocomp",
-        "ultimoCambio": "2026-11-12",
-        "notaImportante": "OJO, estos precios solo hasta 5kW de potencia",
+        "ultimoCambio": "2026-11-24",
+        "notaImportante": "Más de 5.000kWh/año otra tarifa mucho peor!! Ojo al contrato",
         "nota": "Algunos dicen que han llamado y los ofrecen a 0,03. En su página web no está indicado",
         "incluyeBonoSocial": true,
         "descuento": null
@@ -368,12 +368,12 @@
         "potenciaPunta": 0.084431,
         "potenciaValle": 0.001987,
         "periodos": 3,
-        "energiaPunta": 0.2638,
-        "energiaLlana": 0.1948,
-        "energiaValle": 0.1768,
+        "energiaPunta": 0.2659,
+        "energiaLlana": 0.1969,
+        "energiaValle": 0.1789,
         "compensacionExcedentes": "0.02",
         "tipoCompensacionExcedentes": "energía",
-        "ultimoCambio": "2026-11-23",
+        "ultimoCambio": "2026-11-24",
         "notaImportante": "Σxcedente Horario * OMIE.",
         "nota": "###  No se aconseja debido al conflicto de Irán ###",
         "incluyeBonoSocial": true,
